@@ -7,11 +7,11 @@ export default class extends think.model.base {
         //查询第 1 页数据，每页 10 条数据
         let id = this.getTableName() + '.id';
 
-        return this.cache(1).page(num, listRows).where({[id]: {">": 20}}).select();
+        return this.cache(1).page(num, listRows).select();
     }
 
     getList(num = 1) {
-        let res = this.field().join({
+        this.field().join({
             table: 'catalog',
             join: 'right',
             on: ['catalog_id', 'id']

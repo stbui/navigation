@@ -48,9 +48,9 @@
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
               <div class="x_title">
-                <h2>列表</h2>
+                <h2>添加</h2>
                 <ul class="nav navbar-right panel_toolbox">
-                  <li><a class="close-link" href="/admin/link/add.html"><i class="fa fa-plus"></i> 添加</a></li>
+                  <li><a class="collapse-link" href="/admin/link.html"><i class="fa fa-reply"></i> 返回</a></li>
                   <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
@@ -67,50 +67,43 @@
                 <div class="clearfix"></div>
               </div>
               <div class="x_content">
-                <div class="table-responsive">
-                  <table class="table table-striped jambo_table bulk_action">
-                    <thead>
-                    <tr class="headings">
-                      <th class="column-title">id</th>
-                      <th class="column-title">网站名称</th>
-                      <th class="column-title">所属分类 </th>
-                      <!--<th class="column-title">访问域名 </th>-->
-                      <th class="column-title">状态 </th>
-                      <th class="column-title">记录时间 </th>
-                      <th class="column-title no-link last"><span class="nobr">操作</span>
-                      </th>
-                      <th class="bulk-actions" colspan="7">
-                        <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
-                      </th>
-                    </tr>
-                    </thead>
+                <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post">
 
-                    <tbody>
-                    <% data.forEach(function(value){%>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="links_title">网址名称 <span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input type="text" id="links_title" name="title" required="required" class="form-control col-md-7 col-xs-12" value="">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="links_link">访问域名 <span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input type="text" id="links_link" name="link" required="required" class="form-control col-md-7 col-xs-12" value="">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">所属类别</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <select class="select2_single form-control" tabindex="-1">
+                        <option></option>
+                        <% data.forEach(item=>{ %>
+                        <option value="<%=item.id%>"><%=item.catalog_name%></option>
+                        <%});%>
+                      </select>
+                    </div>
+                  </div>
 
-                    <tr class="even pointer">
-                      <td class=" "><%=value.id%></td>
-                      <td class=" "><a href="<%=value.link%>" target="_blank"><%=value.title%></a></td>
-                      <td class=" "><%=value.catalog_name%></td>
-                      <!--<td class=" "><a href="<%=value.link%>" target="_blank"><%=value.link%></a></td>-->
-                      <td>
-                        <label>
-                          <input type="checkbox" class="js-switch" checked /> 显示
-                        </label>
-                      </td>
-                      <td class=" "><%=value.create_time %></td>
-                      <td class=" last">
-                        <a href="<%=value.link%>" target="_blank" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> 查看 </a>
-                        <a href="/admin/link/edit.html?id=<%=value.id%>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 修改 </a>
-                        <a href="/admin/link/delete.html?id=<%=value.id%>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除 </a>
-                      </td>
-                    </tr>
+                  <div class="ln_solid"></div>
+                  <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                      <a href="/admin/link.html" class="btn btn-primary">取消</a>
+                      <button type="submit" class="btn btn-success">添加</button>
+                    </div>
+                  </div>
 
-                    <%});%>
-
-                    </tbody>
-                  </table>
-                </div>
+                </form>
               </div>
             </div>
           </div>
@@ -127,8 +120,6 @@
 </div>
 
 <% include common/script.html%>
-<!-- Switchery -->
-<script src="/static/vendors/switchery/dist/switchery.min.js"></script>
 
 
 

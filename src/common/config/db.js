@@ -9,7 +9,7 @@ export default {
     mysql: {
       host: '127.0.0.1',
       port: '',
-      database: '114la_ky',
+      database: 'navigation',
       user: 'root',
       password: 'root',
       prefix: 'ylmf_',

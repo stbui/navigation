@@ -8,12 +8,30 @@ export default class extends Base {
      * @return {Promise} []
      */
     async indexAction() {
-        const {num} = this.get();
-
-        const catalog = await this.model('catalog').getPage(1);
+        const catalog = await this.model('catalog').getPage();
 
         this.assign('data', catalog);
 
         return this.display();
+    }
+
+    editAction() {
+        const {id, catalog_name} = this.param();
+        let catalog = this.model('catalog');
+        if (this.isPost()) {
+            catalog = catalog.where({id}).update({catalog_name});
+            this.redirect('/admin/category.html');
+        } else {
+            catalog = catalog.where({id}).find();
+            this.assign('data', catalog);
+        }
+
+        return this.display();
+    }
+
+    delAction() {
+        const {id} = this.param();
+        this.model('catalog').where({id}).delete();
+        this.redirect('/admin/category.html');
     }
 }
