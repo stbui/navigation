@@ -15,6 +15,16 @@ export default class extends Base {
         return this.display();
     }
 
+    addAction () {
+        if (this.isPost()) {
+            const param = this.param();
+            this.model('catalog').add(param);
+            this.redirect('/admin/category.html');
+        }
+
+        return this.display();
+    }
+
     editAction() {
         const {id, catalog_name} = this.param();
         let catalog = this.model('catalog');

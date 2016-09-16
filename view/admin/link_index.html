@@ -32,12 +32,14 @@
 
           <div class="title_right">
             <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="搜索...">
-                <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
+              <form method="post" action="/admin/link/search.html">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="keywork" placeholder="搜索...">
+                  <span class="input-group-btn">
+                      <button class="btn btn-default" type="submit">搜</button>
                     </span>
-              </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -55,9 +57,7 @@
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                     <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Settings 1</a>
-                      </li>
-                      <li><a href="#">Settings 2</a>
+                      <li><a href="#">Settings</a>
                       </li>
                     </ul>
                   </li>
@@ -72,6 +72,7 @@
                     <thead>
                     <tr class="headings">
                       <th class="column-title">id</th>
+                      <th class="column-title">排序 </th>
                       <th class="column-title">网站名称</th>
                       <th class="column-title">所属分类 </th>
                       <!--<th class="column-title">访问域名 </th>-->
@@ -87,11 +88,11 @@
 
                     <tbody>
                     <% data.forEach(function(value){%>
-
                     <tr class="even pointer">
                       <td class=" "><%=value.id%></td>
+                      <td class=" "><%=value.sort_order%></td>
                       <td class=" "><a href="<%=value.link%>" target="_blank"><%=value.title%></a></td>
-                      <td class=" "><%=value.catalog_name%></td>
+                      <td class=" "><a href="/admin/link/search.html?keywork=<%=value.catalog_name%>"><%=value.catalog_name%></a></td>
                       <!--<td class=" "><a href="<%=value.link%>" target="_blank"><%=value.link%></a></td>-->
                       <td>
                         <label>
@@ -100,7 +101,7 @@
                       </td>
                       <td class=" "><%=value.create_time %></td>
                       <td class=" last">
-                        <a href="<%=value.link%>" target="_blank" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> 查看 </a>
+                        <a href="<%=value.link%>" target="_blank" class="btn btn-primary btn-xs"><i class="fa fa-link"></i> 查看 </a>
                         <a href="/admin/link/edit.html?id=<%=value.id%>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 修改 </a>
                         <a href="/admin/link/delete.html?id=<%=value.id%>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除 </a>
                       </td>
@@ -110,6 +111,17 @@
 
                     </tbody>
                   </table>
+                  <nav>
+                    <ul class="pagination">
+                      <li><a href="#">&laquo;</a></li>
+                      <li><a href="#">1</a></li>
+                      <li><a href="#">2</a></li>
+                      <li><a href="#">3</a></li>
+                      <li><a href="#">4</a></li>
+                      <li><a href="#">5</a></li>
+                      <li><a href="#">&raquo;</a></li>
+                    </ul>
+                  </nav>
                 </div>
               </div>
             </div>

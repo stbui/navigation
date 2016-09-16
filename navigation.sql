@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2016 年 09 月 16 日 00:28
+-- 生成日期: 2016 年 09 月 17 日 00:46
 -- 服务器版本: 5.5.47
 -- PHP 版本: 5.3.29
 
@@ -126,18 +126,31 @@ CREATE TABLE IF NOT EXISTS `nav_catalog` (
   PRIMARY KEY (`id`),
   KEY `parent_id` (`parent_id`),
   KEY `status_is` (`status_is`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=605 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=618 ;
 
 --
 -- 转存表中的数据 `nav_catalog`
 --
 
 INSERT INTO `nav_catalog` (`id`, `parent_id`, `catalog_name`, `content`, `data_count`, `status_is`, `redirect_url`, `path`, `seo_t`, `seo_k`, `seo_d`, `image_link`, `tb_id`, `opt_1`, `opt_2`, `create_time`) VALUES
-(1, 2, '腾讯系', NULL, 0, 'Y', '', '', '', '', '', '', 0, '', '', 0),
-(2, 0, '阿里系', NULL, 0, 'Y', '', '', '', '', '', '', 0, '', '', 0),
-(3, 0, '百度系', '', 0, 'Y', '', '', '', '', '', '', 0, '', '', 0),
-(4, 2, '搜狐系', '', 0, 'Y', '', '', '', '', '', '', 0, '', '', 1406797214),
-(5, 2, '新浪系', '', 0, 'Y', '', '', '', '', '', '', 0, '', '', 1403678769);
+(1, 2, '开放平台', NULL, 0, 'Y', '', '', '', '', '', '', 0, '', '', 0),
+(2, 0, '办公协作', NULL, 0, 'Y', '', '', '', '', '', '', 0, '', '', 0),
+(3, 0, '开源建站', '', 0, 'Y', '', '', '', '', '', '', 0, '', '', 0),
+(4, 2, '找工作啦', '', 0, 'Y', '', '', '', '', '', '', 0, '', '', 1406797214),
+(5, 2, '站长必备', '', 0, 'Y', '', '', '', '', '', '', 0, '', '', 1403678769),
+(605, 0, '编辑工具', NULL, 0, 'Y', '', '', '', '', '', '', 0, '', '', 0),
+(606, 0, '在线IDE', NULL, 0, 'Y', '', '', '', '', '', '', 0, '', '', 0),
+(607, 0, '前端大牛', NULL, 0, 'Y', '', '', '', '', '', '', 0, '', '', 0),
+(608, 0, 'JS框架', NULL, 0, 'Y', '', '', '', '', '', '', 0, '', '', 0),
+(609, 0, 'UI框架', NULL, 0, 'Y', '', '', '', '', '', '', 0, '', '', 0),
+(610, 0, 'CSS库', NULL, 0, 'Y', '', '', '', '', '', '', 0, '', '', 0),
+(611, 0, '知名社区', NULL, 0, 'Y', '', '', '', '', '', '', 0, '', '', 0),
+(612, 0, '推荐书籍', NULL, 0, 'Y', '', '', '', '', '', '', 0, '', '', 0),
+(613, 0, '创业必备', NULL, 0, 'Y', '', '', '', '', '', '', 0, '', '', 0),
+(614, 0, '广告联盟', NULL, 0, 'Y', '', '', '', '', '', '', 0, '', '', 0),
+(615, 0, '构建工具', NULL, 0, 'Y', '', '', '', '', '', '', 0, '', '', 0),
+(616, 0, 'HTML5游戏引擎', NULL, 0, 'Y', '', '', '', '', '', '', 0, '', '', 0),
+(617, 0, '在线学习平台', NULL, 0, 'Y', '', '', '', '', '', '', 0, '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -203,19 +216,29 @@ CREATE TABLE IF NOT EXISTS `nav_links` (
   PRIMARY KEY (`id`),
   KEY `catalog_id` (`catalog_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4347 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4357 ;
 
 --
 -- 转存表中的数据 `nav_links`
 --
 
 INSERT INTO `nav_links` (`id`, `catalog_id`, `title`, `title_color`, `link`, `image_link`, `opt_a`, `opt_b`, `opt_c`, `mix`, `sort_order`, `user_id`, `status_is`, `begin_time`, `end_time`, `create_time`) VALUES
-(1, 7, '吉娃娃1', NULL, 'http://www.hudong.com/wiki/%E5%90%89%E5%A8%83%E5%A8%83', NULL, NULL, NULL, NULL, NULL, 0, 1, 'Y', 0, 0, 1406880817),
+(1, 5, 'WebStorm', NULL, 'http://www.jetbrains.com/webstorm/', NULL, NULL, NULL, NULL, NULL, 2, 1, 'Y', 0, 0, 1406880817),
 (2, 2, 'thinkjs', '000000', 'https://thinkjs.org/', NULL, '', '', '', NULL, 0, 1, 'Y', 0, 0, 1406880840),
-(3, 2, '阿拉斯加雪橇犬', NULL, 'http://www.hudong.com/wiki/%E9%98%BF%E6%8B%89%E6%96%AF%E5%8A%A0%E9%9B%AA%E6%A9%87%E7%8A%AC', NULL, NULL, NULL, NULL, NULL, 0, 1, 'Y', 0, 0, 1406880817),
-(4, 1, '贵宾犬', NULL, 'http://www.hudong.com/wiki/%E8%B4%B5%E5%AE%BE%E7%8A%AC', NULL, NULL, NULL, NULL, NULL, 0, 1, 'Y', 0, 0, 1406880817),
-(5, 3, '羊驼', NULL, 'http://www.hudong.com/wiki/%E7%BE%8A%E9%A9%BC', NULL, NULL, NULL, NULL, NULL, 0, 1, 'Y', 0, 0, 1406880817),
-(4345, 0, '1', NULL, '', NULL, NULL, NULL, NULL, NULL, 0, 1, 'Y', NULL, NULL, 0);
+(3, 2, 'Semantic UI', NULL, 'http://blog.zhaojie.me/', NULL, NULL, NULL, NULL, NULL, 0, 1, 'Y', 0, 0, 1406880817),
+(4356, 0, 'Pure', NULL, 'http://purecss.io/', NULL, NULL, NULL, NULL, NULL, 0, 1, 'Y', NULL, NULL, 0),
+(4, 1, 'Foundation', NULL, 'http://foundation.zurb.com/', NULL, NULL, NULL, NULL, NULL, 0, 1, 'Y', 0, 0, 1406880817),
+(5, 609, 'Bootstrap', NULL, 'http://getbootstrap.com/', NULL, NULL, NULL, NULL, NULL, 0, 1, 'Y', 0, 0, 1406880817),
+(4345, 2, 'Ember', NULL, 'http://emberjs.com/', NULL, NULL, NULL, NULL, NULL, 0, 1, 'Y', NULL, NULL, 0),
+(4347, 605, 'Sublime Text', NULL, 'http://www.sublimetext.com/', NULL, NULL, NULL, NULL, NULL, 0, 1, 'Y', NULL, NULL, 0),
+(4348, 605, 'Aptana', NULL, 'http://www.aptana.com/', NULL, NULL, NULL, NULL, NULL, 0, 1, 'Y', NULL, NULL, 0),
+(4349, 605, 'Notepad++', NULL, 'http://notepad-plus-plus.org/', NULL, NULL, NULL, NULL, NULL, 0, 1, 'Y', NULL, NULL, 0),
+(4350, 605, 'Dreamweaver', NULL, 'https://creative.adobe.com/products/download/dreamweaver', NULL, NULL, NULL, NULL, NULL, 0, 1, 'Y', NULL, NULL, 0),
+(4351, 606, 'Jsfiddle', NULL, 'http://jsfiddle.net/', NULL, NULL, NULL, NULL, NULL, 0, 1, 'Y', NULL, NULL, 0),
+(4352, 606, 'CodeMirror', NULL, 'http://codemirror.net/', NULL, NULL, NULL, NULL, NULL, 0, 1, 'Y', NULL, NULL, 0),
+(4353, 608, 'AngularJS', NULL, 'https://www.angularjs.org/', NULL, NULL, NULL, NULL, NULL, 0, 1, 'Y', NULL, NULL, 0),
+(4354, 0, 'React', NULL, 'https://facebook.github.io/react/', NULL, NULL, NULL, NULL, NULL, 0, 1, 'Y', NULL, NULL, 0),
+(4355, 0, 'Backbone', NULL, 'http://backbonejs.org/', NULL, NULL, NULL, NULL, NULL, 0, 1, 'Y', NULL, NULL, 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

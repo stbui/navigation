@@ -7,9 +7,8 @@ export default class extends Base {
      * index action
      * @return {Promise} []
      */
-    async indexAction() {
-        const links = await this.model('links').getList();
-
+    indexAction() {
+        const links = this.model('links').getList();
         this.assign({
             data: links
         });
@@ -17,13 +16,14 @@ export default class extends Base {
         return this.display();
     }
 
-    async addAction() {
+    addAction() {
         if (this.isPost()) {
             const param = this.param();
             this.model('links').add(param);
             this.redirect('/admin/link.html');
         }
 
+        // 显示分类
         const catalog = this.model('catalog').select();
         this.assign({
             data: catalog
@@ -33,15 +33,19 @@ export default class extends Base {
     }
 
     editAction() {
-        const {id, title, link} = this.param();
+        const {id, title, link, catalog_id,sort_order} = this.param();
         let links = this.model('links');
         if (this.isPost()) {
-            links = links.where({id}).update({title, link});
+            links = links.where({id}).update({title, link, catalog_id,sort_order});
             this.redirect('/admin/link.html');
             this.assign('data', []);
         } else {
-            links = links.where({id}).find();
-            this.assign('data', links);
+            links = links.getSingleList({id});
+            const catalog = this.model('catalog').select();
+            this.assign({
+                data: links,
+                catalog: catalog
+            });
         }
 
         return this.display();
@@ -51,5 +55,17 @@ export default class extends Base {
         const {id} = this.param();
         this.model('links').where({id}).delete();
         this.redirect('/admin/link.html');
+    }
+
+    async searchAction() {
+        const {keywork} = this.post();
+        const links =await this.model('links').searchTitleList(keywork);
+
+        // this.json(links)
+        this.assign({
+            data: links
+        });
+
+        return this.display();
     }
 }

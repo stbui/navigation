@@ -12,7 +12,7 @@ export default {
       database: 'navigation',
       user: 'root',
       password: 'root',
-      prefix: 'ylmf_',
+      prefix: 'nav_',
       encoding: 'utf8'
     },
     mongo: {

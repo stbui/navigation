@@ -19,4 +19,35 @@ export default class extends think.model.base {
 
         return this.getPage(num);
     }
+
+    getSingleList(data) {
+        let id, _data = {};
+
+        for (let key in data) {
+            if (key == 'id') {
+                id = this.getTableName() + '.id';
+                _data[id] = data[key];
+            } else {
+                _data[key] = data[key];
+            }
+        }
+
+        return this.field([this.getTableName() + '.*', this.getTablePrefix() + 'catalog.id as catalog_id']).join({
+            table: 'catalog',
+            join: 'left',
+            on: ['catalog_id', 'id']
+        }).where(_data).find();
+    }
+
+    searchTitleList(keywork) {
+        this.field([this.getTableName() + '.*', this.getTablePrefix() + 'catalog.catalog_name as catalog_name']).join({
+            table: 'catalog',
+            join: 'left',
+            on: ['catalog_id', 'id']
+        });
+
+        this.where({title: ["like", "%" + keywork + "%"]});
+
+        return this.getPage();
+    }
 }

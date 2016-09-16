@@ -32,12 +32,14 @@
 
           <div class="title_right">
             <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="搜索...">
-                <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
+              <form method="post" action="/admin/link/search.html">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="keywork" placeholder="搜索...">
+                  <span class="input-group-btn">
+                      <button class="btn btn-default" type="submit">搜</button>
                     </span>
-              </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -50,14 +52,12 @@
               <div class="x_title">
                 <h2>列表</h2>
                 <ul class="nav navbar-right panel_toolbox">
-                  <li><a class="close-link" href="/admin/category/add.html"><i class="fa fa-plus"></i> 添加</a></li>
+                  <li><a class="close-link" href="/admin/link/add.html"><i class="fa fa-plus"></i> 添加</a></li>
                   <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                     <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Settings 1</a>
-                      </li>
-                      <li><a href="#">Settings 2</a>
+                      <li><a href="#">Settings</a>
                       </li>
                     </ul>
                   </li>
@@ -71,10 +71,12 @@
                   <table class="table table-striped jambo_table bulk_action">
                     <thead>
                     <tr class="headings">
-
                       <th class="column-title">id</th>
-                      <th class="column-title">分类名称</th>
-                      <th class="column-title">数量</th>
+                      <th class="column-title">网站名称</th>
+                      <th class="column-title">所属分类 </th>
+                      <!--<th class="column-title">访问域名 </th>-->
+                      <th class="column-title">状态 </th>
+                      <th class="column-title">记录时间 </th>
                       <th class="column-title no-link last"><span class="nobr">操作</span>
                       </th>
                       <th class="bulk-actions" colspan="7">
@@ -87,14 +89,24 @@
                     <% data.forEach(function(value){%>
                     <tr class="even pointer">
                       <td class=" "><%=value.id%></td>
+                      <td class=" "><a href="<%=value.link%>" target="_blank"><%=value.title%></a></td>
                       <td class=" "><%=value.catalog_name%></td>
-                      <td class=" ">0</td>
+                      <!--<td class=" "><a href="<%=value.link%>" target="_blank"><%=value.link%></a></td>-->
+                      <td>
+                        <label>
+                          <input type="checkbox" class="js-switch" checked /> 显示
+                        </label>
+                      </td>
+                      <td class=" "><%=value.create_time %></td>
                       <td class=" last">
-                        <a href="/admin/category/edit.html?id=<%=value.id%>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 修改 </a>
-                        <a href="/admin/category/del.html?id=<%=value.id%>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除 </a>
+                        <a href="<%=value.link%>" target="_blank" class="btn btn-primary btn-xs"><i class="fa fa-link"></i> 查看 </a>
+                        <a href="/admin/link/edit.html?id=<%=value.id%>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 修改 </a>
+                        <a href="/admin/link/delete.html?id=<%=value.id%>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除 </a>
                       </td>
                     </tr>
+
                     <%});%>
+
                     </tbody>
                   </table>
                 </div>
@@ -114,6 +126,8 @@
 </div>
 
 <% include common/script.html%>
+<!-- Switchery -->
+<script src="/static/vendors/switchery/dist/switchery.min.js"></script>
 
 
 

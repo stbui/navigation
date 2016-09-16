@@ -50,15 +50,11 @@
               <div class="x_title">
                 <h2>修改</h2>
                 <ul class="nav navbar-right panel_toolbox">
-                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                  </li>
+                  <li><a class="collapse-link" href="/admin/link.html"><i class="fa fa-reply"></i> 返回</a></li>
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                     <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Settings 1</a>
-                      </li>
-                      <li><a href="#">Settings 2</a>
-                      </li>
+                      <li><a href="#">工具</a></li>
                     </ul>
                   </li>
                   <li><a class="close-link"><i class="fa fa-close"></i></a>
@@ -83,11 +79,31 @@
                       <input type="text" id="links_link" name="link" required="required" class="form-control col-md-7 col-xs-12" value="<%=data.link%>">
                     </div>
                   </div>
-
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">所属类别</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <select class="select2_single form-control" name="catalog_id" tabindex="-1">
+                        <option></option>
+                        <% catalog.forEach(item=>{
+                          if(data.catalog_id == item.id) { %>
+                            <option value="<%=item.id%>" selected><%=item.catalog_name%></option>
+                        <% } else { %>
+                            <option value="<%=item.id%>"><%=item.catalog_name%></option>
+                        <% } %>
+                        <%});%>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="links_link">显示顺序</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input type="number" name="sort_order" class="form-control col-md-7 col-xs-12" value="<%=data.sort_order%>">
+                    </div>
+                  </div>
                   <div class="ln_solid"></div>
                   <div class="form-group">
                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                      <button type="submit" class="btn btn-primary">取消</button>
+                      <a href="/admin/link.html" class="btn btn-primary">取消</a>
                       <button type="submit" class="btn btn-success">修改</button>
                     </div>
                   </div>
