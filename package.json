@@ -1,6 +1,6 @@
 {
-  "name": "thinkjs-application",
-  "description": "application created by thinkjs",
+  "name": "navigation",
+  "description": "前端导航",
   "version": "1.0.0",
   "scripts": {
     "start": "node www/development.js",

@@ -23,10 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- 表的结构 `ylmf_admin`
+-- 表的结构 `nav_admin`
 --
 
-CREATE TABLE IF NOT EXISTS `ylmf_admin` (
+CREATE TABLE IF NOT EXISTS `nav_admin` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `username` char(50) NOT NULL COMMENT '用户',
   `password` char(32) NOT NULL COMMENT '密码',
@@ -44,19 +44,19 @@ CREATE TABLE IF NOT EXISTS `ylmf_admin` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `ylmf_admin`
+-- 转存表中的数据 `nav_admin`
 --
 
-INSERT INTO `ylmf_admin` (`id`, `username`, `password`, `realname`, `group_id`, `last_login_ip`, `last_login_time`, `login_count`, `status_is`, `create_time`) VALUES
+INSERT INTO `nav_admin` (`id`, `username`, `password`, `realname`, `group_id`, `last_login_ip`, `last_login_time`, `login_count`, `status_is`, `create_time`) VALUES
 (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'administrator', 1, '127.0.0.1', 1473767199, 1, 'Y', 0);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `ylmf_admin_group`
+-- 表的结构 `nav_admin_group`
 --
 
-CREATE TABLE IF NOT EXISTS `ylmf_admin_group` (
+CREATE TABLE IF NOT EXISTS `nav_admin_group` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `group_name` varchar(50) NOT NULL COMMENT '组名称',
   `acl` text NOT NULL COMMENT '权限',
@@ -66,10 +66,10 @@ CREATE TABLE IF NOT EXISTS `ylmf_admin_group` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- 转存表中的数据 `ylmf_admin_group`
+-- 转存表中的数据 `nav_admin_group`
 --
 
-INSERT INTO `ylmf_admin_group` (`id`, `group_name`, `acl`, `status_is`, `create_time`) VALUES
+INSERT INTO `nav_admin_group` (`id`, `group_name`, `acl`, `status_is`, `create_time`) VALUES
 (1, '超级管理组', 'administrator', 'Y', 0),
 (2, '禁用', 'stop', 'Y', 0),
 (3, '普通管理组', '|config|links|union|html_create|html_createIndex|html_createInner|links_tball|config_info|config_theme|config_cache|catalog_index|catalog_create|catalog_update|catalog_delete|catalog_sort_order|catalog_unverify|catalog_verify|links_index|links_create|links_update|links_verify|links_commend|links_delete|links_createbatch|links_createimport|union_index|', 'Y', 1398862722),
@@ -78,10 +78,10 @@ INSERT INTO `ylmf_admin_group` (`id`, `group_name`, `acl`, `status_is`, `create_
 -- --------------------------------------------------------
 
 --
--- 表的结构 `ylmf_admin_logger`
+-- 表的结构 `nav_admin_logger`
 --
 
-CREATE TABLE IF NOT EXISTS `ylmf_admin_logger` (
+CREATE TABLE IF NOT EXISTS `nav_admin_logger` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT '用户id',
   `catalog` enum('login','create','update','delete','other','browse') NOT NULL DEFAULT 'other' COMMENT '类型',
@@ -94,19 +94,19 @@ CREATE TABLE IF NOT EXISTS `ylmf_admin_logger` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `ylmf_admin_logger`
+-- 转存表中的数据 `nav_admin_logger`
 --
 
-INSERT INTO `ylmf_admin_logger` (`id`, `user_id`, `catalog`, `url`, `intro`, `ip`, `create_time`) VALUES
-(1, 0, 'login', '/admin/index.php?r=public/login', '用户登录成功:admin', '127.0.0.1', 1473767199);
+INSERT INTO `nav_admin_logger` (`id`, `user_id`, `catalog`, `url`, `intro`, `ip`, `create_time`) VALUES
+(1, 0, 'login', '/admin/index.html?r=public/login', '用户登录成功:admin', '127.0.0.1', 1473767199);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `ylmf_catalog`
+-- 表的结构 `nav_catalog`
 --
 
-CREATE TABLE IF NOT EXISTS `ylmf_catalog` (
+CREATE TABLE IF NOT EXISTS `nav_catalog` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `parent_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '上级分类',
   `catalog_name` varchar(100) NOT NULL COMMENT '名称',
@@ -129,23 +129,23 @@ CREATE TABLE IF NOT EXISTS `ylmf_catalog` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=605 ;
 
 --
--- 转存表中的数据 `ylmf_catalog`
+-- 转存表中的数据 `nav_catalog`
 --
 
-INSERT INTO `ylmf_catalog` (`id`, `parent_id`, `catalog_name`, `content`, `data_count`, `status_is`, `redirect_url`, `path`, `seo_t`, `seo_k`, `seo_d`, `image_link`, `tb_id`, `opt_1`, `opt_2`, `create_time`) VALUES
+INSERT INTO `nav_catalog` (`id`, `parent_id`, `catalog_name`, `content`, `data_count`, `status_is`, `redirect_url`, `path`, `seo_t`, `seo_k`, `seo_d`, `image_link`, `tb_id`, `opt_1`, `opt_2`, `create_time`) VALUES
 (1, 2, '腾讯系', NULL, 0, 'Y', '', '', '', '', '', '', 0, '', '', 0),
 (2, 0, '阿里系', NULL, 0, 'Y', '', '', '', '', '', '', 0, '', '', 0),
 (3, 0, '百度系', '', 0, 'Y', '', '', '', '', '', '', 0, '', '', 0),
-(4, 2, '搜狐系', '', 0, 'Y', '', 'xiaoshuo', '', '', '', '', 0, '', '', 1406797214),
-(5, 2, '新浪系', '', 0, 'Y', '', 'xingxiang', '', '', '', 'http://www.114la.com/static/page/rebuild/images/logo_bbs.png', 0, '', '', 1403678769);
+(4, 2, '搜狐系', '', 0, 'Y', '', '', '', '', '', '', 0, '', '', 1406797214),
+(5, 2, '新浪系', '', 0, 'Y', '', '', '', '', '', '', 0, '', '', 1403678769);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `ylmf_config`
+-- 表的结构 `nav_config`
 --
 
-CREATE TABLE IF NOT EXISTS `ylmf_config` (
+CREATE TABLE IF NOT EXISTS `nav_config` (
   `variable` varchar(50) NOT NULL COMMENT '变量',
   `value` text COMMENT '值',
   `description` varchar(255) NOT NULL DEFAULT '' COMMENT '描述',
@@ -153,25 +153,25 @@ CREATE TABLE IF NOT EXISTS `ylmf_config` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- 转存表中的数据 `ylmf_config`
+-- 转存表中的数据 `nav_config`
 --
 
-INSERT INTO `ylmf_config` (`variable`, `value`, `description`) VALUES
-('site_name', '114啦开源系统', ''),
-('site_domain', 'http://www.114la.com', ''),
+INSERT INTO `nav_config` (`variable`, `value`, `description`) VALUES
+('site_name', '前端导航', ''),
+('site_domain', 'http://www.stbui.com', ''),
 ('site_logo', 'default_logo.png', ''),
 ('site_icp', '粤ICP备05021225号', ''),
 ('site_closed_summary', '系统维护中，请稍候......', ''),
 ('site_stats', '', ''),
-('seo_title', '114啦网址导航[Www.114La.Com]_最实用的上网主页_上网就上114啦！', ''),
-('seo_description', '网站描述-seo_description2', ''),
-('seo_keywords', '网站关键字-seo_keywords1', ''),
+('seo_title', '前端导航', ''),
+('seo_description', '前端导航', ''),
+('seo_keywords', '前端导航', ''),
 ('site_icp_url', 'http://www.miibeian.gov.cn/', ''),
-('site_copyright', '2010-2014', ''),
+('site_copyright', '2016', ''),
 ('upload_allow_ext', 'jpg,gif,bmp,jpeg,png', ''),
 ('upload_max_size', '200', ''),
 ('theme', 'default', '外站主题'),
-('site_connect', 'http://www.kyii.com', ''),
+('site_connect', 'http://www.stbui.com', ''),
 ('admin_logger', '1', ''),
 ('path_inside_page', '/html', ''),
 ('page_charset', 'utf-8', ''),
@@ -180,10 +180,10 @@ INSERT INTO `ylmf_config` (`variable`, `value`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `ylmf_links`
+-- 表的结构 `nav_links`
 --
 
-CREATE TABLE IF NOT EXISTS `ylmf_links` (
+CREATE TABLE IF NOT EXISTS `nav_links` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `catalog_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT '分类',
   `title` varchar(255) NOT NULL COMMENT '标题',
@@ -206,10 +206,10 @@ CREATE TABLE IF NOT EXISTS `ylmf_links` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4347 ;
 
 --
--- 转存表中的数据 `ylmf_links`
+-- 转存表中的数据 `nav_links`
 --
 
-INSERT INTO `ylmf_links` (`id`, `catalog_id`, `title`, `title_color`, `link`, `image_link`, `opt_a`, `opt_b`, `opt_c`, `mix`, `sort_order`, `user_id`, `status_is`, `begin_time`, `end_time`, `create_time`) VALUES
+INSERT INTO `nav_links` (`id`, `catalog_id`, `title`, `title_color`, `link`, `image_link`, `opt_a`, `opt_b`, `opt_c`, `mix`, `sort_order`, `user_id`, `status_is`, `begin_time`, `end_time`, `create_time`) VALUES
 (1, 7, '吉娃娃1', NULL, 'http://www.hudong.com/wiki/%E5%90%89%E5%A8%83%E5%A8%83', NULL, NULL, NULL, NULL, NULL, 0, 1, 'Y', 0, 0, 1406880817),
 (2, 2, 'thinkjs', '000000', 'https://thinkjs.org/', NULL, '', '', '', NULL, 0, 1, 'Y', 0, 0, 1406880840),
 (3, 2, '阿拉斯加雪橇犬', NULL, 'http://www.hudong.com/wiki/%E9%98%BF%E6%8B%89%E6%96%AF%E5%8A%A0%E9%9B%AA%E6%A9%87%E7%8A%AC', NULL, NULL, NULL, NULL, NULL, 0, 1, 'Y', 0, 0, 1406880817),
