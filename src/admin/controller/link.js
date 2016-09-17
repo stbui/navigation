@@ -7,10 +7,11 @@ export default class extends Base {
      * index action
      * @return {Promise} []
      */
-    indexAction() {
-        const links = this.model('links').getList();
+    async indexAction() {
+        const {page} = this.get();
+        const links =await this.model('links').getList(page);
         this.assign({
-            data: links
+            links: links
         });
 
         return this.display();
@@ -61,9 +62,8 @@ export default class extends Base {
         const {keywork} = this.post();
         const links =await this.model('links').searchTitleList(keywork);
 
-        // this.json(links)
         this.assign({
-            data: links
+            links: links
         });
 
         return this.display();

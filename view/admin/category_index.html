@@ -52,15 +52,6 @@
                 <ul class="nav navbar-right panel_toolbox">
                   <li><a class="close-link" href="/admin/category/add.html"><i class="fa fa-plus"></i> 添加</a></li>
                   <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Settings 1</a>
-                      </li>
-                      <li><a href="#">Settings 2</a>
-                      </li>
-                    </ul>
-                  </li>
                   <li><a class="close-link"><i class="fa fa-close"></i></a>
                   </li>
                 </ul>
@@ -84,7 +75,7 @@
                     </thead>
 
                     <tbody>
-                    <% data.forEach(function(value){%>
+                    <% catalog.data.forEach(function(value){%>
                     <tr class="even pointer">
                       <td class=" "><%=value.id%></td>
                       <td class=" "><%=value.catalog_name%></td>
@@ -97,6 +88,26 @@
                     <%});%>
                     </tbody>
                   </table>
+                  <nav>
+                    <ul class="pagination">
+                      <% if(catalog.currentPage>1) { %>
+                      <li><a href="/admin/link.html?page=<%=catalog.currentPage-1%>">&laquo;</a></li>
+                      <% } %>
+
+                      <% for(var i=1;i<=catalog.totalPages;i++) {
+                      if(catalog.currentPage == i) {
+                      %>
+                      <li class="active"><a href="javascript:;"><%=i%></a></li>
+                      <%    } else { %>
+                      <li><a href="/admin/link.html?page=<%=i%>"><%=i%></a></li>
+                      <%    } %>
+                      <% } %>
+
+                      <% if(catalog.currentPage<catalog.totalPages) { %>
+                      <li><a href="/admin/link.html?page=<%=catalog.currentPage+1%>">&raquo;</a></li>
+                      <% } %>
+                    </ul>
+                  </nav>
                 </div>
               </div>
             </div>

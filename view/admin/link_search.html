@@ -84,9 +84,8 @@
                       </th>
                     </tr>
                     </thead>
-
                     <tbody>
-                    <% data.forEach(function(value){%>
+                    <% links.data.forEach(function(value){%>
                     <tr class="even pointer">
                       <td class=" "><%=value.id%></td>
                       <td class=" "><a href="<%=value.link%>" target="_blank"><%=value.title%></a></td>
@@ -104,11 +103,29 @@
                         <a href="/admin/link/delete.html?id=<%=value.id%>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除 </a>
                       </td>
                     </tr>
-
                     <%});%>
-
                     </tbody>
                   </table>
+                  <nav>
+                    <ul class="pagination">
+                      <% if(links.currentPage>1) { %>
+                      <li><a href="/admin/link.html?page=<%=links.currentPage-1%>">&laquo;</a></li>
+                      <% } %>
+
+                      <% for(var i=1;i<=links.totalPages;i++) {
+                      if(links.currentPage == i) {
+                      %>
+                      <li class="active"><a href="javascript:;"><%=i%></a></li>
+                      <%    } else { %>
+                      <li><a href="/admin/link.html?page=<%=i%>"><%=i%></a></li>
+                      <%    } %>
+                      <% } %>
+
+                      <% if(links.currentPage<links.totalPages) { %>
+                      <li><a href="/admin/link.html?page=<%=links.currentPage+1%>">&raquo;</a></li>
+                      <% } %>
+                    </ul>
+                  </nav>
                 </div>
               </div>
             </div>

@@ -5,28 +5,18 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>前端导航</title>
-
     <% include common/style.html%>
 </head>
 
 <body class="nav-md">
 <div class="container body">
     <div class="main_container">
-
-        <% include  common/silder.html %>
-
-        <!-- top navigation -->
-        <% include  common/top.html %>
-        <!-- /top navigation -->
-
-        <!-- page content -->
-        <div class="right_col" role="main" style="min-height: 932px;">
+        <div class="right_col" role="main" style="margin-left: 0;">
             <div class="">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3>网址列表</h3>
+                        <h3><a href="/">网址列表</a></h3>
                     </div>
 
                     <div class="title_right">
@@ -43,7 +33,7 @@
 
                 <div class="clearfix"></div>
 
-                <% data.forEach((value, key)=>{ %>
+                <% catalog.forEach((value, key)=>{ %>
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
@@ -51,8 +41,7 @@
                                 <h2><%=value.catalog_name %></h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="close-link"><i class="fa fa-close"></i> 隐藏</a></li>
-                                    <li><a class="close-more" href="list.html?id=<%=value.id%>"><i class="fa fa-th-list"></i> 更多</a></li>
-                                </ul>
+                                    </ul>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
@@ -71,16 +60,8 @@
                 <% });%>
             </div>
         </div>
-        <!-- /page content -->
-
-        <!-- footer content -->
-        <% include  common/bottom.html %>
-        <!-- /footer content -->
-
     </div>
 </div>
-
 <% include common/script.html%>
-
 </body>
 </html>

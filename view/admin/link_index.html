@@ -87,7 +87,7 @@
                     </thead>
 
                     <tbody>
-                    <% data.forEach(function(value){%>
+                    <% links.data.forEach(function(value){%>
                     <tr class="even pointer">
                       <td class=" "><%=value.id%></td>
                       <td class=" "><%=value.sort_order%></td>
@@ -113,13 +113,22 @@
                   </table>
                   <nav>
                     <ul class="pagination">
-                      <li><a href="#">&laquo;</a></li>
-                      <li><a href="#">1</a></li>
-                      <li><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li><a href="#">4</a></li>
-                      <li><a href="#">5</a></li>
-                      <li><a href="#">&raquo;</a></li>
+                      <% if(links.currentPage>1) { %>
+                      <li><a href="/admin/link.html?page=<%=links.currentPage-1%>">&laquo;</a></li>
+                      <% } %>
+
+                      <% for(var i=1;i<=links.totalPages;i++) {
+                          if(links.currentPage == i) {
+                      %>
+                      <li class="active"><a href="javascript:;"><%=i%></a></li>
+                      <%    } else { %>
+                      <li><a href="/admin/link.html?page=<%=i%>"><%=i%></a></li>
+                      <%    } %>
+                      <% } %>
+
+                      <% if(links.currentPage<links.totalPages) { %>
+                      <li><a href="/admin/link.html?page=<%=links.currentPage+1%>">&raquo;</a></li>
+                      <% } %>
                     </ul>
                   </nav>
                 </div>

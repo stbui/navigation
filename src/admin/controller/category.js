@@ -8,14 +8,17 @@ export default class extends Base {
      * @return {Promise} []
      */
     async indexAction() {
-        const catalog = await this.model('catalog').getPage();
+        const {page} = this.get();
+        const catalog = await this.model('catalog').getPage(page);
 
-        this.assign('data', catalog);
+        this.assign({
+            catalog: catalog
+        });
 
         return this.display();
     }
 
-    addAction () {
+    addAction() {
         if (this.isPost()) {
             const param = this.param();
             this.model('catalog').add(param);
