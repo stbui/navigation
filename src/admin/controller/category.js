@@ -7,9 +7,9 @@ export default class extends Base {
      * index action
      * @return {Promise} []
      */
-    async indexAction() {
+    indexAction() {
         const {page} = this.get();
-        const catalog = await this.model('catalog').getPage(page);
+        const catalog = this.model('catalog').getPage(page);
 
         this.assign({
             catalog: catalog

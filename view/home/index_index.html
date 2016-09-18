@@ -43,7 +43,7 @@
 
                 <div class="clearfix"></div>
 
-                <% data.forEach((value, key)=>{ %>
+                <% catalog.forEach((value, key)=>{ %>
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
@@ -58,11 +58,11 @@
                             <div class="x_content">
                                 <%
                                 links.forEach(item=>{
-                                if(value.id == item.catalog_id) {
-                                %>
-                                <a href="<%=item.link%>" target="_blank"><%=item.title%></a>
-                                <%
-                                }
+                                    if(value.id == item.catalog_id) {
+                                    %>
+                                        <a href="<%=item.link%>" target="_blank"><%=item.title%></a>
+                                    <%
+                                    }
                                 });%>
                             </div>
                         </div>

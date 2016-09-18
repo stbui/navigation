@@ -7,9 +7,9 @@ export default class extends Base {
      * index action
      * @return {Promise} []
      */
-    async indexAction() {
+    indexAction() {
         const {page} = this.get();
-        const links =await this.model('links').getList(page);
+        const links = this.model('links').getList(page);
         this.assign({
             links: links
         });
@@ -34,10 +34,10 @@ export default class extends Base {
     }
 
     editAction() {
-        const {id, title, link, catalog_id,sort_order} = this.param();
+        const {id, title, link, catalog_id, sort_order} = this.param();
         let links = this.model('links');
         if (this.isPost()) {
-            links = links.where({id}).update({title, link, catalog_id,sort_order});
+            links = links.where({id}).update({title, link, catalog_id, sort_order});
             this.redirect('/admin/link.html');
             this.assign('data', []);
         } else {
@@ -58,9 +58,31 @@ export default class extends Base {
         this.redirect('/admin/link.html');
     }
 
-    async searchAction() {
-        const {keywork} = this.post();
-        const links =await this.model('links').searchTitleList(keywork);
+    searchAction() {
+        const {keywork, type} = this.param();
+
+        switch (type) {
+            case 'catalog':
+                this.searchCategory(keywork);
+                break;
+            default:
+                this.searchTitle(keywork);
+                break;
+        }
+    }
+
+    searchTitle(keywork) {
+        const links = this.model('links').searchTitleList(keywork);
+
+        this.assign({
+            links: links
+        });
+
+        return this.display();
+    }
+
+    searchCategory(keywork) {
+        const links = this.model('links').searchCategoryList(keywork);
 
         this.assign({
             links: links

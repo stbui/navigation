@@ -8,9 +8,8 @@ export default class extends Base {
      * @return {Promise} []
      */
     async indexAction() {
-        const {num} = this.get();
-        const links = await this.model('links').getPage();
-        const catalog = await this.model('catalog').getPage();
+        const links = await this.model('links').select();
+        const catalog = await this.model('catalog').select();
 
         this.assign({
             links: links,
