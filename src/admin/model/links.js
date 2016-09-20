@@ -51,6 +51,18 @@ export default class extends think.model.base {
         return this.getPage(1,100);
     }
 
+    searchStatusList(keywork) {
+        this.field([this.getTableName() + '.*', this.getTablePrefix() + 'catalog.catalog_name as catalog_name']).join({
+            table: 'catalog',
+            join: 'left',
+            on: ['catalog_id', 'id']
+        });
+
+        this.where({[this.getTableName() +'.status_is']: 'N'});
+
+        return this.getPage(1,100);
+    }
+
     searchCategoryList(keywork) {
         this.field([this.getTableName() + '.*', this.getTablePrefix() + 'catalog.catalog_name as catalog_name']).join({
             table: 'catalog',

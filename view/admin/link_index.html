@@ -30,18 +30,7 @@
             <h3>网址管理</h3>
           </div>
 
-          <div class="title_right">
-            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-              <form method="post" action="/admin/link/search.html">
-                <div class="input-group">
-                  <input type="text" class="form-control" name="keywork" placeholder="搜索...">
-                  <span class="input-group-btn">
-                      <button class="btn btn-default" type="submit">搜</button>
-                    </span>
-                </div>
-              </form>
-            </div>
-          </div>
+          <% include common/search.html %>
         </div>
 
         <div class="clearfix"></div>
@@ -71,13 +60,12 @@
                   <table class="table table-striped jambo_table bulk_action">
                     <thead>
                     <tr class="headings">
-                      <th class="column-title">id</th>
-                      <th class="column-title">排序 </th>
+                      <!--<th class="column-title">id</th>-->
+                      <th class="column-title">排序</th>
                       <th class="column-title">网站名称</th>
-                      <th class="column-title">所属分类 </th>
-                      <!--<th class="column-title">访问域名 </th>-->
-                      <th class="column-title">状态 </th>
-                      <th class="column-title">记录时间 </th>
+                      <!--<th class="column-title">介绍</th>-->
+                      <th class="column-title">所属分类</th>
+                      <th class="column-title">状态</th>
                       <th class="column-title no-link last"><span class="nobr">操作</span>
                       </th>
                       <th class="bulk-actions" colspan="7">
@@ -89,17 +77,21 @@
                     <tbody>
                     <% links.data.forEach(function(value){%>
                     <tr class="even pointer">
-                      <td class=" "><%=value.id%></td>
+                      <!--<td class=" "><%=value.id%></td>-->
                       <td class=" "><%=value.sort_order%></td>
                       <td class=" "><a href="<%=value.link%>" target="_blank"><%=value.title%></a></td>
+                      <!--<td><%=value.description %></td>-->
                       <td class=" "><a href="/admin/link/search.html?type=catalog&keywork=<%=value.catalog_name%>"><%=value.catalog_name%></a></td>
-                      <!--<td class=" "><a href="<%=value.link%>" target="_blank"><%=value.link%></a></td>-->
                       <td>
                         <label>
+                          <% if(value.status_is == 'Y') { %>
                           <input type="checkbox" class="js-switch" checked /> 显示
+                          <%} else {%>
+                          <input type="checkbox" class="js-switch" /> 隐藏
+                          <%}%>
                         </label>
                       </td>
-                      <td class=" "><%=value.create_time %></td>
+                      </td>
                       <td class=" last">
                         <a href="<%=value.link%>" target="_blank" class="btn btn-primary btn-xs"><i class="fa fa-link"></i> 查看 </a>
                         <a href="/admin/link/edit.html?id=<%=value.id%>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 修改 </a>
@@ -148,10 +140,6 @@
 </div>
 
 <% include common/script.html%>
-<!-- Switchery -->
-<script src="/static/vendors/switchery/dist/switchery.min.js"></script>
-
-
 
 </body>
 </html>

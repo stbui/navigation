@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Keywords" content="前端导航">
+    <meta name="description" content="前端导航"/>
+    <title>前端导航</title>
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        body {
+            background-color: #eee;
+            color: #222;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, .004);
+            font-family: proxima-nova, sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            -webkit-transition: all .2s ease;
+            transition: all .2s ease;
+        }
+
+        a, a:active, a:focus, a:hover {
+            color: #222;
+        }
+
+        ::selection {
+            color: #282c2d;
+            background: #ecebda;
+        }
+
+        .main-wrap {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        .link-block {
+            float: left;
+            overflow: hidden;
+            margin-bottom: 10px;
+            margin-right: -10px;
+            width: 322px;
+            margin: 0 1% 1% 0;
+        }
+
+        .link {
+            background: #fff;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .075);
+            -webkit-transition: all .2s ease;
+            transition: all .2s ease;
+            position: relative;
+            display: block;
+            float: left;
+            overflow: hidden;
+            box-sizing: border-box;
+            height: 165px;
+            width: 100%;
+            position: relative;
+            border: 1px solid #ddd;
+            background: #fff;
+        }
+
+        .link-inner {
+            padding: 3%;
+        }
+
+        .link-description {
+            font-size: 12px;
+            line-height: 1.2;
+            margin-top: 5%;
+        }
+
+        .link-thumb {
+            display: inline-block;
+            box-sizing: border-box;
+            margin-right: 5%;
+            border: 1px solid #e9e8ea;
+            -webkit-transition: all .2s ease;
+            transition: all .2s ease;
+            width: 65px;
+            height: 65px;
+        }
+
+        .link-main {
+            display: inline-block;
+            vertical-align: top;
+            min-width: 180px;
+        }
+
+        .link-title {
+            font-weight: 700;
+            line-height: 1;
+            margin: 0 0 .35em;
+            padding: 0;
+            -webkit-transition: all .2s ease;
+            transition: all .2s ease;
+            font-size: 16px;
+        }
+
+        .link-address {
+            margin: 0 0 .9em;
+            padding: 0;
+            color: #6f6f6f;
+            font-size: 13px;
+            -webkit-transition: all .2s ease;
+            transition: all .2s ease;
+            text-overflow: ellipsis;
+            max-width: 170px;
+            overflow: hidden;
+        }
+
+        .link-tags {
+            position: relative;
+            right: 0;
+        }
+
+        .link-color {
+            height: 5px;
+            width: 100%;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="main-wrap">
+
+    <% links.forEach(item=>{ %>
+    <div class="link-block">
+        <div class="link">
+            <div class="link-link"><a href="http://beanstalkapp.com/" target="_blank"><span data-icon="o"></span></a>
+            </div>
+            <div class="link-color" style="background:#5CAD69"></div>
+            <div class="link-inner">
+                <div class="link-top"><a href="<%=item.link%>" target="_blank">
+                    <img class="link-thumb"
+                         src="http://wwwhere.io/img/thumbs/beanstalk.jpg"
+                         alt="Beanstalk logo"></a>
+                    <div class="link-main"><a href="<%=item.link%>" target="_blank"><h2 class="link-title">
+                        <%=item.title%></h2></a> <a href="<%=item.link%>" target="_blank"><h6
+                            class="link-address">
+                        <%=item.link%></h6></a>
+                        <div class="link-tags"></div>
+                    </div>
+                </div>
+                <p class="link-description"><%=item.description%></p></div>
+        </div>
+    </div>
+    <% });%>
+
+</div>
+
+</body>
+</html>

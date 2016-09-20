@@ -34,10 +34,10 @@ export default class extends Base {
     }
 
     editAction() {
-        const {id, title, link, catalog_id, sort_order} = this.param();
+        const {id, title, link, catalog_id, sort_order,description,status_is} = this.param();
         let links = this.model('links');
         if (this.isPost()) {
-            links = links.where({id}).update({title, link, catalog_id, sort_order});
+            links = links.where({id}).update({title, link, catalog_id, sort_order,description,status_is});
             this.redirect('/admin/link.html');
             this.assign('data', []);
         } else {
@@ -65,6 +65,9 @@ export default class extends Base {
             case 'catalog':
                 this.searchCategory(keywork);
                 break;
+            case 'status':
+                this.searchStatus(keywork)
+                break;
             default:
                 this.searchTitle(keywork);
                 break;
@@ -73,6 +76,16 @@ export default class extends Base {
 
     searchTitle(keywork) {
         const links = this.model('links').searchTitleList(keywork);
+
+        this.assign({
+            links: links
+        });
+
+        return this.display();
+    }
+
+    searchStatus(keywork) {
+        const links = this.model('links').searchStatusList(keywork);
 
         this.assign({
             links: links

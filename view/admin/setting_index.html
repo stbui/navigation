@@ -27,7 +27,7 @@
       <div class="">
         <div class="page-title">
           <div class="title_left">
-            <h3><a href="/admin/link.html">网址管理</a></h3>
+            <h3><a href="/admin/link.html">系统设置</a></h3>
           </div>
           <% include common/search.html %>
         </div>
@@ -37,72 +37,43 @@
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
-              <div class="x_title">
-                <h2>添加</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                  <li><a class="collapse-link" href="/admin/link.html"><i class="fa fa-reply"></i> 返回</a></li>
-                </ul>
-                <div class="clearfix"></div>
-              </div>
               <div class="x_content">
                 <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post">
-
                   <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="links_title">网址名称 <span class="required">*</span>
-                    </label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">站点名称</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input type="text" id="links_title" name="title" required="required" class="form-control col-md-7 col-xs-12" value="">
+                      <input type="text" name="site_domain" required="required" class="form-control col-md-7 col-xs-12" disabled value="<%=config[0].value%>">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="links_link">访问域名 <span class="required">*</span>
-                    </label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">访问域名</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input type="text" id="links_link" name="link" required="required" class="form-control col-md-7 col-xs-12" value="">
+                      <input type="text" name="site_domain" required="required" class="form-control col-md-7 col-xs-12" disabled value="<%=config[1].value%>">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">所属类别</label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">备案编号</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                      <select class="select2_single form-control" name="catalog_id" tabindex="-1">
-                        <option></option>
-                        <% data.forEach(item=>{ %>
-                        <option value="<%=item.id%>"><%=item.catalog_name%></option>
-                        <%});%>
-                      </select>
+                      <input type="text" name="site_icp" required="required" class="form-control col-md-7 col-xs-12" disabled value="<%=config[3].value%>">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="links_link">显示顺序</label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">关键字</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input type="number" name="sort_order" class="form-control col-md-7 col-xs-12" value="0">
+                      <input type="text" name="site_keywords" required="required" class="form-control col-md-7 col-xs-12" disabled value="<%=config[7].value%>">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="links_link">一句话介绍</label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">描述</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                      <textarea name="description" class="form-control"></textarea>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="links_link">是否显示</label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <div class="radio">
-                        <label>
-                          <input type="radio" class="flat" value="Y" checked name="status_is"> 显示
-                        </label>
-                        <label>
-                          <input type="radio" class="flat" value="N" name="status_is"> 隐藏
-                        </label>
-                      </div>
+                      <input type="text" name="site_description" required="required" class="form-control col-md-7 col-xs-12" disabled value="<%=config[8].value%>">
                     </div>
                   </div>
 
                   <div class="ln_solid"></div>
                   <div class="form-group">
                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                      <a href="/admin/link.html" class="btn btn-primary">取消</a>
-                      <button type="submit" class="btn btn-success">添加</button>
+                      <button type="submit" class="btn btn-success" disabled>修改</button>
                     </div>
                   </div>
 
