@@ -63,7 +63,7 @@
                     <thead>
                     <tr class="headings">
 
-                      <th class="column-title">id</th>
+                      <th class="column-title">顺序</th>
                       <th class="column-title">分类名称</th>
                       <th class="column-title">数量</th>
                       <th class="column-title no-link last"><span class="nobr">操作</span>
@@ -77,7 +77,7 @@
                     <tbody>
                     <% catalog.data.forEach(function(value){%>
                     <tr class="even pointer">
-                      <td class=" "><%=value.id%></td>
+                      <td class=" "><%=value.sort_order%></td>
                       <td class=" "><%=value.catalog_name%></td>
                       <td class=" ">0</td>
                       <td class=" last">

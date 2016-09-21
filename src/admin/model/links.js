@@ -20,6 +20,12 @@ export default class extends think.model.base {
         return this.getPage(num);
     }
 
+    showSatus(num) {
+        let status = this.getTableName() + '.status_is';
+        this.where({[status]: 'Y'})
+        return this.getList(num);
+    }
+
     getSingleList(data) {
         let id, _data = {};
 
@@ -48,7 +54,7 @@ export default class extends think.model.base {
 
         this.where({'title': ["like", "%" + keywork + "%"]});
 
-        return this.getPage(1,100);
+        return this.getPage(1, 100);
     }
 
     searchStatusList(keywork) {
@@ -58,9 +64,9 @@ export default class extends think.model.base {
             on: ['catalog_id', 'id']
         });
 
-        this.where({[this.getTableName() +'.status_is']: 'N'});
+        this.where({[this.getTableName() + '.status_is']: 'N'});
 
-        return this.getPage(1,100);
+        return this.getPage(1, 100);
     }
 
     searchCategoryList(keywork) {
@@ -70,8 +76,10 @@ export default class extends think.model.base {
             on: ['catalog_id', 'id']
         });
 
+
         this.where({catalog_name: ["like", "%" + keywork + "%"]});
 
-        return this.getPage(1,100);
+
+        return this.getPage(1, 100);
     }
 }

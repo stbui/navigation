@@ -3,13 +3,10 @@
 import Base from './base.js';
 
 export default class extends Base {
-    /**
-     * index action
-     * @return {Promise} []
-     */
+
     indexAction() {
         const {page} = this.get();
-        const catalog = this.model('catalog').getPage(page);
+        const catalog = this.model('catalog').order('sort_order asc').getPage(page);
 
         this.assign({
             catalog: catalog
@@ -29,10 +26,10 @@ export default class extends Base {
     }
 
     editAction() {
-        const {id, catalog_name} = this.param();
+        const {id, catalog_name, sort_order} = this.param();
         let catalog = this.model('catalog');
         if (this.isPost()) {
-            catalog = catalog.where({id}).update({catalog_name});
+            catalog = catalog.where({id}).update({catalog_name, sort_order});
             this.redirect('/admin/category.html');
         } else {
             catalog = catalog.where({id}).find();

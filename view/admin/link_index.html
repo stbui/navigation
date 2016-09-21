@@ -85,7 +85,7 @@
                       <td>
                         <label>
                           <% if(value.status_is == 'Y') { %>
-                          <input type="checkbox" class="js-switch" checked /> 显示
+                          <input type="checkbox" class="js-switch" checked /> 公开
                           <%} else {%>
                           <input type="checkbox" class="js-switch" /> 隐藏
                           <%}%>
@@ -94,7 +94,7 @@
                       </td>
                       <td class=" last">
                         <a href="<%=value.link%>" target="_blank" class="btn btn-primary btn-xs"><i class="fa fa-link"></i> 查看 </a>
-                        <a href="/admin/link/edit.html?id=<%=value.id%>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 修改 </a>
+                        <a href="/admin/link/edit.html?id=<%=value.id%>&page=<%=links.currentPage%>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 修改 </a>
                         <a href="/admin/link/delete.html?id=<%=value.id%>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除 </a>
                       </td>
                     </tr>

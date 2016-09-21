@@ -3,12 +3,19 @@
 import Base from './base.js';
 
 export default class extends Base {
-  /**
-   * index action
-   * @return {Promise} []
-   */
-  indexAction(){
-    //auto render template file index_index.html
-    return this.display();
-  }
+
+    async indexAction() {
+        const links = await this.model('links').countSelect();
+        this.assign({
+            links: links,
+            count: {
+                link: links.count,
+                site: 10,
+                day: 0,
+                yesterday: 0
+            }
+        });
+
+        return this.display();
+    }
 }

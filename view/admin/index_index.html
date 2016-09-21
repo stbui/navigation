@@ -28,34 +28,158 @@
         <div class="row top_tiles">
           <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <div class="tile-stats">
-              <div class="icon"><i class="fa fa-caret-square-o-right"></i></div>
-              <div class="count">179</div>
-              <h3>网址数量</h3>
-              <p>Lorem ipsum psdea itgum rixt.</p>
-            </div>
-          </div>
-          <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="tile-stats">
-              <div class="icon"><i class="fa fa-comments-o"></i></div>
-              <div class="count">179</div>
-              <h3>用户注册</h3>
-              <p>Lorem ipsum psdea itgum rixt.</p>
-            </div>
-          </div>
-          <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="tile-stats">
-              <div class="icon"><i class="fa fa-sort-amount-desc"></i></div>
-              <div class="count">179</div>
+              <div class="icon"><i class="fa fa-line-chart"></i></div>
+              <div class="count"><%=count.site%></div>
               <h3>访问次数</h3>
-              <p>Lorem ipsum psdea itgum rixt.</p>
+              <p>通过本站访问</p>
             </div>
           </div>
           <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <div class="tile-stats">
-              <div class="icon"><i class="fa fa-check-square-o"></i></div>
-              <div class="count">179</div>
-              <h3>New Sign ups</h3>
-              <p>Lorem ipsum psdea itgum rixt.</p>
+              <div class="icon"><i class="fa fa-link"></i></div>
+              <div class="count"><%=count.link%></div>
+              <h3>网址总数量</h3>
+              <p>收录前端相关网址</p>
+            </div>
+          </div>
+          <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+              <div class="icon"><i class="fa fa-link"></i></div>
+              <div class="count"><%=count.day%></div>
+              <h3>今日网址数量</h3>
+              <p>今日网址数量</p>
+            </div>
+          </div>
+          <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+              <div class="icon"><i class="fa fa-link"></i></div>
+              <div class="count"><%=count.yesterday%></div>
+              <h3>昨天网址数量</h3>
+              <p>昨天网址数量</p>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>最热网址</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Settings 1</a>
+                      </li>
+                      <li><a href="#">Settings 2</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <% for(var i=1; i<6;i++){
+                %>
+                <article class="media event">
+                  <a class="pull-left date">
+                    <p class="month">top</p>
+                    <p class="day"><%=i%></p>
+                  </a>
+                  <div class="media-body">
+                    <a class="title" href="#"><%=links.data[i].title%></a>
+                    <p><%=links.data[i].description%></p>
+                  </div>
+                </article>
+                <%
+                }%>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>最新网址</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Settings 1</a>
+                      </li>
+                      <li><a href="#">Settings 2</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <% for(var i=1; i<6;i++){
+                %>
+                <article class="media event">
+                  <a class="pull-left date">
+                    <p class="month">top</p>
+                    <p class="day"><%=i%></p>
+                  </a>
+                  <div class="media-body">
+                    <a class="title" href="#"><%=links.data[i].title%></a>
+                    <p><%=links.data[i].description%></p>
+                  </div>
+                </article>
+                <%
+                }%>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>用户活跃度 <small>Sessions</small></h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Settings 1</a>
+                      </li>
+                      <li><a href="#">Settings 2</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <% for(var i=1; i<6;i++){
+                %>
+                <article class="media event">
+                  <a class="pull-left date">
+                    <p class="month">top</p>
+                    <p class="day"><%=i%></p>
+                  </a>
+                  <div class="media-body">
+                    <a class="title" href="#"><%=links.data[i].title%></a>
+                    <p><%=links.data[i].description%></p>
+                  </div>
+                </article>
+                <%
+                }%>
+              </div>
             </div>
           </div>
         </div>
@@ -64,7 +188,7 @@
           <div class="col-md-12">
             <div class="x_panel">
               <div class="x_title">
-                <h2>访问趋势<small>Weekly progress</small></h2>
+                <h2>访问趋势<small></small></h2>
                 <div class="filter">
                   <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
                     <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
@@ -80,17 +204,17 @@
                   </div>
                   <div class="tiles">
                     <div class="col-md-4 tile">
-                      <span>Total Sessions</span>
+                      <span>总访问量</span>
                       <h2>231,809</h2>
                       <span class="sparkline11 graph" style="height: 160px;"><canvas width="198" height="40" style="display: inline-block; width: 198px; height: 40px; vertical-align: top;"></canvas></span>
                     </div>
                     <div class="col-md-4 tile">
-                      <span>Total Revenue</span>
+                      <span>总访问量</span>
                       <h2>$231,809</h2>
                       <span class="sparkline22 graph" style="height: 160px;"><canvas width="200" height="40" style="display: inline-block; width: 200px; height: 40px; vertical-align: top;"></canvas></span>
                     </div>
                     <div class="col-md-4 tile">
-                      <span>Total Sessions</span>
+                      <span>总访问量</span>
                       <h2>231,809</h2>
                       <span class="sparkline11 graph" style="height: 160px;"><canvas width="198" height="40" style="display: inline-block; width: 198px; height: 40px; vertical-align: top;"></canvas></span>
                     </div>
@@ -101,7 +225,7 @@
                 <div class="col-md-3 col-sm-12 col-xs-12">
                   <div>
                     <div class="x_title">
-                      <h2>Top Profiles</h2>
+                      <h2>贡献榜</h2>
                       <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -109,8 +233,6 @@
                           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                           <ul class="dropdown-menu" role="menu">
                             <li><a href="#">Settings 1</a>
-                            </li>
-                            <li><a href="#">Settings 2</a>
                             </li>
                           </ul>
                         </li>
@@ -121,60 +243,18 @@
                     </div>
                     <ul class="list-unstyled top_profiles scroll-view">
                       <li class="media event">
-                        <a class="pull-left border-aero profile_thumb">
-                          <i class="fa fa-user aero"></i>
-                        </a>
-                        <div class="media-body">
-                          <a class="title" href="#">Ms. Mary Jane</a>
-                          <p><strong>$2300. </strong> Agent Avarage Sales </p>
-                          <p> <small>12 Sales Today</small>
-                          </p>
-                        </div>
-                      </li>
-                      <li class="media event">
                         <a class="pull-left border-green profile_thumb">
                           <i class="fa fa-user green"></i>
                         </a>
                         <div class="media-body">
-                          <a class="title" href="#">Ms. Mary Jane</a>
-                          <p><strong>$2300. </strong> Agent Avarage Sales </p>
-                          <p> <small>12 Sales Today</small>
+                          <a class="title" href="#">管理员</a>
+                          <p><strong>110 </strong> 记录 </p>
+                          <p> <small>管理员</small>
                           </p>
                         </div>
                       </li>
-                      <li class="media event">
-                        <a class="pull-left border-blue profile_thumb">
-                          <i class="fa fa-user blue"></i>
-                        </a>
-                        <div class="media-body">
-                          <a class="title" href="#">Ms. Mary Jane</a>
-                          <p><strong>$2300. </strong> Agent Avarage Sales </p>
-                          <p> <small>12 Sales Today</small>
-                          </p>
-                        </div>
-                      </li>
-                      <li class="media event">
-                        <a class="pull-left border-aero profile_thumb">
-                          <i class="fa fa-user aero"></i>
-                        </a>
-                        <div class="media-body">
-                          <a class="title" href="#">Ms. Mary Jane</a>
-                          <p><strong>$2300. </strong> Agent Avarage Sales </p>
-                          <p> <small>12 Sales Today</small>
-                          </p>
-                        </div>
-                      </li>
-                      <li class="media event">
-                        <a class="pull-left border-green profile_thumb">
-                          <i class="fa fa-user green"></i>
-                        </a>
-                        <div class="media-body">
-                          <a class="title" href="#">Ms. Mary Jane</a>
-                          <p><strong>$2300. </strong> Agent Avarage Sales </p>
-                          <p> <small>12 Sales Today</small>
-                          </p>
-                        </div>
-                      </li>
+
+
                     </ul>
                   </div>
                 </div>
@@ -240,235 +320,7 @@
 
 
 
-        <div class="row">
-          <div class="col-md-4">
-            <div class="x_panel">
-              <div class="x_title">
-                <h2>最热网址 <small>Sessions</small></h2>
-                <ul class="nav navbar-right panel_toolbox">
-                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Settings 1</a>
-                      </li>
-                      <li><a href="#">Settings 2</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li><a class="close-link"><i class="fa fa-close"></i></a>
-                  </li>
-                </ul>
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-                <article class="media event">
-                  <a class="pull-left date">
-                    <p class="month">April</p>
-                    <p class="day">23</p>
-                  </a>
-                  <div class="media-body">
-                    <a class="title" href="#">Item One Title</a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  </div>
-                </article>
-                <article class="media event">
-                  <a class="pull-left date">
-                    <p class="month">April</p>
-                    <p class="day">23</p>
-                  </a>
-                  <div class="media-body">
-                    <a class="title" href="#">Item Two Title</a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  </div>
-                </article>
-                <article class="media event">
-                  <a class="pull-left date">
-                    <p class="month">April</p>
-                    <p class="day">23</p>
-                  </a>
-                  <div class="media-body">
-                    <a class="title" href="#">Item Two Title</a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  </div>
-                </article>
-                <article class="media event">
-                  <a class="pull-left date">
-                    <p class="month">April</p>
-                    <p class="day">23</p>
-                  </a>
-                  <div class="media-body">
-                    <a class="title" href="#">Item Two Title</a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  </div>
-                </article>
-                <article class="media event">
-                  <a class="pull-left date">
-                    <p class="month">April</p>
-                    <p class="day">23</p>
-                  </a>
-                  <div class="media-body">
-                    <a class="title" href="#">Item Three Title</a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-md-4">
-            <div class="x_panel">
-              <div class="x_title">
-                <h2>最新网址 <small>Sessions</small></h2>
-                <ul class="nav navbar-right panel_toolbox">
-                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Settings 1</a>
-                      </li>
-                      <li><a href="#">Settings 2</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li><a class="close-link"><i class="fa fa-close"></i></a>
-                  </li>
-                </ul>
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-                <article class="media event">
-                  <a class="pull-left date">
-                    <p class="month">April</p>
-                    <p class="day">23</p>
-                  </a>
-                  <div class="media-body">
-                    <a class="title" href="#">Item One Title</a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  </div>
-                </article>
-                <article class="media event">
-                  <a class="pull-left date">
-                    <p class="month">April</p>
-                    <p class="day">23</p>
-                  </a>
-                  <div class="media-body">
-                    <a class="title" href="#">Item Two Title</a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  </div>
-                </article>
-                <article class="media event">
-                  <a class="pull-left date">
-                    <p class="month">April</p>
-                    <p class="day">23</p>
-                  </a>
-                  <div class="media-body">
-                    <a class="title" href="#">Item Two Title</a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  </div>
-                </article>
-                <article class="media event">
-                  <a class="pull-left date">
-                    <p class="month">April</p>
-                    <p class="day">23</p>
-                  </a>
-                  <div class="media-body">
-                    <a class="title" href="#">Item Two Title</a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  </div>
-                </article>
-                <article class="media event">
-                  <a class="pull-left date">
-                    <p class="month">April</p>
-                    <p class="day">23</p>
-                  </a>
-                  <div class="media-body">
-                    <a class="title" href="#">Item Three Title</a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="x_panel">
-              <div class="x_title">
-                <h2>用户活跃度 <small>Sessions</small></h2>
-                <ul class="nav navbar-right panel_toolbox">
-                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Settings 1</a>
-                      </li>
-                      <li><a href="#">Settings 2</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li><a class="close-link"><i class="fa fa-close"></i></a>
-                  </li>
-                </ul>
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-                <article class="media event">
-                  <a class="pull-left date">
-                    <p class="month">April</p>
-                    <p class="day">23</p>
-                  </a>
-                  <div class="media-body">
-                    <a class="title" href="#">Item One Title</a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  </div>
-                </article>
-                <article class="media event">
-                  <a class="pull-left date">
-                    <p class="month">April</p>
-                    <p class="day">23</p>
-                  </a>
-                  <div class="media-body">
-                    <a class="title" href="#">Item Two Title</a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  </div>
-                </article>
-                <article class="media event">
-                  <a class="pull-left date">
-                    <p class="month">April</p>
-                    <p class="day">23</p>
-                  </a>
-                  <div class="media-body">
-                    <a class="title" href="#">Item Two Title</a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  </div>
-                </article>
-                <article class="media event">
-                  <a class="pull-left date">
-                    <p class="month">April</p>
-                    <p class="day">23</p>
-                  </a>
-                  <div class="media-body">
-                    <a class="title" href="#">Item Two Title</a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  </div>
-                </article>
-                <article class="media event">
-                  <a class="pull-left date">
-                    <p class="month">April</p>
-                    <p class="day">23</p>
-                  </a>
-                  <div class="media-body">
-                    <a class="title" href="#">Item Three Title</a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <!-- /page content -->
