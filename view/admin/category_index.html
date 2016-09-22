@@ -99,12 +99,12 @@
                       %>
                       <li class="active"><a href="javascript:;"><%=i%></a></li>
                       <%    } else { %>
-                      <li><a href="/admin/link.html?page=<%=i%>"><%=i%></a></li>
+                      <li><a href="/admin/category.html?page=<%=i%>"><%=i%></a></li>
                       <%    } %>
                       <% } %>
 
                       <% if(catalog.currentPage<catalog.totalPages) { %>
-                      <li><a href="/admin/link.html?page=<%=catalog.currentPage+1%>">&raquo;</a></li>
+                      <li><a href="/admin/category.html?page=<%=catalog.currentPage+1%>">&raquo;</a></li>
                       <% } %>
                     </ul>
                   </nav>

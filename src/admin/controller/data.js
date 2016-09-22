@@ -49,6 +49,50 @@ export default class extends Base {
         }
     }
 
+    async collectionAction() {
+        let linksModel = this.model('links');
+
+        const filename = 'data';
+        const folder = think.ROOT_PATH + '/back';
+        const path = folder + '/' + filename + '.json';
+
+        let data = fs.readFileSync(path, 'utf-8');
+        data = JSON.parse(data);
+
+        var newData = [];
+        for (let i = 0; i < data.length; i++) {
+            let item = data[i];
+
+            var img = item.icon;
+            if (!img) {
+                img = '';
+            }
+            let links = await linksModel.where({link: item.url}).find();
+
+            if (think.isEmpty(links)) {
+                newData.push({
+                    title: item.name,
+                    link: item.url,
+                    description: item.des,
+                    image_link: img,
+                    status_is: 'N'
+                });
+            } else {
+                // newData.push({
+                //     title: item.name,
+                //     link: item.url,
+                //     description: item.des,
+                //     image_link: img,
+                //     status_is: 'N'
+                // });
+            }
+        }
+
+        // this.model('links').addMany(newData);
+
+        this.json(newData);
+    }
+
     restore() {
 
     }
