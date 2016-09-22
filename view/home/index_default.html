@@ -343,7 +343,8 @@
         }
 
         .marsh-body {
-            padding-top: 8px;
+            padding: 8px;
+            text-align: center;
         }
 
         .marsk .close {
@@ -361,7 +362,7 @@
             padding: 5px 0;
         }
 
-        .table input, .table textarea {
+        .table input, .table textarea,.table select {
             width: 400px;
         }
 
@@ -489,14 +490,18 @@
 
 <div class="footer">
     <div class="main-wrap">
-        <div class=""><span>收录人气站</span><span class="counter"><%=count.link%></span><span>个</span> <span
-                style="float: left">更新日期:<%=update%></span><span style="float: right"><a
-                href="javascript:;" onclick="showModal()" class="recommend">我要推荐</a></span></div>
+        <div>
+            <span>收录人气站</span>
+            <span class="counter"><%=count.link%></span>
+            <span>个</span>
+            <span style="float: left">更新日期:<%=update%></span>
+            <span style="float: right"><a href="javascript:;" onclick="d()" class="recommend">我要下载</a> <a href="javascript:;" onclick="showModal()" class="recommend">我要推荐</a></span>
+        </div>
         <div class="copyright"><span>Copyright © 2016 码农庄园 - 前端导航网址</span></div>
     </div>
 </div>
 
-<div class="marsk" id="marsk">
+<div class="marsk" id="recommend">
     <div class="marsk-content" id="marsk-content">
         <div class="marsk-title"><span class="close">关闭</span>我要推荐</div>
         <div class="marsh-body">
@@ -518,7 +523,7 @@
                     <td class="text-right">网址分类：</td>
                     <td>
                         <select name="catalog_id">
-                            <option value=""></option>
+                            <option>请选择</option>
                             <% catalog.forEach(item=>{ %>
                             <option value="<%=item.id%>"><%=item.catalog_name%></option>
                             <%});%>
@@ -533,7 +538,7 @@
                     <td class="text-right"></td>
                     <td>
                         <button type="submit" class="btn btn-recommend">推荐</button>
-                        <span><%=message%></span>
+                        <span id="message"><%=message%></span>
                     </td>
                 </tr>
             </table>
@@ -542,30 +547,67 @@
     </div>
 </div>
 
+<div class="marsk" id="download">
+    <div class="marsk-content">
+        <div class="marsk-title"><span class="close">关闭</span>我要下载</div>
+        <div class="marsh-body">
+            <a href="/index/download?type=html" class="btn btn-recommend">HTML</a>
+            <a href="/index/download?type=markdown" class="btn btn-recommend">MarkDown</a>
+            <a href="/index/download?type=json" class="btn btn-recommend">JSON</a>
+        </div>
+    </div>
+</div>
+
 <script>
-    function showModal() {
-        var m = document.getElementById('marsk');
+    function d() {
+        var m = document.getElementById('download');
         m.style.display = 'block';
         m.onclick = function (e) {
-            this.style.display = 'none';
+            hide(m);
         }
 
-        var c = document.getElementById('marsk-content');
+        var c =  m.getElementsByClassName('marsk-content')[0];
         c.onclick = function (e) {
             e.stopPropagation();
         }
 
         var close = m.getElementsByClassName('close')[0];
         close.onclick = function (e) {
-            m.style.display = 'none';
+            hide(m);
         }
+    }
+
+    function showModal() {
+        var m = document.getElementById('recommend');
+        m.style.display = 'block';
+        m.onclick = function (e) {
+            hide(m);
+        }
+
+        var c =  m.getElementsByClassName('marsk-content')[0];
+        c.onclick = function (e) {
+            e.stopPropagation();
+        }
+
+        var close = m.getElementsByClassName('close')[0];
+        close.onclick = function (e) {
+            hide(m);
+        }
+    }
+
+    function hide(id) {
+        id.style.display = 'none';
+        msg();
+    }
+
+    function msg() {
+        document.getElementById('message').innerHTML = '';
     }
 
     var message= '<%=message%>'
     if(message) {
         showModal()
     }
-
 </script>
 </body>
 </html>
