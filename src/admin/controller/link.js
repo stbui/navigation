@@ -36,13 +36,27 @@ export default class extends Base {
     }
 
     editAction() {
-        const {id, title, link, catalog_id, sort_order, description, status_is, image_link, page} = this.param();
+        const param = this.param();
+        const {id} = param;
+        const {title, link, catalog_id, sort_order, description, status_is, image_link} = param;
+        const {type, page} = param;
+
         let links = this.model('links');
         if (this.isPost()) {
-            console.log(this.param())
             links = links.where({id}).update({title, link, catalog_id, sort_order, description, image_link, status_is});
 
-            this.redirect('/admin/link.html?page=' + page);
+            switch (type) {
+                case 'status':
+                    this.redirect('/admin/link/search.html?type=' + type);
+                    break;
+                case 'catalog':
+                    this.redirect('/admin/link/search.html?type=' + type);
+                    break;
+                default:
+                    this.redirect('/admin/link.html?page=' + page);
+                    break;
+            }
+
             this.assign('data', []);
         } else {
             links = links.getSingleList({id});
@@ -64,46 +78,25 @@ export default class extends Base {
     }
 
     searchAction() {
-        const {keywork, type} = this.param();
+        const {keywork, type, page} = this.param();
+        const links = this.model('links');
+        let data;
 
         switch (type) {
             case 'catalog':
-                this.searchCategory(keywork);
+                data = links.searchCategoryList(keywork, page);
                 break;
             case 'status':
-                this.searchStatus(keywork)
+                data = links.searchStatusList(keywork, page);
                 break;
             default:
-                this.searchTitle(keywork);
+                data = links.searchTitleList(keywork, page);
                 break;
         }
-    }
-
-    searchTitle(keywork) {
-        const links = this.model('links').searchTitleList(keywork);
 
         this.assign({
-            links: links
-        });
-
-        return this.display();
-    }
-
-    searchStatus(keywork) {
-        const links = this.model('links').searchStatusList(keywork);
-
-        this.assign({
-            links: links
-        });
-
-        return this.display();
-    }
-
-    searchCategory(keywork) {
-        const links = this.model('links').searchCategoryList(keywork);
-
-        this.assign({
-            links: links
+            links: data,
+            type: type
         });
 
         return this.display();
