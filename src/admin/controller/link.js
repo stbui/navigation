@@ -77,6 +77,31 @@ export default class extends Base {
         this.redirect('/admin/link.html');
     }
 
+    async repeatAction() {
+        const {page} = this.get();
+        const links = await this.model('links').order('title asc').select();
+
+        let data = links;
+        let repeat_name = [];
+        for (var i = 0; i < data.length; i++) {
+            for (var j = 0; j < data.length; j++) {
+                if (data[i].title == data[j].title) {
+                    repeat_name[i] = data[j];
+                    console.log(value.title, '==', data[j].title)
+                }
+            }
+        }
+
+        this.assign({
+            links: links,
+            repeat_name: repeat_name
+        });
+
+        this.json(repeat_name.length)
+
+        // return this.display();
+    }
+
     searchAction() {
         const {keywork, type, page} = this.param();
         const links = this.model('links');

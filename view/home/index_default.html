@@ -90,15 +90,12 @@
     <div class="logo">码农庄园
         <div class="small-title">前端导航网址</div>
     </div>
-    <div class="search">
-        <!--<button class="btn btn-search">搜索</button>-->
-    </div>
+    <div class="search"></div>
     <div class="submit"><a href="javascript:;" onclick="showModal()">我要推荐</a></div>
     <div class="ad">已收录网址：<%=count.link%></div>
 </div>
 
 <div class="main-wrap">
-
     <% catalog.forEach((value,key)=>{ %>
     <div class="category">
         <div class="category-name">
@@ -107,49 +104,29 @@
         <%
         links.forEach((item, k)=>{
         if(value.id == item.catalog_id) {
-
         %>
         <div class="link-block">
             <div class="link">
-                <div class="link-link">
-                    <a href="http://beanstalkapp.com/" target="_blank"><span data-icon="o"></span></a>
-                </div>
-                <div class="link-color"></div>
                 <div class="link-inner">
                     <div class="link-top">
-                        <% if(item.image_link) {
-                        %>
+                        <% if(item.image_link) {%>
                         <a href="<%=item.link%>" target="_blank">
                             <img class="link-thumb" src="<%=item.image_link%>" alt="<%=item.title%>">
                         </a>
-                        <%
-                        } else {
-                        %>
-                        <!--<a href="<%=item.link%>" target="_blank">-->
-                            <!--<img class="link-thumb" src="http://wwwhere.io/img/thumbs/github.jpg" alt="<%=item.title%>">-->
-                        <!--</a>-->
-                        <%
-                        }%>
-
-                        <div class="link-main"><a href="<%=item.link%>" target="_blank"><h2 class="link-title">
-                            <%=item.title%></h2></a> <a href="<%=item.link%>" target="_blank"><h6
-                                class="link-address">
-                            <%=item.link%></h6></a>
+                        <%} else {%><%}%>
+                        <div class="link-main">
+                            <a href="<%=item.link%>" target="_blank"><h2 class="link-title"><%=item.title%></h2></a>
+                            <a href="<%=item.link%>" target="_blank"><h6 class="link-address"><%=item.link%></h6></a>
                             <div class="link-tags"></div>
                         </div>
                     </div>
                     <p class="link-description"><%=item.description%></p></div>
             </div>
         </div>
-        <%
-        }
-        });%>
-
-
+        <%}});%>
         <div class="clearfix"></div>
     </div>
     <% });%>
-
 </div>
 
 

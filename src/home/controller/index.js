@@ -43,7 +43,7 @@ export default class extends Base {
 
     async downloadAction() {
         const {type} = this.get();
-        const linksModel = await this.model('links').field('title,link').select();
+        const linksModel = await this.model('links').field('title,link').order('title asc').select();
 
         const folder = think.ROOT_PATH + '/back';
         const filename = 'favourite';
@@ -66,7 +66,6 @@ export default class extends Base {
                 data = this.markdownFile(data);
                 path = folder + '/' + filename + '.md';
                 this.download(path, filename + '.md');
-                fs.writeFileSync(think.ROOT_PATH+'/README.md', data, 'utf-8');
                 break;
             case 'json':
                 data = JSON.stringify(data);
@@ -87,7 +86,7 @@ export default class extends Base {
         let str = ``;
 
         data.forEach(value=> {
-            str += `${value.title} : <a href="${value.link}" target="_blank">${value.link}</a>\r\n`;
+            str += `<div>${value.title} : <a href="${value.link}" target="_blank">${value.link}</a></div>\r\n`;
         });
 
         return str;

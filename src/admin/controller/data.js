@@ -49,52 +49,43 @@ export default class extends Base {
         }
     }
 
-    async collectionAction() {
-        let linksModel = this.model('links');
+    collectionAction() {
 
-        const filename = 'data';
+        return this.display();
+    }
+
+
+    async testAction() {
+        const {type} = this.get();
+        const filename = 'aliccc.json';
         const folder = think.ROOT_PATH + '/back';
-        const path = folder + '/' + filename + '.json';
+        const path = folder + '/' + filename;
 
         let data = fs.readFileSync(path, 'utf-8');
+        let linksModel = this.model('links');
+        let newData = [];
+
         data = JSON.parse(data);
 
-        var newData = [];
         for (let i = 0; i < data.length; i++) {
             let item = data[i];
-
-            var img = item.icon;
-            if (!img) {
-                img = '';
-            }
-            let links = await linksModel.where({link: item.url}).find();
+            let links = await linksModel.where({link: item.link}).find();
 
             if (think.isEmpty(links)) {
                 newData.push({
-                    title: item.name,
-                    link: item.url,
-                    description: item.des,
-                    image_link: img,
+                    title: item.title,
+                    link: item.link,
+                    description: item.description,
                     status_is: 'N'
                 });
-            } else {
-                // newData.push({
-                //     title: item.name,
-                //     link: item.url,
-                //     description: item.des,
-                //     image_link: img,
-                //     status_is: 'N'
-                // });
             }
         }
 
-        // this.model('links').addMany(newData);
+        // 添加数据到数据库
+        if (!think.isEmpty(newData)) {
+            linksModel.addMany(newData);
+        }
 
-        this.json(newData);
+        this.json({count: newData.length,file:filename, data: newData});
     }
-
-    restore() {
-
-    }
-
 }

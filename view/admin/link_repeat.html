@@ -39,7 +39,7 @@
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
               <div class="x_title">
-                <h2>列表</h2>
+                <h2>链接检测</h2>
                 <ul class="nav navbar-right panel_toolbox">
                   <li><a class="close-link" href="/admin/link/add.html"><i class="fa fa-plus"></i> 添加</a></li>
                   <li class="dropdown">
@@ -56,16 +56,15 @@
                 <div class="clearfix"></div>
               </div>
               <div class="x_content">
+                <a href="/admin/linkl/repeat.html" class="btn btn-default">重名</a>
+                <a href="/admin/linkl/repeat.html" class="btn btn-default">链接</a>
                 <div class="table-responsive">
                   <table class="table table-striped jambo_table bulk_action">
                     <thead>
                     <tr class="headings">
-                      <!--<th class="column-title">id</th>-->
                       <th class="column-title">排序</th>
                       <th class="column-title">网站名称</th>
-                      <!--<th class="column-title">介绍</th>-->
-                      <th class="column-title">所属分类</th>
-                      <th class="column-title">状态</th>
+                      <th class="column-title">介绍</th>
                       <th class="column-title no-link last"><span class="nobr">操作</span></th>
                     </tr>
                     </thead>
@@ -73,48 +72,34 @@
                     <tbody>
                     <% links.data.forEach(function(value){%>
                     <tr class="even pointer">
-                      <!--<td class=" "><%=value.id%></td>-->
                       <td class=" "><%=value.sort_order%></td>
                       <td class=" "><a href="<%=value.link%>" target="_blank"><%=value.title%></a></td>
-                      <!--<td><%=value.description %></td>-->
-                      <td class=" "><a href="/admin/link/search.html?type=catalog&keywork=<%=value.catalog_name%>"><%=value.catalog_name%></a></td>
-                      <td>
-                        <label>
-                          <% if(value.status_is == 'Y') { %>
-                          <input type="checkbox" class="js-switch" checked /> 公开
-                          <%} else {%>
-                          <input type="checkbox" class="js-switch" /> 隐藏
-                          <%}%>
-                        </label>
-                      </td>
+                      <td class=" "><a href="<%=value.link%>" target="_blank"><%=value.link%></a></td>
                       <td class=" last">
-                        <a href="<%=value.link%>" target="_blank" class="btn btn-primary btn-xs"><i class="fa fa-link"></i> 查看 </a>
                         <a href="/admin/link/edit.html?id=<%=value.id%>&page=<%=links.currentPage%>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 修改 </a>
                         <a href="/admin/link/delete.html?id=<%=value.id%>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除 </a>
                       </td>
                     </tr>
-
                     <%});%>
-
                     </tbody>
                   </table>
                   <nav>
                     <ul class="pagination">
                       <% if(links.currentPage>1) { %>
-                      <li><a href="/admin/link.html?page=<%=links.currentPage-1%>">&laquo;</a></li>
+                      <li><a href="/admin/link/repeat.html?page=<%=links.currentPage-1%>">&laquo;</a></li>
                       <% } %>
 
                       <% for(var i=1;i<=links.totalPages;i++) {
-                          if(links.currentPage == i) {
+                      if(links.currentPage == i) {
                       %>
                       <li class="active"><a href="javascript:;"><%=i%></a></li>
                       <%    } else { %>
-                      <li><a href="/admin/link.html?page=<%=i%>"><%=i%></a></li>
+                      <li><a href="/admin/link/repeat.html?page=<%=i%>"><%=i%></a></li>
                       <%    } %>
                       <% } %>
 
                       <% if(links.currentPage<links.totalPages) { %>
-                      <li><a href="/admin/link.html?page=<%=links.currentPage+1%>">&raquo;</a></li>
+                      <li><a href="/admin/link/repeat.html?page=<%=links.currentPage+1%>">&raquo;</a></li>
                       <% } %>
                     </ul>
                   </nav>
