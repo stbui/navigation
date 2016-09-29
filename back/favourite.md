@@ -4,6 +4,7 @@
 -webkit css属性速查 | http://ued.ctrip.com/blog/wp-content/webkitcss/index.html
 06wjin | http://www.html-js.com
 06wjin | http://06wjin.sinaapp.com
+1 | 1
 1001 Free Fonts | http://www.1001freefonts.com/
 100头条 | http://www.100toutiao.com/
 1010data | http://www.1010data.com/company
@@ -15,10 +16,12 @@
 19楼UED | http://blog.19ued.com/
 1stwebdesigner | http://www.1stwebdesigner.com/blog/
 1社群 | http://1shequn.cn/
+2 | 1
 2015本科新增专业 | http://edu.people.com.cn/n/2015/0402/c244541-26790932.html
 211大学 | http://www.eol.cn/html/g/gxmd/211.shtml
 25学堂 | http://www.25xt.com/
 2advanced Studios | http://www.2advanced.com/
+3 | d
 31会议 | http://www.31huiyi.com/
 36 氪 | http://www.36kr.com/
 360助手 | http://zhushou.360.cn/
@@ -220,6 +223,7 @@ Brusheezy | http://www.brusheezy.com/
 Brusheezy | http://www.brusheezy.com
 BShare分享 | http://www.bshare.cn/
 Bugtags官网 | https://www.bugtags.com/
+BUI | http://www.builive.com/index.php
 bulma | http://bulma.io/
 Buttons | http://alexwolfe.github.io/Buttons
 Buy Templates | http://www.buytemplates.net/products/search
@@ -530,9 +534,10 @@ Entheos Templates | http://templates.entheosweb.com/
 EntheosTemplates | http://templates.entheosweb.com
 Eput高品质图片 | http://eput.com/popular
 Eput高品质图片 | http://eput.com/editors
-Eric Meyer 谈 CSS(卷2) | https://www.amazon.cn/Eric-Meyer-%E8%B0%88-CSS-%E8%BF%88%E8%80%B6/dp/B00170M84I/
+Eric Meyer 谈 CSS(卷2) | 1Meyer-1-CSS-%E8%BF%88%E8%80%B6/dp/B00170M84I/
 EricMeyer | http://meyerweb.com/
 esma 兼容列表 | http://kangax.github.io/compat-table/es6
+esui | http://ecomfe.github.io/esui-family/
 etcML | http://www.etcml.com/
 Evil Icons | http://evil-icons.io/
 excellentexport | https://github.com/jmaister/excellentexport
@@ -789,7 +794,7 @@ http://f2er.club/ | http://f2er.club/
 http://wwwhere.io/ | http://wwwhere.io/
 httpfox | https://addons.mozilla.org/ZH-cn/firefox/addon/httpfox/
 httpwatch | http://www.httpwatch.com/
-HTTP权威指南 | http://www.amazon.cn/gp/product/B008XFDQ14/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;camp=536&amp;creative=3200&amp;creativeASIN=B008XFDQ14&amp;linkCode=as2&amp;tag=whycss-23
+HTTP权威指南 | 1
 HTTP权威指南 | http://search.dangdang.com/?key=HTTP权威指南
 Hugo Giraudel | http://hugogiraudel.com/
 Hugo Giraudel | http://hugogiraudel.com/blog/
@@ -873,25 +878,25 @@ jasmine | http://jasmine.github.io/
 Jason Xiang | http://jasonxiang.com
 JavaScript & jQuery交互式Web前端开发 | https://book.douban.com/subject/26433805/
 JavaScript DOM编程艺术 （第2版） | https://book.douban.com/subject/6038371/
-JavaScript DOM编程艺术(第2版) | http://www.amazon.cn/gp/product/B004VJM5KE/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;camp=536&amp;creative=3200&amp;creativeASIN=B004VJM5KE&amp;linkCode=as2&amp;tag=whycss-23
+JavaScript DOM编程艺术(第2版) | 1
 JavaScript DOM编程艺术(第2版) | http://search.dangdang.com/?key=JavaScript DOM编程艺术(第2版)
 JavaScript Event KeyCodes | http://keycode.info/
 JavaScriptSource | http://www.javascriptsource.com/
 JavaScriptWeekly | http://javascriptweekly.com/
 Javascript教程 | https://davidwalsh.name/
 JavaScript权威指南(第6版) | https://book.douban.com/subject/10549733/
-JavaScript权威指南(第6版) | http://www.amazon.cn/gp/product/B007VISQ1Y/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;camp=536&amp;creative=3200&amp;creativeASIN=B007VISQ1Y&amp;linkCode=as2&amp;tag=whycss-23
+JavaScript权威指南(第6版) | 1
 JavaScript权威指南(第6版) | http://search.dangdang.com/?key=JavaScript权威指南(第6版)
-JavaScript模式 | http://www.amazon.cn/gp/product/B008QTG1HS/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;camp=536&amp;creative=3200&amp;creativeASIN=B008QTG1HS&amp;linkCode=as2&amp;tag=whycss-23
+JavaScript模式 | 1
 javascript练习 | http://www.codecademy.com
 JavaScript设计模式 | https://book.douban.com/subject/3329540/
-JavaScript设计模式 | http://www.amazon.cn/gp/product/B00D6MT3LG/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;camp=536&amp;creative=3200&amp;creativeASIN=B00D6MT3LG&amp;linkCode=as2&amp;tag=whycss-23
+JavaScript设计模式 | 1
 JavaScript设计模式 | http://search.dangdang.com/?key=JavaScript设计模式
 JavaScript语言精粹 | http://book.douban.com/subject/3590768/
-JavaScript语言精粹(修订版) | http://www.amazon.cn/gp/product/B0097CON2S/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;camp=536&amp;creative=3200&amp;creativeASIN=B0097CON2S&amp;linkCode=as2&amp;tag=whycss-23
+JavaScript语言精粹(修订版) | 1
 JAVASCRIPT语言精髓与编程实践 | https://book.douban.com/subject/3012828/
 JavaScript资源 | https://github.com/jobbole/awesome-javascript-cn
-JavaScript高级程序设计(第3版) | http://www.amazon.cn/gp/product/B007OQQVMY/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;camp=536&amp;creative=3200&amp;creativeASIN=B007OQQVMY&amp;linkCode=as2&amp;tag=whycss-23
+JavaScript高级程序设计(第3版) | 1
 JavaScript高级程序设计(第3版) | http://search.dangdang.com/?key=JavaScript高级程序设计(第3版)
 JavaScript高级程序设计（第3版） | https://book.douban.com/subject/10546125/
 Jcore博客 | http://jcore.cn
@@ -1802,13 +1807,13 @@ ZURB CSS | http://zurb.com/
 人人贷 | http://www.renrendai.com/
 人人都是产品经理 | http://www.woshipm.com
 人月博客 | http://blog.sina.com.cn/s/articlelist_1228571733_2_1.html
-人月神话 | http://www.amazon.cn/gp/product/B0011C2P7W/ref=as_li_ss_tl?ie=UTF8&camp=536&creative=3132&creativeASIN=B0011C2P7W&linkCode=as2&tag=justjavac-23
+人月神话 | 1123
 人类发展指数 | http://hdr.undp.org/en/content/human-development-index-hdi/
 亿品元素 | http://www.epinv.com/
 亿起发 | http://www.yiqifa.com/
 亿邦动力 | http://www.ebrun.com/
 从程序员到项目经理 | http://www.cnblogs.com/watsonyin/
-代码大全 | https://www.amazon.cn/gp/product/B0061XKRXA/ref=as_li_ss_tl?ie=UTF8&camp=536&creative=3132&creativeASIN=B0061XKRXA&linkCode=as2&tag=justjavac-23
+代码大全 | 1
 代码着色 | http://tool.oschina.net/highlight
 任平生 | http://rpsh.net/
 企查查 | http://www.qichacha.com/
@@ -2194,6 +2199,7 @@ ZURB CSS | http://zurb.com/
 拉扯网 | http://www.vlon.cn/
 拍拍贷 | http://www.ppdai.com/
 拔赤 | http://jayli.github.io/blog/
+拼图Pintuer | http://www.pintuer.com/
 挖贝网 | http://www.wabei.cn/
 振振有词博客 | http://www.lizhenqiu.com/
 掘金 | http://gold.xitu.io/
@@ -2335,7 +2341,7 @@ ZURB CSS | http://zurb.com/
 求是设计会 | http://weibo.com/qiushid
 汇智网 | http://www.hubwiz.com/
 江小湖Laker | http://laker.me/blog
-沪A涨幅 | http://stockapp.finance.qq.com/mstats/?pgv_ref=fi_quote_navi_bar&amp;id=sha_zf#mod=list&amp;module=LIST&amp;type=rankash&amp;sort=32&amp;page=1&amp;max=40
+沪A涨幅 | 1
 沪深B股 | http://vip.stock.finance.sina.com.cn/mkt/#hs_b
 波兰Freszki | http://freszki.nowymarketing.pl/
 活动家 | http://www.huodongjia.com/
@@ -2360,7 +2366,6 @@ ZURB CSS | http://zurb.com/
 淡忘~浅思 | http://www.ido321.com
 深A涨幅 | http://vip.stock.finance.sina.com.cn/mkt/#stock_sz_up
 深入浅出Node.js | https://book.douban.com/subject/25768396/
-深入浅出Node.js | http://www.amazon.cn/gp/product/B00GOM5IL4/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;camp=536&amp;creative=3200&amp;creativeASIN=B00GOM5IL4&amp;linkCode=as2&amp;tag=whycss-23
 深圳体验设计专业委员会 | http://www.uxdc.org/
 深圳房价走势查询 | http://ris.szpl.gov.cn/PriceTrend/PriceTrendImg.aspx
 清博指数 | http://www.gsdata.cn/
@@ -2485,7 +2490,7 @@ ZURB CSS | http://zurb.com/
 移动观象台 | https://www.talkingdata.com/index/#/mobileIndex/zh_cn
 稀土 | https://xitu.io/
 稀土区 | https://xituqu.com/
-程序员修炼之道 | http://www.amazon.cn/gp/product/B004GV08CY/ref=as_li_ss_tl?ie=UTF8&camp=536&creative=3132&creativeASIN=B004GV08CY&linkCode=as2&tag=justjavac-23
+程序员修炼之道 | 1
 程序员客栈 | https://www.proginn.com/
 突唯阿tuweia | http://tuweia.cn/c/home/ad/uisdcnavi
 突唯阿tuweia | http://tuweia.cn/c/home/ad/uisdckz
@@ -2500,7 +2505,6 @@ ZURB CSS | http://zurb.com/
 米随随 | http://s5s5.me/
 粉丝日志 | http://blog.fens.me/
 精通CSS（第2版） | https://book.douban.com/subject/4736167/
-精通正则表达式(第3版) | http://www.amazon.cn/gp/product/B008UCHA58/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;camp=536&amp;creative=3200&amp;creativeASIN=B008UCHA58&amp;linkCode=as2&amp;tag=whycss-23
 精通正则表达式(第3版) | http://search.dangdang.com/?key=精通正则表达式(第3版)
 糖拌西红柿 | http://gaowhen.com/
 素材中国 | http://www.sccnn.com/
@@ -2704,7 +2708,6 @@ ZURB CSS | http://zurb.com/
 销售经理 | http://www.ceconline.com/sales_marketing/
 销售达人 | http://www.liuqianjin.com/
 锋利的jQuery | https://book.douban.com/subject/10792216/
-锋利的jQuery(第2版) | http://www.amazon.cn/gp/product/B0089TDFNS/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;camp=536&amp;creative=3200&amp;creativeASIN=B0089TDFNS&amp;linkCode=as2&amp;tag=whycss-23
 锋利的jQuery(第2版) | http://search.dangdang.com/?key=锋利的jQuery(第2版)
 长江七号 | http://www.xiongchao.net.cn/
 问卷星 | http://www.sojump.com/

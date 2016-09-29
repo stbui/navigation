@@ -56,8 +56,8 @@
                 <div class="clearfix"></div>
               </div>
               <div class="x_content">
-                <a href="/admin/linkl/repeat.html" class="btn btn-default">重名</a>
-                <a href="/admin/linkl/repeat.html" class="btn btn-default">链接</a>
+                <a href="/admin/link/repeat.html" class="btn btn-default">重名</a>
+                <a href="/admin/link/repeat.html?page=link" class="btn btn-default">链接</a>
                 <div class="table-responsive">
                   <table class="table table-striped jambo_table bulk_action">
                     <thead>
@@ -70,7 +70,7 @@
                     </thead>
 
                     <tbody>
-                    <% links.data.forEach(function(value){%>
+                    <% links.forEach(function(value){%>
                     <tr class="even pointer">
                       <td class=" "><%=value.sort_order%></td>
                       <td class=" "><a href="<%=value.link%>" target="_blank"><%=value.title%></a></td>

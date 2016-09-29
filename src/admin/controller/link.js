@@ -80,26 +80,43 @@ export default class extends Base {
     async repeatAction() {
         const {page} = this.get();
         const links = await this.model('links').order('title asc').select();
-
         let data = links;
-        let repeat_name = [];
-        for (var i = 0; i < data.length; i++) {
-            for (var j = 0; j < data.length; j++) {
-                if (data[i].title == data[j].title) {
-                    repeat_name[i] = data[j];
-                    console.log(value.title, '==', data[j].title)
+
+        let result = [];
+        for (var i = 0; i < data.length - 1; i++) {
+            if(page == 'link') {
+                if (data[i+1].link == data[i].link) {
+
+                    let l = data[i].link.length >80 ? data[i].link.substring(0,80):data[i].link;
+
+                    result.push({
+                        id: data[i].id,
+                        title: data[i].title,
+                        link:l,
+                    });
+                }
+            } else {
+                if (data[i+1].title == data[i].title) {
+
+                    let l = data[i].link.length >80 ? data[i].link.substring(0,80):data[i].link;
+
+                    result.push({
+                        id: data[i].id,
+                        title: data[i].title,
+                        link:l,
+                    });
                 }
             }
         }
 
         this.assign({
-            links: links,
-            repeat_name: repeat_name
+            links: result,
+            repeat_name: result
         });
 
-        this.json(repeat_name.length)
+        // this.json(result)
 
-        // return this.display();
+        return this.display();
     }
 
     searchAction() {
