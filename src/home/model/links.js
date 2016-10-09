@@ -19,4 +19,14 @@ export default class extends think.model.base {
 
         return this.getPage(num);
     }
+
+    getBlogList() {
+        this.field([this.getTableName() + '.id', this.getTableName() + '.title', this.getTableName() + '.link', this.getTableName() + '.image_link', this.getTableName() + '.description', this.getTablePrefix() + 'catalog.catalog_name as catalog_name']).join({
+            table: 'catalog',
+            join: 'left',
+            on: ['catalog_id', 'id']
+        }).where({'catalog_id': 607});
+
+        return this.order('title asc').select();
+    }
 }

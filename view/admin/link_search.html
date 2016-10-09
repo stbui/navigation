@@ -56,8 +56,8 @@
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                     <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">链接重复检测</a></li>
-                      <li><a href="#">链接失效检测</a></li>
+                      <li><a href="/admin/link/repeat.html">链接重复检测</a></li>
+                      <li><a href="/admin/link/404.html">链接失效检测</a></li>
                     </ul>
                   </li>
                   <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
@@ -96,7 +96,7 @@
                       <td class=" last">
                         <a href="<%=value.link%>" target="_blank" class="btn btn-primary btn-xs"><i class="fa fa-link"></i> 查看 </a>
                         <a href="/admin/link/edit.html?id=<%=value.id%>&type=<%=type%>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 修改 </a>
-                        <a href="/admin/link/delete.html?id=<%=value.id%>&type=<%=type%>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除 </a>
+                        <a href="/admin/link/delete.html?id=<%=value.id%>&type=<%=type%>" class="btn btn-danger btn-xs disabled"><i class="fa fa-trash-o"></i> 删除 </a>
                       </td>
                     </tr>
                     <%});%>

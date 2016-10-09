@@ -56,8 +56,8 @@
                 <div class="clearfix"></div>
               </div>
               <div class="x_content">
-                <a href="/admin/link/repeat.html" class="btn btn-default">重名</a>
-                <a href="/admin/link/repeat.html?page=link" class="btn btn-default">链接</a>
+                <a href="/admin/link/repeat.html" class="btn btn-default">名称重复</a>
+                <a href="/admin/link/repeat.html?page=link" class="btn btn-default">链接重复</a>
                 <div class="table-responsive">
                   <table class="table table-striped jambo_table bulk_action">
                     <thead>
@@ -77,7 +77,7 @@
                       <td class=" "><a href="<%=value.link%>" target="_blank"><%=value.link%></a></td>
                       <td class=" last">
                         <a href="/admin/link/edit.html?id=<%=value.id%>&page=<%=links.currentPage%>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 修改 </a>
-                        <a href="/admin/link/delete.html?id=<%=value.id%>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除 </a>
+                        <a href="/admin/link/delete.html?id=<%=value.id%>" class="btn btn-danger btn-xs disabled"><i class="fa fa-trash-o"></i> 删除 </a>
                       </td>
                     </tr>
                     <%});%>

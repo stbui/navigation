@@ -6,64 +6,248 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="Keywords" content="前端导航">
-    <meta name="description" content="前端导航" />
-    <title>前端导航</title>
-    <% include common/style.html%>
+    <meta name="description" content="前端导航"/>
+    <title>前端导航 - 码农庄园</title>
+
+    <style>
+        body { margin: 0; }
+        body { background-color: #eee; color: #222; text-shadow: 1px 1px 1px rgba(0, 0, 0, .004); font-family: proxima-nova, sans-serif; }
+        a { text-decoration: none; -webkit-transition: all .2s ease; transition: all .2s ease; }
+        a,
+        a:active,
+        a:focus,
+        a:hover { color: #222; }
+        ::selection { color: #fff; background: #FF5722; }
+        .main-wrap { width: 1280px; margin: 0 auto; }
+        .link-block { float: left; overflow: hidden; width: 310px; margin: 0 10px 0 0; }
+        .link { background: #fff; box-shadow: 0 1px 1px rgba(0, 0, 0, .075); -webkit-transition: all .2s ease; transition: all .2s ease; position: relative; display: block; float: left; overflow: hidden; box-sizing: border-box; height: 145px; width: 100%; position: relative; border: 1px solid #ddd; background: #fff; }
+        .link-block:hover { box-shadow: 0 2px 6px rgba(0, 0, 0, .075); }
+        .link-inner { padding: 3%; }
+        .link-description { font-size: 12px; line-height: 1.2; margin-top: 10px; }
+        .link-thumb { display: inline-block; box-sizing: border-box; margin-right: 15px; border: 1px solid #e9e8ea; -webkit-transition: all .2s ease; transition: all .2s ease; width: 40px; height: 40px; }
+        .link-main { display: inline-block; vertical-align: top; min-width: 180px; }
+        .link-title { font-weight: 700; line-height: 1; margin: 0 0 .35em; padding: 0; -webkit-transition: all .2s ease; transition: all .2s ease; font-size: 16px; }
+        .link-address { margin: 0; padding: 0; color: #6f6f6f; font-size: 13px; -webkit-transition: all .2s ease; transition: all .2s ease; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
+        .link-tags { position: relative; right: 0; }
+        .link-color { height: 5px; width: 100%; display: block; }
+        .header { height: 50px; box-shadow: 0 0 5px #888; margin-bottom: 10px; position: relative; z-index: 99; }
+        .logo { width: 100px; font-size: 20px; padding: 0 30px; font-family: "Microsoft YaHei"; background: #FF5722; color: #fff; float: left; text-align: center; height: 45px; padding-top: 5px; }
+        .logo a { color: #fff; padding: 0 30px; display: block; }
+        .logo a:hover { background: #e04d1f; }
+        .search { position: absolute; top: 0; left: 50%; margin-left: -500px; text-align: center; width: 1000px; line-height: 50px; }
+        .ad { float: right; font-size: 14px; color: #6f6f6f; margin-right: 10px; margin-top: 25px; }
+        .submit { font-size: 20px; line-height: 50px; font-family: "Microsoft YaHei"; background: #FF5722; color: #fff; float: right; text-align: center; }
+        .submit a { color: #fff; padding: 0 30px; display: block; }
+        .submit a:hover { background: #e04d1f; }
+        .btn { display: inline-block; padding: 6px 12px; margin-bottom: 0; font-size: 14px; font-weight: 400; line-height: 1.42857143; text-align: center; white-space: nowrap; vertical-align: middle; -ms-touch-action: manipulation; touch-action: manipulation; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; background-image: none; border: 1px solid transparent; }
+        .btn-search { color: #fff; background: #26B99A; border: 1px solid #169F85; }
+        .btn-recommend { color: #fff; background: #FF5722; border: 1px solid #FF5722; padding: 6px 28px; }
+        .category { position: relative; font-family: "Microsoft YaHei"; margin-bottom: 10px; }
+        .category-name { position: absolute; width: 16px; left: -26px; top: 0; bottom: 0; padding: 0 5px; color: #fff; background: #FF5722; font-size: 16px; border-bottom-left-radius: 18px; border-top-left-radius: 18px; box-shadow: 0 2px 6px #888; }
+        .category-title { position: absolute; top: 25%; }
+        .category-title a { color: #fff; }
+        .clearfix { clear: both; }
+        .tool { position: fixed; right: 0; top: 0; bottom: 0; width: 50px; background: #923113; z-index: 1; display: none; }
+        .small-title { font-size: 12px; color: #ddd; }
+        .footer { position: relative; background-color: #031523; color: #344451; text-align: center; padding: 26px 0; font-size: 12px; }
+        .copyright { }
+        .counter { font-size: 28px; color: #fff; font-size: 50px; font-weight: bold; }
+        .recommend { box-shadow: inset 0 0 10px #fff; padding: 10px; color: #fff; }
+        .recommend:hover { color: #344451; }
+        .marsk { position: fixed; top: 0; left: 0; bottom: 0; right: 0; background: rgba(0, 0, 0, .5); z-index: 100; font-size: 14px; font-family: "Microsoft YaHei"; display: none; }
+        .marsk-content { position: fixed; top: 50%; left: 50%; width: 600px; margin-left: -300px; margin-top: -250px; background: #fff; z-index: 101; }
+        .marsk-title { border-bottom: 1px solid #ddd; padding: 10px; }
+        .marsh-body { padding: 8px; text-align: center; }
+        .marsk .close { float: right; cursor: pointer; }
+        .table { margin: auto; width: 100%; font-size: 16px; }
+        .table td { padding: 5px 0; }
+        .table input,
+        .table textarea,
+        .table select { width: 400px; }
+        .table textarea { height: 80px; }
+        .text-right { text-align: right; }
+        input { height: 24px; font-size: 16px; padding: 5px; }
+        textarea { font-size: 16px; padding: 5px; }
+        select { font-size: 16px; padding: 5px; }
+        @media only screen and (min-width:1000px) { }
+        @media only screen and (min-width:1000px) and (max-width:1280px) {
+            .main-wrap { width: 1000px; }
+            .link-block { width: 322px; }
+        }
+        @media only screen and (min-width:1280px) and (max-width:1920px) {
+            .main-wrap { width: 1280px; }
+            .link-block { width: 310px; }
+        }
+    </style>
 </head>
 
-<body class="nav-md">
-<div class="container body">
-    <div class="main_container">
-        <div class="right_col" role="main" style="margin-left: 0;">
-            <div class="">
-                <div class="page-title">
-                    <div class="title_left">
-                        <h3><a href="/">网址列表</a></h3>
-                    </div>
+<body>
+<div class="tool">
 
-                    <div class="title_right">
-                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="搜索...">
-                                <span class="input-group-btn">
-                              <button class="btn btn-default" type="button">Go!</button>
-                            </span>
-                            </div>
+</div>
+
+<div class="header">
+    <div class="logo">码农庄园
+        <div class="small-title">前端导航网址</div>
+    </div>
+    <div class="search"></div>
+    <div class="submit"><a href="javascript:;" onclick="showModal()">我要推荐</a></div>
+    <div class="ad">已收录网址：<%=count.link%></div>
+</div>
+
+<div class="main-wrap">
+    <% catalog.forEach((value,key)=>{ %>
+    <div class="category">
+        <div class="category-name">
+            <div class="category-title"><a href="#"><%=value.catalog_name%></a></div>
+        </div>
+        <%
+        links.forEach((item, k)=>{
+
+        <div class="link-block">
+            <div class="link">
+                <div class="link-inner">
+                    <div class="link-top">
+                        <% if(item.image_link) {%>
+                        <a href="<%=item.link%>" target="_blank">
+                            <img class="link-thumb" src="<%=item.image_link%>" alt="<%=item.title%>">
+                        </a>
+                        <%} else {%><%}%>
+                        <div class="link-main">
+                            <a href="<%=item.link%>" target="_blank"><h2 class="link-title"><%=item.title%></h2></a>
+                            <a href="<%=item.link%>" target="_blank"><h6 class="link-address"><%=item.link%></h6></a>
+                            <div class="link-tags"></div>
                         </div>
                     </div>
-                </div>
-
-                <div class="clearfix"></div>
-
-                <% catalog.forEach((value, key)=>{ %>
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="x_panel">
-                            <div class="x_title">
-                                <h2><%=value.catalog_name %></h2>
-                                <ul class="nav navbar-right panel_toolbox">
-                                    <li><a class="close-link"><i class="fa fa-close"></i> 隐藏</a></li>
-                                    </ul>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="x_content">
-                                <%
-                                links.forEach(item=>{
-                                if(value.id == item.catalog_id) {
-                                %>
-                                <a href="<%=item.link%>" target="_blank"><%=item.title%></a>
-                                <%
-                                }
-                                });%>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <% });%>
+                    <p class="link-description"><%=item.description%></p></div>
             </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <% });%>
+</div>
+
+
+<div class="footer">
+    <div class="main-wrap">
+        <div>
+            <span>收录人气站</span>
+            <span class="counter"><%=count.link%></span>
+            <span>个</span>
+            <span style="float: left">更新日期:<%=update%></span>
+            <span style="float: right"><a href="javascript:;" onclick="d()" class="recommend">我要下载</a> <a href="javascript:;" onclick="showModal()" class="recommend">我要推荐</a></span>
+        </div>
+        <div class="copyright"><span>Copyright © 2016 码农庄园 - 前端导航网址</span></div>
+    </div>
+</div>
+
+<div class="marsk" id="recommend">
+    <div class="marsk-content" id="marsk-content">
+        <div class="marsk-title"><span class="close">关闭</span>我要推荐</div>
+        <div class="marsh-body">
+            <form method="post" action="/index/recommend">
+                <table class="table">
+                    <tr>
+                        <td class="text-right">网址名称：</td>
+                        <td><input type="text" name="title"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">访问链接：</td>
+                        <td><input type="text" name="link"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">网址logo：</td>
+                        <td><input type="text" name="image_link"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">网址分类：</td>
+                        <td>
+                            <select name="catalog_id">
+                                <option value="621">请选择</option>
+                                <% catalog.forEach(item=>{ %>
+                                <option value="<%=item.id%>"><%=item.catalog_name%></option>
+                                <%});%>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">一句话介绍：</td>
+                        <td><textarea name="description"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"></td>
+                        <td>
+                            <button type="submit" class="btn btn-recommend">推荐</button>
+                            <span id="message"><%=message%></span>
+                        </td>
+                    </tr>
+                </table>
+            </form>
         </div>
     </div>
 </div>
-<% include common/script.html%>
+
+<div class="marsk" id="download">
+    <div class="marsk-content">
+        <div class="marsk-title"><span class="close">关闭</span>我要下载</div>
+        <div class="marsh-body">
+            <a href="/index/download?type=html" class="btn btn-recommend">HTML</a>
+            <a href="/index/download?type=markdown" class="btn btn-recommend">MarkDown</a>
+            <a href="/index/download?type=json" class="btn btn-recommend">JSON</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function d() {
+        var m = document.getElementById('download');
+        m.style.display = 'block';
+        m.onclick = function (e) {
+            hide(m);
+        }
+
+        var c =  m.getElementsByClassName('marsk-content')[0];
+        c.onclick = function (e) {
+            e.stopPropagation();
+        }
+
+        var close = m.getElementsByClassName('close')[0];
+        close.onclick = function (e) {
+            hide(m);
+        }
+    }
+
+    function showModal() {
+        var m = document.getElementById('recommend');
+        m.style.display = 'block';
+        m.onclick = function (e) {
+            hide(m);
+        }
+
+        var c =  m.getElementsByClassName('marsk-content')[0];
+        c.onclick = function (e) {
+            e.stopPropagation();
+        }
+
+        var close = m.getElementsByClassName('close')[0];
+        close.onclick = function (e) {
+            hide(m);
+        }
+    }
+
+    function hide(id) {
+        id.style.display = 'none';
+        msg();
+    }
+
+    function msg() {
+        document.getElementById('message').innerHTML = '';
+    }
+
+    var message= '<%=message%>'
+    if(message) {
+        showModal()
+    }
+</script>
 </body>
 </html>

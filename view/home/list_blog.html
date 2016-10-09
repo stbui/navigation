@@ -96,14 +96,10 @@
 </div>
 
 <div class="main-wrap">
-    <% catalog.forEach((value,key)=>{ %>
     <div class="category">
-        <div class="category-name">
-            <div class="category-title"><a href="#"><%=value.catalog_name%></a></div>
-        </div>
+
         <%
         links.forEach((item, k)=>{
-        if(value.id == item.catalog_id) {
         %>
         <div class="link-block">
             <div class="link">
@@ -123,10 +119,9 @@
                     <p class="link-description"><%=item.description%></p></div>
             </div>
         </div>
-        <%}});%>
+        <%});%>
         <div class="clearfix"></div>
     </div>
-    <% });%>
 </div>
 
 
@@ -148,42 +143,42 @@
         <div class="marsk-title"><span class="close">关闭</span>我要推荐</div>
         <div class="marsh-body">
             <form method="post" action="/index/recommend">
-            <table class="table">
-                <tr>
-                    <td class="text-right">网址名称：</td>
-                    <td><input type="text" name="title"></td>
-                </tr>
-                <tr>
-                    <td class="text-right">访问链接：</td>
-                    <td><input type="text" name="link"></td>
-                </tr>
-                <tr>
-                    <td class="text-right">网址logo：</td>
-                    <td><input type="text" name="image_link"></td>
-                </tr>
-                <tr>
-                    <td class="text-right">网址分类：</td>
-                    <td>
-                        <select name="catalog_id">
-                            <option value="621">请选择</option>
-                            <% catalog.forEach(item=>{ %>
-                            <option value="<%=item.id%>"><%=item.catalog_name%></option>
-                            <%});%>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-right">一句话介绍：</td>
-                    <td><textarea name="description"></textarea></td>
-                </tr>
-                <tr>
-                    <td class="text-right"></td>
-                    <td>
-                        <button type="submit" class="btn btn-recommend">推荐</button>
-                        <span id="message"><%=message%></span>
-                    </td>
-                </tr>
-            </table>
+                <table class="table">
+                    <tr>
+                        <td class="text-right">网址名称：</td>
+                        <td><input type="text" name="title"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">访问链接：</td>
+                        <td><input type="text" name="link"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">网址logo：</td>
+                        <td><input type="text" name="image_link"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">网址分类：</td>
+                        <td>
+                            <select name="catalog_id">
+                                <option value="621">请选择</option>
+                                <% catalog.forEach(item=>{ %>
+                                <option value="<%=item.id%>"><%=item.catalog_name%></option>
+                                <%});%>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">一句话介绍：</td>
+                        <td><textarea name="description"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"></td>
+                        <td>
+                            <button type="submit" class="btn btn-recommend">推荐</button>
+                            <span id="message"><%=message%></span>
+                        </td>
+                    </tr>
+                </table>
             </form>
         </div>
     </div>

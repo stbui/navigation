@@ -38,12 +38,12 @@ export default class extends Base {
     editAction() {
         const param = this.param();
         const {id} = param;
-        const {title, link, catalog_id, sort_order, description, status_is, image_link} = param;
+        const {title, link, catalog_id, sort_order, description, status_is, image_link,link_github} = param;
         const {type, page} = param;
 
         let links = this.model('links');
         if (this.isPost()) {
-            links = links.where({id}).update({title, link, catalog_id, sort_order, description, image_link, status_is});
+            links = links.where({id}).update({title, link,link_github, catalog_id, sort_order, description, image_link, status_is});
 
             switch (type) {
                 case 'status':

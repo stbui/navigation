@@ -5,20 +5,24 @@ import Base from './base.js';
 export default class extends Base {
 
     async indexAction() {
-        const {id} = this.get();
-        const links = this.model('links').getPage();
-        const catalog = await  this.model('catalog').where({id}).select();
-
-        const template = {
-            default: 'index',
-            topic: 'topic'
-        }
+        const linksModel = await this.model('links').getBlogList();
+        const catalog = await this.model('catalog').order('sort_order asc').select();
+        const linkCount = 2751;
 
         this.assign({
-            links: links,
+            links: linksModel,
             catalog: catalog,
+            count: {
+                link: linkCount,
+            },
+            update: think.datetime(),
+            message: this.cookie('message'),
         });
 
-        return this.display(template.default);
+        this.cookie('message', null)
+
+
+        return this.display('blog');
+
     }
 }

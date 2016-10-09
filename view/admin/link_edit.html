@@ -62,6 +62,12 @@
                     </div>
                   </div>
                   <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">github</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input type="text" name="link_github" class="form-control col-md-7 col-xs-12" value="<%=data.link_github%>">
+                    </div>
+                  </div>
+                  <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">网址logo
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
@@ -93,6 +99,13 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="links_link">一句话介绍</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                       <textarea name="description" class="form-control"><%=data.description%></textarea>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">标签分类</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <input id="tags_1" name="tag" type="text" class="tags form-control" value="" />
+                      <div id="suggestions-container" style="position: relative; float: left; width: 250px; margin: 10px;"></div>
                     </div>
                   </div>
                   <div class="form-group">
@@ -134,5 +147,13 @@
 </div>
 
 <% include common/script.html%>
+<script src="/static/vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#tags_1').tagsInput({
+      width: 'auto'
+    });
+  });
+</script>
 </body>
 </html>
