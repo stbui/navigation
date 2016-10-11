@@ -105,7 +105,7 @@
                   <nav>
                     <ul class="pagination">
                       <% if(links.currentPage>1) { %>
-                      <li><a href="/admin/link/search.html?type=<%=type%>&page=<%=links.currentPage-1%>">&laquo;</a></li>
+                      <li><a href="/admin/link/search.html?type=<%=type%>&keywords=<%=keywords%>&page=<%=links.currentPage-1%>">&laquo;</a></li>
                       <% } %>
 
                       <% for(var i=1;i<=links.totalPages;i++) {
@@ -113,12 +113,12 @@
                       %>
                       <li class="active"><a href="javascript:;"><%=i%></a></li>
                       <%    } else { %>
-                      <li><a href="/admin/link/search.html?type=<%=type%>&page=<%=i%>"><%=i%></a></li>
+                      <li><a href="/admin/link/search.html?type=<%=type%>&keywords=<%=keywords%>&page=<%=i%>"><%=i%></a></li>
                       <%    } %>
                       <% } %>
 
                       <% if(links.currentPage < links.totalPages) { %>
-                      <li><a href="/admin/link/search.html?type=<%=type%>&page=<%=links.currentPage+1%>">&raquo;</a></li>
+                      <li><a href="/admin/link/search.html?type=<%=type%>&keywords=<%=keywords%>&page=<%=links.currentPage+1%>">&raquo;</a></li>
                       <% } %>
                     </ul>
                   </nav>

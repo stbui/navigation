@@ -45,19 +45,19 @@ export default class extends think.model.base {
         }).where(_data).find();
     }
 
-    searchTitleList(keywork, page) {
+    searchTitleList(keywords, page) {
         this.field([this.getTableName() + '.*', this.getTablePrefix() + 'catalog.catalog_name as catalog_name']).join({
             table: 'catalog',
             join: 'left',
             on: ['catalog_id', 'id']
         });
 
-        this.where({'title': ["like", "%" + keywork + "%"]});
+        this.where({'title': ["like", "%" + keywords + "%"]});
 
         return this.getPage(page);
     }
 
-    searchStatusList(keywork, page) {
+    searchStatusList(keywords, page) {
         this.field([this.getTableName() + '.*', this.getTablePrefix() + 'catalog.catalog_name as catalog_name']).join({
             table: 'catalog',
             join: 'left',
@@ -69,7 +69,7 @@ export default class extends think.model.base {
         return this.getPage(page);
     }
 
-    searchCategoryList(keywork, page) {
+    searchCategoryList(keywords, page) {
         this.field([this.getTableName() + '.*', this.getTablePrefix() + 'catalog.catalog_name as catalog_name']).join({
             table: 'catalog',
             join: 'left',
@@ -77,7 +77,7 @@ export default class extends think.model.base {
         });
 
 
-        this.where({catalog_name: ["like", "%" + keywork + "%"]});
+        this.where({catalog_name: ["like", "%" + keywords + "%"]});
 
 
         return this.getPage(page);

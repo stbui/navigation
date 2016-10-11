@@ -1,87 +1,366 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="Keywords" content="前端导航">
-    <meta name="description" content="前端导航" />
-    <title>前端导航 - 码农庄园</title>
+    <meta name="description"
+          content="码农庄园网址导航站是为国内的朋友们倾力打造的互联网资源聚合平台，包含了前端人脉圈子、博客、CSS/JS/HTML资源教程、高清大图、社区、产品经理站、工具、前端框架、界面设计、网站模版、设计教程等内容。">
+    <meta name="keywords"
+          content="博客导航,前端工具,CSS3动画,JS框架,UED博客,产品经理,信息图录,UI设计,框架,开发工具,前端代码,灵感创意,界面设计,社区组织,网站模版,设计教程,高清图库">
+    <meta name="author" content="Joozo">
+    <title>码农庄园 - 最好用的开源的网址导航程序</title>
+    <link rel="shortcut icon" href="favicon.png">
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <link rel="icon" href="favicon.ico">
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-    <% include common/style.html%>
+    <style>
+        body { font-family: "Microsoft Yahei", Helvetica; }
+        a { color: #999; transition: all .25s ease-in-out; -webkit-transition: all .25s ease-in-out; -moz-transition: all .25s ease-in-out; -o-transition: all .25s ease-in-out }
+        a:hover { text-decoration: none; color: inherit; }
+        .container[role=main] { padding-top: 60px }
+        .banner img { width: 100% }
+
+        .navbar-default {
+            border-top: 2px solid #FF5722;
+            box-shadow: 0 1px 2px #e1e1e1;
+        }
+        .navbar-brand {
+            font-size: 20px;
+        }
+        .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+            background: #FF5722;
+            color: #fff;
+            font-size: 16px;
+        }
+        .panel { border-radius: 0 }
+        .panel-heading { height: 38px; border-top-left-radius: 0; border-top-right-radius: 0 }
+        .panel-grey { border-color: #e9e7ef }
+        .panel-grey > .panel-heading { color: #999; background-color: #f0f0f4; border-color: #e9e7ef }
+        .panel-grey > .panel-heading { color: #999; background-color: #fbeae4; border-color: #fbeae4; }
+        .panel-lightgrey > .panel-heading { color: #888; background-color: #ECF0F1; border-color: #BDC3C7 }
+        .padding-none { padding: 0 }
+        .padding-none .row { margin-left: 0; margin-right: 0 }
+        .padding-none .row .col-sm-2 { padding-right: 0; padding-left: 0; margin-bottom: -1px; }
+        .padding-none .padding-content { min-height: 81px; padding: 10px; border-right: 1px dotted #E5E5E5; border-bottom: 1px dotted #E5E5E5; transition: background 1s, color .5s; -webkit-transition: background 1s, color .5s; -moz-transition: background 1s, color .5s; -o-transition: background 1s, color .5s; }
+        .padding-none .row a:nth-child(6n) .padding-content { border-right: none; }
+        .padding-content .icon-tags,
+        .padding-content .icon-hot { position: relative; top: -0.5em; display: inline-block; font-size: .5em; font-weight: 400; margin-right: 5px; text-transform: capitalize; }
+        .padding-content .icon-tags,
+        .padding-content .icon-tags a { color: #ffa631; }
+        .padding-content .icon-hot,
+        .padding-content .icon-hot a { color: #ff4e20; }
+        .padding-content b { display: block; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; text-transform: capitalize; }
+        .padding-none .padding-content:a { color: #FFF; text-decoration: none }
+        .padding-none .padding-content:hover { color: #2ECC71; background: #ECF0F1; cursor: pointer }
+        .rec-content li { list-style: none; display: inline-block; float: left; padding: 0 7px }
+        .rec-content li a { color: #F1C40F }
+        .footer { background-color: #031523; color: #aaa; font-weight: 100; border-top: solid 1px #f1f1f1; padding-bottom: 20px; padding-top: 20px; text-align: center; padding: 26px 0; font-size: 12px; }
+        #gotop { position: fixed; bottom: 50px; right: 40px; top: auto; width: 40px; height: 40px; line-height: 40px; font-size: 12px; text-align: center; color: #3d4450; background: #DEDEDE; transition: font-size 1s, background 1s; cursor: pointer; z-index: 77 }
+        #gotop:hover { color: #fff; font-size: 20px; background: #FF5722; transition: all .25s ease-in-out; -webkit-transition: all .25s ease-in-out; -moz-transition: all .25s ease-in-out; -o-transition: all .25s ease-in-out }
+        * html #gotop { position: absolute; bottom: auto; top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop, 10)||0)-(parseInt(this.currentStyle.marginBottom, 10)||0))); }
+        .badge { font-weight: 400; background: #2ECC71; font-size: 0.5em; }
+        .in-tips { display: inline-block; font-size: 0.5em; padding-left: 10px; }
+        .in-tips span { font-style: italic; color: #27AE60; }
+        .main-box .panel-title { color: #061127; text-transform: capitalize; }
+        @media only screen and (max-width:767px) {
+            .padding-none .padding-content { min-height: 20px; border-right: none; }
+            .padding-none .row a:nth-child(n) .padding-content { border-bottom: 1px dotted #E5E5E5; }
+            .padding-none .row a:nth-last-child(1) .padding-content { border-bottom: none; }
+        }
+        @media only screen and (min-width:768px) and (max-width:1199px) {
+            .padding-none .padding-content { height: 101px; overflow: hidden; }
+        }
+        .link-content { font-size: 0.8em; }
+        .link-content * { margin: 0; padding: 0; }
+        .big { font-size: 1.5em; }
+        .page-header h1 { font-family: "Poiret One" }
+        .navbar-brand > img { height: 39px; }
+
+        /*base code*/
+        .animated { -webkit-animation-duration: 1s; animation-duration: 1s; -webkit-animation-fill-mode: both; animation-fill-mode: both; }
+        .animated.infinite { -webkit-animation-iteration-count: infinite; animation-iteration-count: infinite; }
+        .animated.hinge { -webkit-animation-duration: 2s; animation-duration: 2s; }
+
+        /*the animation definition*/
+        @-webkit-keyframes wobble {
+            0% { -webkit-transform: none; transform: none }
+            15% { -webkit-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg); transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg) }
+            30% { -webkit-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg); transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg) }
+            45% { -webkit-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg); transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg) }
+            60% { -webkit-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg); transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg) }
+            75% { -webkit-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg); transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg) }
+            100% { -webkit-transform: none; transform: none }
+        }
+        @keyframes wobble {
+            0% { -webkit-transform: none; -ms-transform: none; transform: none }
+            15% { -webkit-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg); -ms-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg); transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg) }
+            30% { -webkit-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg); -ms-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg); transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg) }
+            45% { -webkit-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg); -ms-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg); transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg) }
+            60% { -webkit-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg); -ms-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg); transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg) }
+            75% { -webkit-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg); -ms-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg); transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg) }
+            100% { -webkit-transform: none; -ms-transform: none; transform: none }
+        }
+        .wobble { -webkit-animation-name: wobble; animation-name: wobble }
+        .counter { font-size: 28px; color: #fff; font-size: 50px; font-weight: bold; }
+        .recommend { box-shadow: inset 0 0 10px #fff; padding: 10px; color: #fff; }
+        .recommend:hover { color: #344451; }
+        .marsk { position: fixed; top: 0; left: 0; bottom: 0; right: 0; background: rgba(0, 0, 0, .5); z-index: 100; font-size: 14px; font-family: "Microsoft YaHei"; display: none; }
+        .marsk-content { position: fixed; top: 50%; left: 50%; width: 600px; margin-left: -300px; margin-top: -250px; background: #fff; z-index: 101; }
+        .marsk-title { border-bottom: 1px solid #ddd; padding: 10px; }
+        .marsh-body { padding: 8px; text-align: center; }
+        .marsk .close { float: right; cursor: pointer; }
+        .table { margin: auto; width: 100%; font-size: 16px; }
+        .table>tbody>tr>td { padding: 5px 0; border: 0 }
+        .table input,
+        .table textarea,
+        .table select { width: 400px; }
+        .table textarea { height: 80px; }
+        .text-right { text-align: right; }
+        .btn-recommend { color: #fff; background: #FF5722; border: 1px solid #FF5722; padding: 6px 28px; }
+
+        /* cyrillic */
+        @font-face { font-family: 'Poiret One'; font-style: normal; font-weight: 400; src: local('Poiret One'), local('PoiretOne-Regular'), url(https://fonts.gstatic.com/s/poiretone/v4/cKr_e199f0xMkxMkRbEJXyEAvth_LlrfE80CYdSH47w.woff2) format('woff2'); unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+
+        /* latin-ext */
+        @font-face { font-family: 'Poiret One'; font-style: normal; font-weight: 400; src: local('Poiret One'), local('PoiretOne-Regular'), url(https://fonts.gstatic.com/s/poiretone/v4/3Annd_XP-99FcGbOpm6fVCEAvth_LlrfE80CYdSH47w.woff2) format('woff2'); unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF; }
+
+        /* latin */
+        @font-face { font-family: 'Poiret One'; font-style: normal; font-weight: 400; src: local('Poiret One'), local('PoiretOne-Regular'), url(https://fonts.gstatic.com/s/poiretone/v4/HrI4ZJpJ3Fh0wa5ofYMK8fk_vArhqVIZ0nv9q090hN8.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
+    </style>
 </head>
 
-<body class="nav-md">
-<div class="container body">
-    <div class="main_container">
+<body role="document">
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand wobble animated" href="/" title="码农庄园网址导航">码农庄园</a>
+            <!--<a class="navbar-brand" href="/" title="码农庄园网址导航">码农庄园</a>-->
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="/index.html">首页</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="javascript:;" onclick="showModal()">我要推荐</a></li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>
+<div class="container" role="main">
+    <div class="main-box">
 
-        <% include  common/silder.html %>
-
-        <!-- top navigation -->
-        <% include  common/top.html %>
-        <!-- /top navigation -->
-
-        <!-- page content -->
-        <div class="right_col" role="main" style="min-height: 932px;">
-            <div class="">
-                <div class="page-title">
-                    <div class="title_left">
-                        <h3>网址列表</h3>
-                    </div>
-
-                    <div class="title_right">
-                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="搜索...">
-                                <span class="input-group-btn">
-                              <button class="btn btn-default" type="button">Go!</button>
-                            </span>
-                            </div>
-                        </div>
-                    </div>
+        <% catalog.forEach((value,key)=>{ %>
+        <div class="panel panel-grey">
+            <div class="panel-heading">
+                <div class="pull-left">
+                    <h3 class="panel-title">
+                        <a title="JavaScript" href="/list?catalog=<%=value.catalog_name%>" target="_blank" id="JavaScript"><%=value.catalog_name%>
+                        </a>
+                        <!--<span class="badge">1</span>-->
+                    </h3>
                 </div>
-
-                <div class="clearfix"></div>
-
-                <% catalog.forEach((value, key)=>{ %>
+                <div class="pull-right text-right">
+                    <ul class="rec-content hidden-xs"></ul>
+                </div>
+            </div>
+            <div class="panel-body padding-none">
                 <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="x_panel">
-                            <div class="x_title">
-                                <h2><%=value.catalog_name %></h2>
-                                <ul class="nav navbar-right panel_toolbox">
-                                    <li><a class="close-link"><i class="fa fa-close"></i> 隐藏</a></li>
-                                    <li><a class="close-more" href="list.html?id=<%=value.id%>"><i class="fa fa-th-list"></i> 更多</a></li>
-                                </ul>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="x_content">
-                                <%
-                                links.forEach(item=>{
-                                    if(value.id == item.catalog_id) {
-                                    %>
-                                        <a href="<%=item.link%>" target="_blank"><%=item.title%></a>
-                                    <%
-                                    }
-                                });%>
+                    <%
+                    links.forEach((item, k)=>{
+                    if(value.id == item.catalog_id) {
+                    %>
+                    <a href="<%=item.link%>" title="<%=item.deacription%>" target="_blank">
+                        <div class="col-sm-2">
+                            <div class="padding-content">
+                                <b><i class="icon-tags">js</i><%=item.title%></b>
+                                <span class="link-content"><%=item.deacription%></span>
                             </div>
                         </div>
-                    </div>
+                    </a>
+                    <%}});%>
                 </div>
-                <% });%>
             </div>
         </div>
-        <!-- /page content -->
-
-        <!-- footer content -->
-        <% include  common/bottom.html %>
-        <!-- /footer content -->
+        <% });%>
 
     </div>
 </div>
+<footer class="footer">
+    <div class="container">
+        <div>
+            <span>收录人气站</span>
+            <span class="counter"><%=count.link%></span>
+            <span>个</span>
+            <span style="float: left">更新日期:<%=update%></span>
+            <span style="float: right"><a href="javascript:;" onclick="d()" class="recommend">我要下载</a> <a href="javascript:;" onclick="showModal()" class="recommend">我要推荐</a></span>
+        </div>
+        <div class="copyright"><span>Copyright © 2016 码农庄园 - 前端导航网址</span></div>
+    </div>
+</footer>
 
-<% include common/script.html%>
+<div style="display: none" class="glyphicon glyphicon-chevron-up" id="gotop"></div>
 
+<div class="marsk" id="recommend">
+    <div class="marsk-content" id="marsk-content">
+        <div class="marsk-title"><span class="close">关闭</span>我要推荐</div>
+        <div class="marsh-body">
+            <form method="post" action="/index/recommend">
+                <table class="table">
+                    <tr>
+                        <td class="text-right">网址名称：</td>
+                        <td><input type="text" name="title"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">访问链接：</td>
+                        <td><input type="text" name="link"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">网址logo：</td>
+                        <td><input type="text" name="image_link"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">网址分类：</td>
+                        <td>
+                            <select name="catalog_id">
+                                <option value="621">请选择</option>
+                                <% catalog.forEach(item=>{ %>
+                                <option value="<%=item.id%>"><%=item.catalog_name%></option>
+                                <%});%>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">一句话介绍：</td>
+                        <td><textarea name="description"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"></td>
+                        <td>
+                            <button type="submit" class="btn btn-recommend">推荐</button>
+                            <span id="message"><%=message%></span>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="marsk" id="download">
+    <div class="marsk-content">
+        <div class="marsk-title"><span class="close">关闭</span>我要下载</div>
+        <div class="marsh-body">
+            <a href="/index/download?type=html" class="btn btn-recommend">HTML</a>
+            <a href="/index/download?type=markdown" class="btn btn-recommend">MarkDown</a>
+            <a href="/index/download?type=json" class="btn btn-recommend">JSON</a>
+        </div>
+    </div>
+</div>
+
+
+<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script>
+    backTop=function (btnId){
+        var btn=document.getElementById(btnId);
+        var d=document.documentElement;
+        var b=document.body;
+        window.onscroll=set;
+        btn.onclick=function (){
+            btn.style.display="none";
+            window.onscroll=null;
+            this.timer=setInterval(function(){
+                d.scrollTop-=Math.ceil((d.scrollTop+b.scrollTop)*0.1);
+                b.scrollTop-=Math.ceil((d.scrollTop+b.scrollTop)*0.1);
+                if((d.scrollTop+b.scrollTop)==0) clearInterval(btn.timer,window.onscroll=set);
+            },10);
+        };
+        function set(){btn.style.display=(d.scrollTop+b.scrollTop>100)?'block':"none"}
+    };
+    backTop('gotop');
+
+    // Tip: avoid this ton of code using AniJS ;)
+
+    var element = $('.wobble');
+    // when mouseover execute the animation
+    element.mouseover(function(){
+        // the animation starts
+        element.toggleClass('wobble animated');
+        // do something when animation ends
+        element.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(e){
+            // trick to execute the animation again
+            $(e.target).removeClass('wobble animated');
+        });
+    });
+</script>
+<script>
+    function d() {
+        var m = document.getElementById('download');
+        m.style.display = 'block';
+        m.onclick = function (e) {
+            hide(m);
+        }
+
+        var c =  m.getElementsByClassName('marsk-content')[0];
+        c.onclick = function (e) {
+            e.stopPropagation();
+        }
+
+        var close = m.getElementsByClassName('close')[0];
+        close.onclick = function (e) {
+            hide(m);
+        }
+    }
+
+    function showModal() {
+        var m = document.getElementById('recommend');
+        m.style.display = 'block';
+        m.onclick = function (e) {
+            hide(m);
+        }
+
+        var c =  m.getElementsByClassName('marsk-content')[0];
+        c.onclick = function (e) {
+            e.stopPropagation();
+        }
+
+        var close = m.getElementsByClassName('close')[0];
+        close.onclick = function (e) {
+            hide(m);
+        }
+    }
+
+    function hide(id) {
+        id.style.display = 'none';
+        msg();
+    }
+
+    function msg() {
+        document.getElementById('message').innerHTML = '';
+    }
+
+    var message= '<%=message%>'
+    if(message) {
+        showModal()
+    }
+</script>
 </body>
 </html>

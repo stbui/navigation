@@ -7,7 +7,7 @@ import fs from 'fs';
 export default class extends Base {
 
     async indexAction() {
-        const links = await this.model('links').order('sort_order asc').select();
+        const links = await this.model('links').where({status_is:'Y'}).order('sort_order asc').select();
         const catalog = await this.model('catalog').order('sort_order asc').select();
         const linkCount = await this.model('links').count();
 
@@ -24,7 +24,7 @@ export default class extends Base {
         this.cookie('message', null)
 
 
-        return this.display('default');
+        return this.display();
     }
 
     async recommendAction() {

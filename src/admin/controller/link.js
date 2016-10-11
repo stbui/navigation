@@ -38,12 +38,22 @@ export default class extends Base {
     editAction() {
         const param = this.param();
         const {id} = param;
-        const {title, link, catalog_id, sort_order, description, status_is, image_link,link_github} = param;
         const {type, page} = param;
+        const {title, link, catalog_id, sort_order, description, status_is, image_link, link_github,tag} = param;
 
         let links = this.model('links');
         if (this.isPost()) {
-            links = links.where({id}).update({title, link,link_github, catalog_id, sort_order, description, image_link, status_is});
+            links = links.where({id}).update({
+                title,
+                link,
+                link_github,
+                catalog_id,
+                sort_order,
+                description,
+                image_link,
+                status_is,
+                tag
+            });
 
             switch (type) {
                 case 'status':
@@ -84,26 +94,26 @@ export default class extends Base {
 
         let result = [];
         for (var i = 0; i < data.length - 1; i++) {
-            if(page == 'link') {
-                if (data[i+1].link == data[i].link) {
+            if (page == 'link') {
+                if (data[i + 1].link == data[i].link) {
 
-                    let l = data[i].link.length >80 ? data[i].link.substring(0,80):data[i].link;
+                    let l = data[i].link.length > 80 ? data[i].link.substring(0, 80) : data[i].link;
 
                     result.push({
                         id: data[i].id,
                         title: data[i].title,
-                        link:l,
+                        link: l,
                     });
                 }
             } else {
-                if (data[i+1].title == data[i].title) {
+                if (data[i + 1].title == data[i].title) {
 
-                    let l = data[i].link.length >80 ? data[i].link.substring(0,80):data[i].link;
+                    let l = data[i].link.length > 80 ? data[i].link.substring(0, 80) : data[i].link;
 
                     result.push({
                         id: data[i].id,
                         title: data[i].title,
-                        link:l,
+                        link: l,
                     });
                 }
             }
@@ -120,25 +130,26 @@ export default class extends Base {
     }
 
     searchAction() {
-        const {keywork, type, page} = this.param();
+        const {keywords, type, page} = this.param();
         const links = this.model('links');
         let data;
 
         switch (type) {
             case 'catalog':
-                data = links.searchCategoryList(keywork, page);
+                data = links.searchCategoryList(keywords, page);
                 break;
             case 'status':
-                data = links.searchStatusList(keywork, page);
+                data = links.searchStatusList(keywords, page);
                 break;
             default:
-                data = links.searchTitleList(keywork, page);
+                data = links.searchTitleList(keywords, page);
                 break;
         }
 
         this.assign({
             links: data,
-            type: type
+            type: type,
+            keywords:keywords
         });
 
         return this.display();
