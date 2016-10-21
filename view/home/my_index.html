@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include common/meta.html %>
+    <title>前端导航</title>
+    <% include common/style.html%>
+    <link rel="stylesheet" href="/static/home/css/main.css">
+    <style>
+        .search {
+            width: 300px;
+            margin-bottom: 0;
+        }
+
+        .search-input {
+            padding-top: 14px;
+            margin-bottom: 0;
+        }
+
+        .avatar {
+            height: 29px;
+            width: 29px;
+            line-height: 29px;
+            font-size: 20px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background: #1ABB9C;
+            vertical-align: middle;
+            text-align: center;
+            color: #fff;
+        }
+
+        .btn-group {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+
+        <% include common/silder.html %>
+
+        <!-- top navigation -->
+        <% include common/top.html %>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main" style="min-height: 932px;">
+            <div class="">
+                <div class="page-title">
+                    <div class="row col-md-12">
+                        <div class="btn-group">
+                            <button id="showAll" class="btn btn-default btn-sm active js-type" data-type="0">全部</button>
+                        </div>
+                        <% catalog.forEach(item=>{ %>
+                        <div class="btn-group js-btn-group">
+                            <button class="btn btn-default btn-sm hidden js-btn-del" data-type="<%=item.id%>"><span
+                                    class="fa fa-close"></span></button>
+                            <button class="btn btn-default btn-sm js-type" data-type="<%=item.id%>">
+                                <%=item.catalog_name%>
+                            </button>
+                            <button class="btn btn-default btn-sm hidden js-btn-edit" data-type="<%=item.id%>"><span
+                                    class="fa fa-edit"></span></button>
+                        </div>
+                        <%});%>
+                        <div class="btn-group">
+                            <button class="btn btn-default btn-sm js-type" data-type="-1">未分组</button>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-default btn-sm js-catalog-add"><span class="fa fa-plus"></span>
+                            </button>
+                            <button class="btn btn-default btn-sm js-catalog-edit"><span class="fa fa-edit"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_content">
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <% include common/bottom.html %>
+        <!-- /footer content -->
+
+    </div>
+</div>
+
+<div class="marsk" id="recommend">
+    <div class="marsk-content">
+        <div class="marsk-title"><span class="close">关闭</span>我要推荐</div>
+        <div class="marsh-body">
+            <form id="form_rec" method="post" action="/my/recommend">
+                <table class="table">
+                    <tr>
+                        <td class="text-right">访问链接：</td>
+                        <td><input type="text" name="link"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">网址名称：</td>
+                        <td><input type="text" name="title"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">网址logo：</td>
+                        <td><input type="text" name="image_link"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">一句话介绍：</td>
+                        <td><textarea name="description"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"></td>
+                        <td>
+                            <button id="recommend_submit" type="submit" class="btn btn-success">推荐</button>
+                            <span id="message"></span>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="marsk" id="catalog">
+    <div class="marsk-content">
+        <div class="marsk-title"><span class="close">关闭</span>分类</div>
+        <div class="marsh-body">
+            <form id="form_catalog" method="post" action="/category/add.html">
+                <table class="table">
+                    <tr>
+                        <td class="text-right">分类名称：</td>
+                        <td><input type="text" name="catalog_name"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">分类顺序：</td>
+                        <td><input type="text" name="sort_order"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"></td>
+                        <td>
+                            <button type="submit" class="btn btn-success">确定</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="marsk" id="catalogModify">
+    <div class="marsk-content">
+        <div class="marsk-title"><span class="close">关闭</span>分类</div>
+        <div class="marsh-body">
+            <form id="form_catalog_Modify" method="post" action="/category/edit.html">
+                <table class="table">
+                    <tr>
+                        <td class="text-right">分类名称：</td>
+                        <td><input type="text" name="catalog_name"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">分类顺序：</td>
+                        <td><input type="text" name="sort_order"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"></td>
+                        <td>
+                            <button type="submit" class="btn btn-success">确定</button>
+                        </td>
+                    </tr>
+                </table>
+                <input type="hidden" name="id">
+            </form>
+        </div>
+    </div>
+</div>
+
+<% include common/script.html%>
+<script>
+    var uri = {
+        //获取url参数
+        getQueryString: function (key) {
+            var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+            var result = window.location.search.substr(1).match(reg);
+            return result ? decodeURIComponent(result[2]) : null;
+        }
+    }
+
+
+    var url = '/my/type.html';
+    var $type = $('.js-type');
+    var $content = $('.x_content');
+    var type_id = 0;
+
+    $type.on('click', function (e) {
+        e.preventDefault();
+        var $this = $(this);
+        type_id = $this.data('type');
+
+        var $btnGroup = $('.btn-group').find('button');
+
+        $btnGroup.removeClass('active');
+        $this.addClass('active');
+
+        getListData(type_id)
+    });
+
+    function getListData(type_id) {
+        $.ajax({
+            url: url,
+            type: 'post',
+            data: {catalog_id: type_id, topic_id: uri.getQueryString('id')},
+            success: function (data) {
+                var tpl = render(data.data);
+                $content.html(tpl);
+                addWebSite();
+            }
+        });
+    }
+
+    function render(data) {
+        var tpl = '<div class="link-block"><div class="link" style="text-align: center"><a href="javascript:;" id="addWebSite" data-toggle="modal" data-target=".modal"><span class="fa fa-plus" style="font-size: 90px;margin-top: 20px"></span></a></div></div>';
+        for (var i = 0; i < data.length; i++) {
+            var _data = data[i];
+            tpl += '<div class="link-block"> <div class="link"> <div class="link-inner"><div class="link-operate"><div class="dropdown"> <a id="dLabel" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-ellipsis-h"></span> </a> <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel"><li><a href="/link/edit.html?id=' + _data.id + '&topic=<%=controller.navType%>">编辑</a></li><li><a href="/link/delete.html?id=' + _data.id + '">删除</a></li><!--<li><a href="/link/move.html?id=' + _data.id + '">移动</a></li>--></ul> </div></div> <div class="link-top"> <div class="link-main"> <a href="' + _data.link + '" target="_blank"><h2 class="link-title">' + _data.title + '</h2></a> <a href="' + _data.link + '" target="_blank"><h6 class="link-address">' + _data.link + '</h6></a> <div class="link-tags"></div> </div> </div> <p class="link-description">' + _data.description + '</p></div> </div> </div>';
+        }
+
+        return tpl;
+    }
+
+    function addWebSite() {
+        $('#addWebSite').on('click', function () {
+            showModal();
+        });
+
+    }
+
+    /********************************************/
+
+    function showModal(id) {
+        var m = document.getElementById(id);
+        m.style.display = 'block';
+        m.onclick = function (e) {
+            hide(m);
+        }
+
+        var c = m.getElementsByClassName('marsk-content')[0];
+        c.onclick = function (e) {
+            e.stopPropagation();
+        }
+
+        var close = m.getElementsByClassName('close')[0];
+        close.onclick = function (e) {
+            hide(m);
+        }
+    }
+
+    function hide(id) {
+        id.style.display = 'none';
+        msg();
+    }
+
+    function msg() {
+        document.getElementById('message').innerHTML = '';
+    }
+
+    function showCatalog() {
+        var m = document.getElementById('catalog');
+        m.style.display = 'block';
+        m.onclick = function (e) {
+            hide(m);
+        }
+
+        var c = m.getElementsByClassName('marsk-content')[0];
+        c.onclick = function (e) {
+            e.stopPropagation();
+        }
+
+        var close = m.getElementsByClassName('close')[0];
+        close.onclick = function (e) {
+            hide(m);
+        }
+    }
+
+    //    添加链接
+    function recommendSubmit() {
+        var $submit = $('#recommend_submit');
+
+        $submit.on('click', function (e) {
+            e.preventDefault();
+            var $form = $('#form_rec');
+
+            var data = {};
+            var $input = $form.find('input');
+            $input.each(function (k, v) {
+                var $_this = $(v);
+                data[$_this.attr('name')] = $_this.val();
+            });
+            data.description = $form.find('textarea').val();
+
+            if (type_id <= 0) {
+                type_id = '';
+            }
+            data.catalog_id = type_id;
+            data.topic_id = uri.getQueryString('id');
+
+            $.ajax({
+                url: $form.attr('action'),
+                type: 'post',
+                data: data,
+                success: function (data) {
+                    window.location.reload();
+                }
+            });
+        });
+
+    }
+
+
+    getListData(0);
+    recommendSubmit();
+
+
+    /*********************************************/
+    /* 添加分类 */
+    $('.js-catalog-add').on('click', function (e) {
+        showModal('recommend');
+    });
+
+    var $form_catalog = $('#form_catalog');
+    $form_catalog.find('button').on('click', function (e) {
+        e.preventDefault();
+
+        var data = {};
+        var $input = $form_catalog.find('input');
+        $input.each(function (k, v) {
+            var $_this = $(v);
+            data[$_this.attr('name')] = $_this.val();
+        });
+
+        data.topic_id = uri.getQueryString('id');
+
+        $.ajax({
+            url: $form_catalog.attr('action'),
+            type: 'post',
+            data: data,
+            success: function (data) {
+                window.location.reload();
+            }
+        });
+
+    });
+
+    var form_catalog_modify = $('#form_catalog_Modify');
+    form_catalog_modify.find('button').on('click', function (e) {
+        e.preventDefault();
+
+        var data = {};
+        var $input = form_catalog_modify.find('input');
+        $input.each(function (k, v) {
+            var $_this = $(v);
+            data[$_this.attr('name')] = $_this.val();
+        });
+
+        data.topic_id = uri.getQueryString('id');
+
+        $.ajax({
+            url: form_catalog_modify.attr('action'),
+            type: 'post',
+            data: data,
+            success: function (data) {
+                window.location.reload();
+            }
+        });
+
+    });
+
+    var status_catalog_edit = false;
+    $('.js-catalog-edit').on('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        var array_btn = $('.js-btn-group');
+        array_btn.each(function (k, v) {
+            var $_this = $(v);
+            var $btn = $_this.find('button');
+            $btn.removeClass('hidden');
+            var del = $btn.first();
+            var edit = $btn.last();
+
+            del.on('click', function () {
+                e.stopPropagation();
+                status_catalog_edit = true;
+
+                var type = del.data('type');
+
+                $.ajax({
+                    url: '/category/del.html',
+                    type: 'post',
+                    data: {id: type},
+                    success: function (data) {
+                        var group = $btn.parent();
+                        group.remove()
+                        status_catalog_edit = false;
+                    }
+                });
+            });
+
+            edit.on('click', function () {
+                var type = del.data('type');
+
+                $.ajax({
+                    url: '/category/find.html',
+                    type: 'post',
+                    data: {id:type},
+                    success: function (data) {
+                        var $form_catalog = $('#form_catalog_Modify');
+                        var $input = $form_catalog.find('input');
+                        $input.eq(0).val(data.data.catalog_name);
+                        $input.eq(1).val(data.data.sort_order);
+                        $input.eq(2).val(data.data.id);
+                        showModal('catalogModify');
+                    }
+                });
+
+            });
+
+        });
+
+    });
+
+
+
+    $(document).on('click', function () {
+        if (status_catalog_edit) return;
+        var array_btn = $('.js-btn-group');
+        array_btn.each(function (k, v) {
+            var $_this = $(v);
+            var $btn = $_this.find('button');
+
+            $btn.first().addClass('hidden');
+            $btn.last().addClass('hidden');
+        });
+    });
+</script>
+
+</body>
+</html>

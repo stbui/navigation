@@ -6,41 +6,37 @@
 
         <div class="clearfix"></div>
 
-        <!-- menu profile quick info -->
         <div class="profile">
             <div class="profile_pic">
-                <img src="http://127.0.0.1:8360/static/production/images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="/static/production/images/img.jpg" alt="" class="img-circle profile_img">
             </div>
             <div class="profile_info">
                 <span>欢迎,</span>
                 <h2>管理员</h2>
             </div>
         </div>
-        <!-- /menu profile quick info -->
 
         <br />
 
-        <!-- sidebar menu -->
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                    <li><a href="/admin/index.html"><i class="fa fa-home"></i> 主页 </a>
-                    </li>
-                    <li class="active"><a><i class="fa fa-edit"></i> 网址管理 <span class="fa fa-chevron-down"></span></a>
+                    <li><a href="/admin/index.html"><i class="fa fa-home"></i> 主页</a></li>
+                    <li><a><i class="fa fa-edit"></i> 网址管理<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: block">
-                            <li><a href="/admin/category.html">类别管理</a></li>
-                            <li><a href="/admin/link.html">列表管理</a></li>
-                            <li><a href="/admin/link/search.html?type=status">收录审核</a></li>
+                            <li class="<%=controller.navType=='category'?'active':''%>"><a href="/admin/category.html">类别管理</a></li>
+                            <li class="<%=controller.navType=='link'?'active':''%>"><a href="/admin/link.html">列表管理</a></li>
+                            <li class="<%=controller.navType=='search'?'active':''%>"><a href="/admin/link/search.html?type=status">收录审核</a></li>
                         </ul>
                     </li>
-                    <li><a><i class="fa fa-user"></i> 用户管理 <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-user"></i> 用户管理<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="#">用户列表</a></li>
                             <li><a href="#">用户添加</a></li>
                         </ul>
                     </li>
-                    <li><a><i class="fa fa-table"></i> 数据管理 <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-table"></i> 数据管理<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="/admin/data/collection.html">数据采集</a></li>
                             <li><a href="/admin/data.html">数据备份</a></li>
@@ -48,11 +44,8 @@
                     </li>
                 </ul>
             </div>
-
         </div>
-        <!-- /sidebar menu -->
 
-        <!-- /menu footer buttons -->
         <div class="sidebar-footer hidden-small">
             <a data-toggle="tooltip" data-placement="top" title="设置" href="/admin/setting.html">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
@@ -67,6 +60,5 @@
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
             </a>
         </div>
-        <!-- /menu footer buttons -->
     </div>
 </div>

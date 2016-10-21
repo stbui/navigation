@@ -7,13 +7,13 @@ export default class extends think.model.base {
         //查询第 1 页数据，每页 10 条数据
         let id = this.getTableName() + '.id';
 
-        return this.page(num, listRows).order('id desc').select();
+        return this.cache(10).page(num, listRows).select();
     }
 
     getList(num = 1) {
-        this.field().join({
+        this.field([this.getTableName() + '.*', this.getTablePrefix() + 'catalog.catalog_name as catalog_name']).join({
             table: 'catalog',
-            join: 'right',
+            join: 'left',
             on: ['catalog_id', 'id']
         });
 
@@ -27,6 +27,47 @@ export default class extends think.model.base {
             on: ['catalog_id', 'id']
         }).where({'catalog_id': 607});
 
-        return this.order('title asc').select();
+        return this.cache(10).order('title asc').select();
+    }
+
+    getStatusList(num) {
+        let res = this.where({status_is:'Y'}).order('sort_order asc').select();
+
+        return res;
+    }
+
+    getCount() {
+        let res = this.cache(10).count();
+
+        return res;
+    }
+
+    getTopicList(topicId) {
+        let res = this.where({topic_id:topicId}).select();
+
+        return res;
+    }
+
+    getNoGroupList() {
+    // .where({catalog_id: '', user_id, topic_id})
+        this.field([this.getTableName() + '.*', this.getTablePrefix() + 'catalog.catalog_name as catalog_name']).join({
+            table: 'catalog',
+            join: 'left',
+            on: ['catalog_id', 'id']
+        });
+
+        return this.getPage(num);
+    }
+
+    searchTitleList(keywords, page) {
+        this.field([this.getTableName() + '.*', this.getTablePrefix() + 'catalog.catalog_name as catalog_name']).join({
+            table: 'catalog',
+            join: 'left',
+            on: ['catalog_id', 'id']
+        });
+
+        this.where({'title': ["like", "%" + keywords + "%"]});
+
+        return this.getPage(page);
     }
 }

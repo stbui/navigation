@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <% include common/meta.html %>
+    <title>码农庄园 - 最好用的开源的网址收藏夹</title>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .btn-recommend { color: #fff; background: #FF5722; border: 1px solid #FF5722; padding: 6px 28px; }
+
+        .input-text, .sel_default { border: 1px #ddd solid; padding: 3px 10px 2px 10px; width: 300px; font-size: 14px; font-family: "微软雅黑", "Helvetica Neue", "Hiragino Sans GB", "Segoe UI", "Microsoft Yahei", Tahoma, Arial, STHeiti, sans-serif; color: #444; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px }
+        .file-default { border: 1px #ddd solid; width: 260px; height: 37px; line-height: 37px; font-family: "微软雅黑"; position: absolute; top: 0; left: 0; opacity: 0; -moz-opacity: 0; -webkit-opacity: 0; filter: alpha(opacity=0) }
+        .wrapper { height: 100%; margin-top: -4px; overflow: auto }
+        .bd, .hd, .ft { margin: auto; width: 600px }
+        .hd { margin-bottom: 20px; margin-top: 20px }
+        .hd .logo { display: block; width: 200px; font-size: 18px }
+        .field-title, .field-titles { background: transparent none repeat scroll 0 0; border-radius: 0; cursor: text; margin: 0; padding: 0; width: 100%; border-width: 1px; border-color: transparent }
+        .field-title, .field-titles { font-size: 14px; margin-bottom: 5px; margin-top: -5px; padding: 5px; display: block; font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif }
+        .bd { background: #f0f3f5 none repeat scroll 0 0; border: 1px solid #f2f2f2; box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.2) }
+        .rec-section { background: #fff none repeat scroll 0 0; padding: 20px; position: relative }
+        .rec-section-text { color: #999; font-size: 12px; line-height: 1.6em; min-height: 90px }
+        .rec-comment { padding: 20px 20px 15px }
+        .field-comment { margin-bottom: 8px; position: relative }
+        .field-comment span.img_list, .field-comment div.post-new-img { float: left; width: 100px; height: 100px; margin: 0 10px 10px 0; border: 1px #e5e5e5 solid; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; cursor: pointer; overflow: hidden; text-align: center; position: relative }
+        .field-comment span.img_list img { width: 100% }
+        .field-comment div.post-new-img p { margin-top: 28px; color: #808080; line-height: 25px }
+        .field-comment div.post-new-img { border: 1px #ccc dashed }
+        .rec-section-select .sel_default { width: 140px }
+    </style>
+</head>
+<body style="background-color: #f7fafc;">
+<div class="wrapper">
+    <div class="hd clearfix">
+        <a class="logo fl" href="/" target="_blank">码农庄园收藏夹</a>
+    </div>
+    <div class="bd">
+        <div class="rec-section">
+            <form id="website_form" method="post">
+                <input class="field-title" value="<%=data.name%>" name="name"/>
+                <textarea class="field-title  rec-section-text" name="description"><%=data.description%></textarea>
+                <!-- 选择分类-->
+                <div class="rec-section-select">
+	            	<span class="first-ele" id="add_web_type_span">
+	            		<select class="sel_default">
+                            <option value="12670" type="0" elected="selected">我的收藏</option>
+                        </select>
+                        <select class="sel_default"> <option value="12670" type="0">--请选择分类--</option>
+                            <option value="114294" type="1">资料</option>
+                            <option value="114295" type="1">视频</option>
+                            <option value="114296" type="1">新闻</option>
+                            <option value="114297" type="1">办公网址</option>
+                            <option value="114298" type="1">学习</option>
+                            <option value="114299" type="1">音乐</option>
+                            <option value="114300" type="1">工具</option>
+                        </select>
+                    </span>
+                </div>
+            </form>
+        </div>
+        <div class="rec-comment">
+            <div class="field-comment clearfix">
+                <%if(data.imgUrl) {
+                %>
+                <span class="img_list"><i></i><img src="<%=data.imgUrl%>"></span>
+                <%
+                }%>
+                <div class="post-new-img"><p><i class="icon icon-add">&#xe6c8;</i><br/>上传新图片</p>
+                    <input type="file" class="file-default" id="imgUpload" name="imgUrl"/>
+                </div>
+            </div>
+            <div class="field-bottom" style="text-align: center">
+                <button class="btn btn-recommend">收藏到码农庄园</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="//cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+</body>
+</html>

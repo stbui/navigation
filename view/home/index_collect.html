@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<% include common/meta.html %>
+    <title>码农庄园 - 最好用的开源的网址收藏夹</title>
+    <style>
+        * { padding: 0; margin: 0; list-style: none; font-family: "微软雅黑"; }
+        .fl { float: left; display: inline; }
+        .fr { float: right; display: inline; }
+        a { color: #444; text-decoration: none; }
+        .clearfix { *zoom: 1; }
+        .clearfix:before,
+        .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden }
+        .clearfix:after { clear: both }
+        .clearfix { zoom: 1 }
+        .collection-top { margin: 0 auto; text-align: center; height: 150px; padding-top: 160px; padding-bottom: 220px; width: 960px; position: relative; }
+        .collection-top .point { width: 120px; height: 120px; display: block; margin: 0 auto; text-align: center; cursor: move; position: relative; }
+        .collection-top .logo-text { font-size: 32px; margin-top: 25px; color: #57ad68; }
+        .collection-top .point  p { color: #57ad68; font-size: 14px; }
+        .collection-top .point:hover >span { background: #57ad68; color: #fff; }
+        .collection-top .point:hover .logo-text { color: #fff; }
+        .collection-top .point:hover  p { color: #fff; }
+        .collection-top .t-s { font-size: 16px; color: #fff; padding: 20px 0; }
+        .collection-top .t-s img { width: 20px; }
+        .collection-top .point >span { width: 120px; height: 30px; border: 1px #57ad68 solid; display: block; border-radius: 3px; -moz-border-radius: 3px; -o-border-radius: 3px; -webkit-border-radius: 3px; -moz-transition: all 0.5s ease-in; -webkit-transition: all 0.5s ease-in; -o-transition: all 0.5s ease-in; transition: all 0.5s ease-in; }
+        .class_collect { border: 1px #21b57 solid; border-radius: 5px; -webkit-border-radius: 5px; -moz-transition: all 0.5s ease-in; -webkit-transition: all 0.5s ease-in; -o-transition: all 0.5s ease-in; transition: all 0.5s ease-in; position: relative; display: block; width: 210px; height: 50px; line-height: 50px; margin: 0 auto; color: #21b57e; background: #fff; font-size: 16px; }
+        .class_collect > span:after { content: ""; display: block; width: 210px; height: 50px; border-radius: 5px; -moz-border-radius: 5px; -o-border-radius: 5px; -webkit-border-radius: 5px; position: absolute; left: 0; top: 0; }
+        .class_collect:hover > span:after { animation: a_post_item_1 0.5s ease both; -moz-animation: a_post_item_1 0.5s ease both; -webkit-animation: a_post_item_1 0.5s ease both; }
+        .collection-top .point:hover > span:after { animation: a_post_item_1 0.5s ease both; -moz-animation: a_post_item_1 0.5s ease both; -webkit-animation: a_post_item_1 0.5s ease both; }
+        @-moz-keyframes a_post_item_1 {
+            0% { box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 1); -webkit-box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 1); }
+            100% { box-shadow: 0px 0px 0px 12px rgba(84, 203, 207, 0); -webkit-box-shadow: 0px 0px 0px 12px rgba(84, 203, 207, 0); }
+        }
+        @-webkit-keyframes a_post_item_1 {
+            0% { box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 1); -webkit-box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 1); }
+            100% { box-shadow: 0px 0px 0px 12px rgba(84, 203, 207, 0); -webkit-box-shadow: 0px 0px 0px 12px rgba(84, 203, 207, 0); }
+        }
+        .line-nav { border-top: 1px #ddd solid; position: relative; height: 1px; text-align: center; margin-top: 50px; }
+        .line-nav .nav-con { width: 100px; border: 1px #222 solid; display: block; position: absolute; top: -18px; left: 50%; margin-left: -50px; padding: 6px 0; background: #fff; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
+        .gobackIndex { position: absolute; top: 20px; right: 0; color: #fff; font-size: 12px; padding-left: 20px; background: url("/www/images/fanhui.png") no-repeat; background-position: left center; }
+        .gobackIndex img { width: 20px; }
+        .gobackIndex:hover { color: #fff; text-decoration: underline; }
+        .browser-all-wrap { width: 960px; margin: 0 auto; padding-top: 80px; }
+        .browser-all-list li { float: left; width: 25%; text-align: center; position: relative; padding-bottom: 20px; cursor: pointer; }
+        .browser-all-list li span { display: block; width: 80px; height: 80px; margin: 0 auto; }
+        .browser-all-list li span img { width: 100%; }
+        .browser-all-list li img { display: block; }
+        .browser-content { background: #fafafa; min-height: 300px; padding: 20px; }
+        .browser-all-list li img.jiantou { position: absolute; bottom: 0; left: 50%; margin-left: -16px; display: none; }
+        .browser-all-list li.cur img.jiantou { display: block; }
+        .browser-content img { width: 100%; }
+        .anima-title { font-size: 16px; padding-bottom: 20px; }
+        .bottom-t-s { padding: 20px 0; }
+        .animation-content { width: 960px; margin: 0 auto; padding: 50px; }
+        .animation-content_wrap { background: #fafafa; }
+        .animation-content img { width: 180px; }
+        .animation-content .text { width: 500px; }
+        .animation-content .text h2 { font-size: 24px; margin-bottom: 15px; color: #444; }
+        .animation-content .text em { font-size: 24px; font-style: normal; }
+        .animation-content .text p { color: #888; }
+        #toolGif div { display: none; }
+        #toolGif div.active { display: block; }
+        .collection-top-wrap { position: relative; }
+        #particles { height: 100%; position: absolute; top: 0; width: 100%; z-index: -1; background: #21b57e; }
+        .scsq { font-size: 52px; padding: 0 0 50px; color: #fff; }
+        .scsq p { line-height: 1.2em; }
+    </style>
+</head>
+<body>
+<div class="collection-top-wrap" id="collection-top-wrap">
+    <div class="collection-top">
+        <div class="scsq">
+            <p>收藏神器</p>
+            <p>全新上线</p>
+        </div>
+        <a href='javascript:(function(x,a,v,m,t){var f="",c=[],j=/http.+png|http.+jpg|http.+gif|http.+svg|http.+jpeg|http.+BMP|data/g,b=x.getElementsByTagName("meta"),y=x.getElementsByTagName("img"),l=x.getElementsByTagName("a");for(var s=0;s<b.length;s++){if(b[s].name.toLowerCase()=="description"){f=b[s].content}}for(var s=0;s<y.length;s++){if(y[s].src.toLowerCase().indexOf("logo")>0){c.push(y[s].src)}}for(var s=0;s<l.length;s++){var o=l[s].getElementsByTagName("img");if((" "+l[s].className+" ").toLowerCase().indexOf("logo")>-1){if(o.length>0){c.push(o[0].src)}else{if(l[s].currentStyle){var p=l[s].currentStyle.backgroundImage;var k=l[s].parentNode.currentStyle.backgroundImage;if(p!="none"){p=p.match(j)[0];if(p!="data"){c.push(p)}}else{if(k!="none"){k=k.match(j)[0];if(k!="data"){c.push(k)}}}}else{var p=getComputedStyle(l[s],false)["backgroundImage"];var k=getComputedStyle(l[s].parentNode,false)["backgroundImage"];if(p!="none"){p=p.match(j)[0];if(p!="data"){c.push(p)}}else{if(k!="none"){k=k.match(j)[0];if(k!="data"){c.push(k)}}}}}}else{if((" "+l[s].parentNode.className+" ").toLowerCase().indexOf("logo")>-1){if(o.length>0){c.push(o[0].src)}else{if(l[s].currentStyle){var k=l[s].parentNode.currentStyle.backgroundImage;var p=l[s].currentStyle.backgroundImage;if(k!="none"){k=k.match(j)[0];if(k!="data"){c.push(k)}}else{if(p!="none"){p=p.match(j)[0];if(p!="data"){c.push(p)}}}}else{var k=getComputedStyle(l[s].parentNode,false)["backgroundImage"];var p=getComputedStyle(l[s],false)["backgroundImage"];if(k!="none"){k=k.match(j)[0];if(k!="data"){c.push(k)}}else{if(p!="none"){p=p.match(j)[0];if(p!="data"){c.push(p)}}}}}}}}var q=[],g={};for(var s=0,u;(u=c[s])!=null;s++){if(!g[u]){q.push(u);g[u]=true}}var n="http://127.0.0.1:8360/index/add.html?url="+v(location.href)+"&name="+v(x.title)+"&description="+v(f)+"&imgUrl="+v(c);if(!window.open(n,"码农庄园","toolbar=0,resizable=1,scrollbars=yes,status=1,width="+m+",height="+t+",left="+(a.width-m)/2+",top="+(a.height-t)/2)){window.location.href=n}})(document,screen,encodeURIComponent,700,500);
+		' class="class_collect"><span>❤ 收藏到码农庄园</span></a>
+        <p class="t-s">快把人家拖到书签栏里吧~</p>
+        <a class="gobackIndex" href="/">返回到首页</a>
+    </div>
+</div>
+<div class="line-nav">
+    <span class="nav-con" id="useMethod">使用方法</span>
+</div>
+<div class="browser-all-wrap">
+    <ul class="browser-all-list clearfix" id="toolList">
+        <li class="cur">
+            <span><img src="/static/home/images/f.png"/></span>
+            火狐浏览器
+            <img class="jiantou" src="/static/home/images/jiantou.png"/>
+        </li>
+        <li>
+            <span><img src="/static/home/images/g_2.png"/></span>
+            谷歌浏览器
+            <img class="jiantou" src="/static/home/images/jiantou.png"/>
+        </li>
+        <li>
+            <span><img src="/static/home/images/ie_2.png"/></span>
+            IE浏览器
+            <img class="jiantou" src="/static/home/images/jiantou.png"/>
+        </li>
+        <li>
+            <span><img src="/static/home/images/360_2.png"/></span>
+            360安全浏览器
+            <img class="jiantou" src="/static/home/images/jiantou.png"/>
+        </li>
+    </ul>
+    <div class="browser-content">
+        <p class="anima-title">动画演示 :</p>
+        <div id="toolGif">
+            <!-- 火狐-->
+            <div class="active">
+                <img src="/static/home/images/fh.gif"/>
+            </div>
+            <!--谷歌 -->
+            <div>
+                <img src="/static/home/images/gg.gif"/>
+            </div>
+            <!-- ie-->
+            <div>
+                <img src="/static/home/images/ie.gif"/>
+            </div>
+            <!-- 360-->
+            <div>
+                <img src="/static/home/images/360.gif"/>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="line-nav">
+    <span class="nav-con">功能介绍</span>
+</div>
+<div class="bottom-t-s">
+    <div class="clearfix">
+        <div class="animation-content clearfix">
+            <img class="fl" src="/static/home/images/iconfont-gengkuaijie.png"/>
+            <div class="text fr">
+                <h2><em>1.</em>更快捷</h2>
+                <p>使用收藏工具，让您在浏览网站的过程中，能及时把网址保存起来，以便下次使用</p>
+            </div>
+        </div>
+        <div class="animation-content_wrap">
+            <div class="animation-content clearfix">
+                <img class="fr" src="/static/home/images/feiji.png"/>
+                <div class="text fl">
+                    <h2><em>2.</em>最方便</h2>
+                    <p>使用收藏工具，只需要点击一下就能收藏当前网址，方便您的操作</p>
+                </div>
+            </div>
+        </div>
+        <div class="animation-content clearfix">
+            <img class="fl" src="/static/home/images/iconfont-fenxiang.png"/>
+            <div class="text fr">
+                <h2><em>3.</em>便分享</h2>
+                <p>搜藏的网址能及时的保存到36镇中，并且可以和伙伴一起管理网址，分享所得</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/static/home/js/particles.min.js"></script>
+<script>
+    function showTool(){
+        var toolList = document.getElementById("toolList").getElementsByTagName("li");
+        var toolGif =  document.getElementById("toolGif").getElementsByTagName("div");
+        for(var i=0;i<toolList.length;i++){
+            (
+                    function(i){
+                        toolList[i].onclick = function(){
+                            window.location.hash="#useMethod";
+                            for(var j=0;j<toolList.length;j++){
+                                toolList[j].className = "";
+                                toolGif[j].className = "";
+                                var toolBrowers = toolList[j].getElementsByTagName("img")[0];
+                                if(toolBrowers.src.indexOf("_2.png")==-1){
+                                    toolBrowers.src = toolBrowers.src.substr(0,toolBrowers.src.length-4)+ "_2.png";
+                                }
+                            }
+                            this.className = "cur";
+                            var thisBrowers = this.getElementsByTagName("img")[0];
+                            thisBrowers.src = thisBrowers.src.substr(0,thisBrowers.src.length-6) + ".png";
+                            toolGif[i].className = "active";
+                        }
+                    }
+            )(i);
+        }
+    }
+
+    function bgcanvas(){
+        function a(){
+            var a = window.particlesJS;
+            var div = document.createElement('div');
+            var collection = document.getElementById('collection-top-wrap');
+            div.setAttribute('id', 'particles');
+            collection.appendChild(div);
+            a && a("particles", c);
+        }
+        var b = !! window.HTMLCanvasElement,//监测是否存在
+                c =
+                {
+                    particles: {
+                        number: {
+                            value: 20,
+                            density: {
+                                enable: !0,
+                                value_area: 1E3
+                            }
+                        },
+                        color: {
+                            value: "#e1e1e1"
+                        },
+                        shape: {
+                            type: "circle",
+                            stroke: {
+                                width: 0,
+                                color: "#000000"
+                            },
+                            polygon: {
+                                nb_sides: 5
+                            },
+                            image: {
+                                src: "img/github.svg",
+                                width: 100,
+                                height: 100
+                            }
+                        },
+                        opacity: {
+                            value: .5,
+                            random: !1,
+                            anim: {
+                                enable: !1,
+                                speed: 1,
+                                opacity_min: .1,
+                                sync: !1
+                            }
+                        },
+                        size: {
+                            value: 15,
+                            random: !0,
+                            anim: {
+                                enable: !1,
+                                speed: 180,
+                                size_min: .1,
+                                sync: !1
+                            }
+                        },
+                        line_linked: {
+                            enable: !0,
+                            distance: 650,
+                            color: "#cfcfcf",
+                            opacity: .26,
+                            width: 1
+                        },
+                        move: {
+                            enable: !0,
+                            speed: 2,
+                            direction: "none",
+                            random: !0,
+                            straight: !1,
+                            out_mode: "out",
+                            bounce: !1,
+                            attract: {
+                                enable: !1,
+                                rotateX: 600,
+                                rotateY: 1200
+                            }
+                        }
+                    },
+                    interactivity: {
+                        detect_on: "canvas",
+                        events: {
+                            onhover: {
+                                enable: !1,
+                                mode: "repulse"
+                            },
+                            onclick: {
+                                enable: !1,
+                                mode: "push"
+                            },
+                            resize: !0
+                        },
+                        modes: {
+                            grab: {
+                                distance: 400,
+                                line_linked: {
+                                    opacity: 1
+                                }
+                            },
+                            bubble: {
+                                distance: 400,
+                                size: 40,
+                                duration: 2,
+                                opacity: 8,
+                                speed: 3
+                            },
+                            repulse: {
+                                distance: 200,
+                                duration: .4
+                            },
+                            push: {
+                                particles_nb: 4
+                            },
+                            remove: {
+                                particles_nb: 2
+                            }
+                        }
+                    },
+                    "retina_detect": !0
+                }
+        b && a();
+    }
+
+    showTool();
+    bgcanvas()
+
+</script>
+</body>
+</html>

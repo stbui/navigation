@@ -7,24 +7,47 @@ import fs from 'fs';
 export default class extends Base {
 
     async indexAction() {
-        const links = await this.model('links').where({status_is:'Y'}).order('sort_order asc').select();
-        const catalog = await this.model('catalog').order('sort_order asc').select();
-        const linkCount = await this.model('links').count();
+        // const links = await this.model('links').getStatusList();
+        // const catalog = await this.model('catalog').getOrderList();
+        // const linkCount = await this.model('links').getCount();
+        // const topicModel = this.model('topic').select();
+        //
+        // this.assign({
+        //     links: links,
+        //     catalog: catalog,
+        //     topic:topicModel,
+        //     count: {
+        //         link: linkCount,
+        //     },
+        //     update: think.datetime(),
+        //     message: this.cookie('message'),
+        // });
+        //
+        // this.cookie('message', null)
+        //
+        //
+        //
+        //
+        //
+        // return this.display();
+
+
+        const topicModel =await this.model('topic').getCatalogList();
+        const catalogModel = await this.model('catalog').where({topic_id:15}).select();
 
         this.assign({
-            links: links,
-            catalog: catalog,
+            links: [],
+            catalog: catalogModel,
+            topic:topicModel,
             count: {
-                link: linkCount,
+                link: [],
             },
             update: think.datetime(),
             message: this.cookie('message'),
         });
 
-        this.cookie('message', null)
-
-
         return this.display();
+        // return this.success(linksModel);
     }
 
     async recommendAction() {
@@ -38,8 +61,8 @@ export default class extends Base {
         }
 
         this.redirect('/index.html');
+        // this.redirect('/my.html');
     }
-
 
     async downloadAction() {
         const {type} = this.get();
@@ -82,6 +105,19 @@ export default class extends Base {
         fs.writeFileSync(path, data, 'utf-8');
     }
 
+    collectAction() {
+        return this.display();
+    }
+
+    addAction() {
+        const params = this.get();
+        const {url,name,description,imgUrl} = params;
+
+        this.assign('data', params);
+        return this.display();
+    }
+
+
     htmlFile(data) {
         let str = ``;
 
@@ -95,7 +131,7 @@ export default class extends Base {
     markdownFile(data) {
         let str = `
 网址名称 | 网址链接
-:----:|:----:
+----|----
 `;
 
         data.forEach(value=> {

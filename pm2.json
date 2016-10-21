@@ -2,7 +2,7 @@
   "apps": [{
     "name": "navigation",
     "script": "www/production.js",
-    "cwd": "navigation",
+    "cwd": "C:/WWW/navigation/",
     "exec_mode": "cluster",
     "instances": 0,
     "max_memory_restart": "1G",

@@ -4,6 +4,10 @@ import Base from './base.js';
 
 export default class extends Base {
 
+    __before() {
+        this.navType = 'category';
+    }
+
     indexAction() {
         const {page} = this.get();
         const catalog = this.model('catalog').order('sort_order asc').getPage(page);

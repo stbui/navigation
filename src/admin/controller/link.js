@@ -4,6 +4,10 @@ import Base from './base.js';
 
 export default class extends Base {
 
+    __before() {
+        this.navType = 'link';
+    }
+
     indexAction() {
         const {page} = this.get();
         const links = this.model('links').showSatus(page);
@@ -130,6 +134,8 @@ export default class extends Base {
     }
 
     searchAction() {
+        this.navType = 'search';
+
         const {keywords, type, page} = this.param();
         const links = this.model('links');
         let data;
