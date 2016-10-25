@@ -14,7 +14,7 @@ export default class extends Base {
         }
 
         const topicModel =  this.model('topic').getTopList();
-        const catalogModel =  this.model('catalog').getTopicIdList({topic_id: topic_id});
+        const catalogModel =  this.model('catalog').getCacheData().where({topic_id: topic_id}).getOrder().select();
         const linksModel =  this.model('links').getCacheData().where({topic_id: topic_id}).getOrder().select();
         const linksCount = await this.model('links').getCount();
 
