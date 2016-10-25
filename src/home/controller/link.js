@@ -14,7 +14,7 @@ export default class extends Authorize {
         return this.display();
     }
 
-    editAction() {
+    async editAction() {
         const params = this.param();
         // 链接id, 收藏夹id
         const {id, topic} = params;
@@ -25,7 +25,11 @@ export default class extends Authorize {
         const catalogModel = this.model('catalog').getTopicList(topic);
 
         if (this.isPost()) {
+            let userInfo = await this.session('userInfo');
+            params.user_id = userInfo.id;
             params.topic_id = topic;
+
+            think.log(params, 'links update');
             links.update(params);
             return this.redirect(`/my/index.html?id=${topic}`);
         } else {
@@ -43,10 +47,10 @@ export default class extends Authorize {
     }
 
     deleteAction() {
-        const {id} = this.param();
+        const {id, topic} = this.param();
         this.model('links').where({id}).update({status_is: 'N'});
 
-        this.redirect('/admin/link.html');
+        this.redirect('/my/?id=' + topic);
     }
 
 }

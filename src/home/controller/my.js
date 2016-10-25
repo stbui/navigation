@@ -19,8 +19,6 @@ export default class extends Authorize {
             catalog: catalogModel,
         });
 
-        // this.json(catalogModel)
-
         return this.display();
     }
 
@@ -66,7 +64,7 @@ export default class extends Authorize {
      * 新增链接
      * */
     async recommendAction() {
-        const params = this.param();
+        const params = this.post();
         const {link} = params;
 
         // 当前用户
@@ -76,10 +74,10 @@ export default class extends Authorize {
         const result = await this.model('links').thenAdd(params, {link});
 
         if (result.type == 'exist') {
-            return this.fail(1001, '操作成功', params);
+            return this.fail(1001, '操作失败', params);
         }
 
-        return this.success(params, '操作失败');
+        return this.success(params, '操作成功');
     }
 
     /*

@@ -24,13 +24,11 @@ export default class extends Base {
         const {catalog_name} = params;
         const result = await this.model('catalog').thenAdd(params, {catalog_name});
 
-        let message = '添加成功';
         if (result.type == 'exist') {
-            message = '您已经添加过了，换个试试';
-            return this.fail(1001, message, params);
+            return this.fail(1001, '已经添加过了', params);
         }
 
-        return this.success(params, message);
+        return this.success(params, '添加成功');
     }
 
     async editAction() {

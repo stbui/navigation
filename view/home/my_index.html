@@ -200,6 +200,31 @@
         }
     }
 
+    var modal = {
+        $element:null,
+        show: function (id) {
+            var self = this;
+            self.$element = document.getElementById(id);
+            self.$element.style.display = 'block';
+            self.$element.onclick = function (e) {
+                self.hide();
+            }
+
+            var $content = self.$element.getElementsByClassName('marsk-content')[0];
+            $content.onclick = function (e) {
+                e.stopPropagation();
+            }
+
+            var close = self.$element.getElementsByClassName('close')[0];
+            close.onclick = function (e) {
+                self.hide();
+            }
+        },
+        hide: function () {
+            this.$element.style.display = 'none';
+        }
+    }
+
 
     var url = '/my/type.html';
     var $type = $('.js-type');
@@ -236,7 +261,7 @@
         var tpl = '<div class="link-block"><div class="link" style="text-align: center"><a href="javascript:;" id="addWebSite" data-toggle="modal" data-target=".modal"><span class="fa fa-plus" style="font-size: 90px;margin-top: 20px"></span></a></div></div>';
         for (var i = 0; i < data.length; i++) {
             var _data = data[i];
-            tpl += '<div class="link-block"> <div class="link"> <div class="link-inner"><div class="link-operate"><div class="dropdown"> <a id="dLabel" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-ellipsis-h"></span> </a> <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel"><li><a href="/link/edit.html?id=' + _data.id + '&topic=<%=controller.navType%>">编辑</a></li><li><a href="/link/delete.html?id=' + _data.id + '">删除</a></li><!--<li><a href="/link/move.html?id=' + _data.id + '">移动</a></li>--></ul> </div></div> <div class="link-top"> <div class="link-main"> <a href="' + _data.link + '" target="_blank"><h2 class="link-title">' + _data.title + '</h2></a> <a href="' + _data.link + '" target="_blank"><h6 class="link-address">' + _data.link + '</h6></a> <div class="link-tags"></div> </div> </div> <p class="link-description">' + _data.description + '</p></div> </div> </div>';
+            tpl += '<div class="link-block"> <div class="link"> <div class="link-inner"><div class="link-operate"><div class="dropdown"> <a id="dLabel" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-ellipsis-h"></span> </a> <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel"><li><a href="/link/edit.html?id=' + _data.id + '&topic=<%=controller.navType%>">编辑</a></li><li><a href="/link/delete.html?id=' + _data.id + '&topic=<%=controller.navType%>">删除</a></li><!--<li><a href="/link/move.html?id=' + _data.id + '">移动</a></li>--></ul> </div></div> <div class="link-top"> <div class="link-main"> <a href="' + _data.link + '" target="_blank"><h2 class="link-title">' + _data.title + '</h2></a> <a href="' + _data.link + '" target="_blank"><h6 class="link-address">' + _data.link + '</h6></a> <div class="link-tags"></div> </div> </div> <p class="link-description">' + _data.description + '</p></div> </div> </div>';
         }
 
         return tpl;
@@ -244,101 +269,51 @@
 
     function addWebSite() {
         $('#addWebSite').on('click', function () {
-            showModal();
+            modal.show('recommend')
         });
-
     }
 
     /********************************************/
 
-    function showModal(id) {
-        var m = document.getElementById(id);
-        m.style.display = 'block';
-        m.onclick = function (e) {
-            hide(m);
-        }
-
-        var c = m.getElementsByClassName('marsk-content')[0];
-        c.onclick = function (e) {
-            e.stopPropagation();
-        }
-
-        var close = m.getElementsByClassName('close')[0];
-        close.onclick = function (e) {
-            hide(m);
-        }
-    }
-
-    function hide(id) {
-        id.style.display = 'none';
-        msg();
-    }
-
-    function msg() {
-        document.getElementById('message').innerHTML = '';
-    }
-
-    function showCatalog() {
-        var m = document.getElementById('catalog');
-        m.style.display = 'block';
-        m.onclick = function (e) {
-            hide(m);
-        }
-
-        var c = m.getElementsByClassName('marsk-content')[0];
-        c.onclick = function (e) {
-            e.stopPropagation();
-        }
-
-        var close = m.getElementsByClassName('close')[0];
-        close.onclick = function (e) {
-            hide(m);
-        }
-    }
-
     //    添加链接
-    function recommendSubmit() {
-        var $submit = $('#recommend_submit');
+    var $submit = $('#recommend_submit');
+    $submit.on('click', function (e) {
+        e.preventDefault();
+        var $form = $('#form_rec');
 
-        $submit.on('click', function (e) {
-            e.preventDefault();
-            var $form = $('#form_rec');
-
-            var data = {};
-            var $input = $form.find('input');
-            $input.each(function (k, v) {
-                var $_this = $(v);
-                data[$_this.attr('name')] = $_this.val();
-            });
-            data.description = $form.find('textarea').val();
-
-            if (type_id <= 0) {
-                type_id = '';
-            }
-            data.catalog_id = type_id;
-            data.topic_id = uri.getQueryString('id');
-
-            $.ajax({
-                url: $form.attr('action'),
-                type: 'post',
-                data: data,
-                success: function (data) {
-                    window.location.reload();
-                }
-            });
+        var data = {};
+        var $input = $form.find('input');
+        $input.each(function (k, v) {
+            var $_this = $(v);
+            data[$_this.attr('name')] = $_this.val();
         });
+        data.description = $form.find('textarea').val();
 
-    }
+        if (type_id <= 0) {
+            type_id = '';
+        }
+        data.catalog_id = type_id;
+        data.topic_id = uri.getQueryString('id');
 
-
-    getListData(0);
-    recommendSubmit();
-
+        $.ajax({
+            url: $form.attr('action'),
+            type: 'post',
+            data: data,
+            success: function (data) {
+                if(data.data.errno == '1000') {
+                    window.location.reload();
+                } else {
+                    console.log(data);
+                    alert('添加失败')
+                }
+            }
+        });
+    });
 
     /*********************************************/
     /* 添加分类 */
     $('.js-catalog-add').on('click', function (e) {
-        showModal('recommend');
+        modal.show('catalog');
     });
 
     var $form_catalog = $('#form_catalog');
@@ -353,7 +328,6 @@
         });
 
         data.topic_id = uri.getQueryString('id');
-
         $.ajax({
             url: $form_catalog.attr('action'),
             type: 'post',
@@ -426,14 +400,14 @@
                 $.ajax({
                     url: '/category/find.html',
                     type: 'post',
-                    data: {id:type},
+                    data: {id: type},
                     success: function (data) {
                         var $form_catalog = $('#form_catalog_Modify');
                         var $input = $form_catalog.find('input');
                         $input.eq(0).val(data.data.catalog_name);
                         $input.eq(1).val(data.data.sort_order);
                         $input.eq(2).val(data.data.id);
-                        showModal('catalogModify');
+                        modal.show('catalogModify');
                     }
                 });
 
@@ -442,7 +416,6 @@
         });
 
     });
-
 
 
     $(document).on('click', function () {
@@ -456,6 +429,9 @@
             $btn.last().addClass('hidden');
         });
     });
+
+
+    getListData(0);
 </script>
 
 </body>

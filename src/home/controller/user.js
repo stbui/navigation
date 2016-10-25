@@ -1,8 +1,8 @@
 'use strict';
 
-import Base from './base.js';
+import Authorize from './authorize.js';
 
-export default class extends Base {
+export default class extends Authorize {
 
     async indexAction() {
         let userInfo = await this.session('userInfo');
@@ -42,7 +42,6 @@ export default class extends Base {
     }
 
     async logoutAction() {
-        // let userInfo = await this.session('userInfo');
         this.session('userInfo', null);
 
         if (this.isAjax()) {
@@ -50,6 +49,20 @@ export default class extends Base {
         } else {
             return this.redirect('/my.html');
         }
+    }
+
+    async settingAction() {
+        let userInfo = await this.session('userInfo');
+        let {id} = userInfo;
+
+        this.assign('data', userInfo);
+
+        if (this.isPost()) {
+            let post = this.post();
+            this.model('admin').where({id}).update(post);
+        }
+
+        this.display();
     }
 
 }

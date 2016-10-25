@@ -10,6 +10,26 @@ export default class extends think.model.base {
         return this.cache(10).page(num, listRows).select();
     }
 
+    getCacheData() {
+        return this.cache(10);
+    }
+
+    getOrder() {
+        return this.order('sort_order asc');
+    }
+
+    getOrderList() {
+        return this.getCacheData().getOrder().select();
+    }
+
+    getLinkTopicIdList (topicId) {
+        if(think.isEmpty(topicId) || think.isObject(topicId)) {
+            return [];
+        }
+
+        return this.getCacheData().where(topicId).getOrder().select();
+    }
+
     getList(num = 1) {
         this.field([this.getTableName() + '.*', this.getTablePrefix() + 'catalog.catalog_name as catalog_name']).join({
             table: 'catalog',
@@ -19,6 +39,8 @@ export default class extends think.model.base {
 
         return this.getPage(num);
     }
+
+
 
     getBlogList() {
         this.field([this.getTableName() + '.id', this.getTableName() + '.title', this.getTableName() + '.link', this.getTableName() + '.image_link', this.getTableName() + '.description', this.getTablePrefix() + 'catalog.catalog_name as catalog_name']).join({
@@ -37,7 +59,7 @@ export default class extends think.model.base {
     }
 
     getCount() {
-        let res = this.cache(10).count();
+        let res = this.cache(60).count();
 
         return res;
     }

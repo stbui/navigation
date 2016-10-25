@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include common/meta.html %>
+    <title>前端导航</title>
+    <% include common/style.html%>
+    <link rel="stylesheet" href="/static/home/css/main.css">
+    <style>
+        .search {
+            width: 300px;
+            margin-bottom: 0;
+        }
+
+        .search-input {
+            padding-top: 14px;
+            margin-bottom: 0;
+        }
+
+        .avatar {
+            height: 29px;
+            width: 29px;
+            line-height: 29px;
+            font-size: 20px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background: #1ABB9C;
+            vertical-align: middle;
+            text-align: center;
+            color: #fff;
+        }
+
+        .btn-group {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+
+        <% include common/silder.html %>
+
+        <!-- top navigation -->
+        <% include common/top.html %>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main" style="min-height: 932px;">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>个人设置</h3>
+                    </div>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>修改</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link" href="/my.html"><i class="fa fa-reply"></i> 返回</a></li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <form data-parsley-validate class="form-horizontal form-label-left" method="post">
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">用户名 <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" name="username" required="required" class="form-control col-md-7 col-xs-12" value="<%=data.username%>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">密码 <span class="required">*</span></label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="password" name="password" required="required" class="form-control col-md-7 col-xs-12" value="">
+                                        </div>
+                                    </div>
+
+                                    <div class="ln_solid"></div>
+                                    <div class="form-group">
+                                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                            <button type="submit" class="btn btn-success">修改</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <% include common/bottom.html %>
+        <!-- /footer content -->
+
+    </div>
+</div>
+
+<% include common/script.html%>
+</body>
+</html>

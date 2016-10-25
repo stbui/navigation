@@ -3,51 +3,48 @@
 import Base from './base.js';
 import fs from 'fs';
 
-
 export default class extends Base {
 
-    async indexAction() {
-        // const links = await this.model('links').getStatusList();
-        // const catalog = await this.model('catalog').getOrderList();
-        // const linkCount = await this.model('links').getCount();
-        // const topicModel = this.model('topic').select();
-        //
-        // this.assign({
-        //     links: links,
-        //     catalog: catalog,
-        //     topic:topicModel,
-        //     count: {
-        //         link: linkCount,
-        //     },
-        //     update: think.datetime(),
-        //     message: this.cookie('message'),
-        // });
-        //
-        // this.cookie('message', null)
-        //
-        //
-        //
-        //
-        //
-        // return this.display();
+     async indexAction() {
+        let get = this.get();
+        let topic_id = get.id;
 
+        if (think.isEmpty(topic_id)) {
+            topic_id = 1;
+        }
 
-        const topicModel =await this.model('topic').getCatalogList();
-        const catalogModel = await this.model('catalog').where({topic_id:15}).select();
+        const topicModel =  this.model('topic').getTopList();
+        const catalogModel =  this.model('catalog').getTopicIdList({topic_id: topic_id});
+        const linksModel =  this.model('links').getCacheData().where({topic_id: topic_id}).getOrder().select();
+        const linksCount = await this.model('links').getCount();
 
         this.assign({
-            links: [],
+            topic: topicModel,
             catalog: catalogModel,
-            topic:topicModel,
+            links: linksModel,
             count: {
-                link: [],
+                link: linksCount,
             },
             update: think.datetime(),
             message: this.cookie('message'),
         });
 
+        this.cookie('message', null)
         return this.display();
-        // return this.success(linksModel);
+    }
+
+    async getlinksAction() {
+        let post = this.post();
+        let {topic_id, catalog_id} = post;
+        let linksmodel = this.model('links');
+
+        if (catalog_id == 0) {
+            linksmodel = await linksmodel.where({topic_id}).select();
+        } else {
+            linksmodel = await linksmodel.where({topic_id, catalog_id}).select();
+        }
+
+        return this.success(linksmodel, '操作成功');
     }
 
     async recommendAction() {
@@ -109,11 +106,45 @@ export default class extends Base {
         return this.display();
     }
 
-    addAction() {
-        const params = this.get();
-        const {url,name,description,imgUrl} = params;
+    async addAction() {
+        //todo: 验证是否登陆
 
-        this.assign('data', params);
+        const params = this.get();
+        let {url, name, description, imgUrl} = params;
+
+        if(this.isPost()) {
+            let post = this.post();
+            let {link} = post;
+
+            // todo: 不是自己添加的，应该复制对方的链接
+            let userInfo = await this.session('userInfo');
+            post.user_id = userInfo.id;
+
+            let result = await this.model('links').thenAdd(post, {link});
+            if(result.type == 'exist') {
+                result = await this.model('links').where({link}).update(post);
+                if(result) {
+                    this.end('<script>window.close();</script>');
+                    // return this.success(post,'修改成功');
+                } else  {
+                    return this.fail(1001, '提交失败', post);
+                }
+            }
+
+            // return this.success(post,'提交成功');
+            this.end('<script>window.close();</script>');
+        }
+
+        let userInfo = await this.session('userInfo');
+        let user_id = userInfo.id;
+
+        const topicModel = this.model('topic').where({user_id: user_id}).select();
+
+        this.assign({
+            data: params,
+            topic: topicModel
+        });
+
         return this.display();
     }
 

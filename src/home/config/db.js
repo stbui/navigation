@@ -7,6 +7,6 @@ export default {
     cache: {
         on: true,
         type: "file",
-        timeout: 3600
+        timeout: 60
     }
 };

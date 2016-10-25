@@ -63,6 +63,25 @@
                     <input type="text" name="description" class="form-control col-md-7 col-xs-12" value="<%=data.description%>">
                   </div>
                 </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">显示顺序</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="number" name="sort_order" class="form-control col-md-7 col-xs-12" value="<%=data.sort_order%>">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">共享</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="radio">
+                      <label>
+                        <input type="radio" class="flat" value="Y" <%=data.top_is=='Y'? 'checked':''%> name="top_is"> 是
+                      </label>
+                      <label>
+                        <input type="radio" class="flat" value="N" <%=data.top_is=='N'? 'checked':''%> name="top_is"> 否
+                      </label>
+                    </div>
+                  </div>
+                </div>
 
                 <input type="hidden" name="id" value="<%=data.id%>">
 

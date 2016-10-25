@@ -8,9 +8,6 @@
 </head>
 
 <body>
-<div class="tool">
-
-</div>
 
 <div class="header">
     <div class="logo">码农庄园
@@ -23,45 +20,26 @@
         </ul>
     </div>
     <div class="submit"><a href="javascript:;" onclick="showModal()">我要推荐</a></div>
-    <div class="ad">已收录网址：<%=count.link%></div>
 </div>
 
-<div class="sider">
-    <ul class="sider-nav">
-        <li class="logo"><a class="" href="">码农庄园<br><span class="small-title">前端导航网址</span></a></li>
-        <% topic.forEach((value,key)=>{ %>
-        <li><a href="?id=<%=value.id%>"><%=value.name%></a></li>
-        <% });%>
-    </ul>
-</div>
 
 <div class="main-wrap">
-    <div class="js-category" style="margin: 10px 0">
-        <button class="btn btn-default" data-type="0">全部</button>
-        <% catalog.forEach((value,key)=>{ %>
-        <button class="btn btn-default" data-type="<%=value.id%>"><%=value.catalog_name%></button>
-        <% });%>
-    </div>
+
     <div class="category">
         <%
-        links.forEach((item, k)=>{
+        topic.forEach((item, k)=>{
         %>
         <div class="link-block">
             <div class="link">
                 <div class="link-inner">
                     <div class="link-top">
-                        <% if(item.image_link) {%>
-                        <a href="<%=item.link%>" target="_blank">
-                            <img class="link-thumb" src="<%=item.image_link%>" alt="<%=item.title%>">
-                        </a>
-                        <%} else {%><%}%>
                         <div class="link-main">
-                            <a href="<%=item.link%>" target="_blank"><h2 class="link-title"><%=item.title%></h2></a>
-                            <a href="<%=item.link%>" target="_blank"><h6 class="link-address"><%=item.link%></h6></a>
-                            <div class="link-tags"></div>
+                            <a href="/find/view.html?id=<%=item.id%>" target="_blank"><h2 class="link-title"><%=item.name%></h2></a>
                         </div>
                     </div>
-                    <p class="link-description"><%=item.description%></p></div>
+                    <p class="link-description"><%=item.description%></p>
+                    <div class="link-follow"><a class="tag tag-default" href="">收藏</a></div>
+                </div>
             </div>
         </div>
         <%});%>
@@ -70,18 +48,6 @@
 </div>
 
 
-<!--<div class="footer">-->
-    <!--<div class="main-wrap" style="margin:0 20px;">-->
-        <!--<div>-->
-            <!--<span>收录人气站</span>-->
-            <!--<span class="counter"><%=count.link%></span>-->
-            <!--<span>个</span>-->
-            <!--<span style="float: left">更新日期:<%=update%></span>-->
-            <!--<span style="float: right"><a href="javascript:;" onclick="d()" class="recommend">我要下载</a> <a href="javascript:;" onclick="showModal()" class="recommend">我要推荐</a></span>-->
-        <!--</div>-->
-        <!--<div class="copyright"><span>Copyright © 2016 码农庄园 - 前端导航网址</span></div>-->
-    <!--</div>-->
-<!--</div>-->
 
 <div class="marsk" id="recommend">
     <div class="marsk-content" id="marsk-content">

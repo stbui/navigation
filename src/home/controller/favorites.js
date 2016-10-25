@@ -5,13 +5,7 @@ import Authorize from './authorize.js';
 export default class extends Authorize {
 
     async indexAction() {
-        // const {page, id} = this.get();
-        // const topicModel = await this.model('topic').select();
-        // // 关注菜单
-        // this.navType = 'my';
-        // this.assign({
-        //     menu: topicModel
-        // });
+
         return this.display();
     }
 

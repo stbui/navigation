@@ -1,10 +1,9 @@
 
 网址名称 | 网址链接
-:----:|:----:
+----|----
 -webkit css属性速查 | http://ued.ctrip.com/blog/wp-content/webkitcss/index.html
 06wjin | http://www.html-js.com
 06wjin | http://06wjin.sinaapp.com
-1 | 1
 1001 Free Fonts | http://www.1001freefonts.com/
 100头条 | http://www.100toutiao.com/
 1010data | http://www.1010data.com/company
@@ -16,12 +15,10 @@
 19楼UED | http://blog.19ued.com/
 1stwebdesigner | http://www.1stwebdesigner.com/blog/
 1社群 | http://1shequn.cn/
-2 | 1
 2015本科新增专业 | http://edu.people.com.cn/n/2015/0402/c244541-26790932.html
 211大学 | http://www.eol.cn/html/g/gxmd/211.shtml
 25学堂 | http://www.25xt.com/
 2advanced Studios | http://www.2advanced.com/
-3 | d
 31会议 | http://www.31huiyi.com/
 36 氪 | http://www.36kr.com/
 360助手 | http://zhushou.360.cn/
@@ -65,7 +62,6 @@
 99css | http://www.99css.com/
 99移动端知识集合 | https://github.com/jtyjty99999/mobileTech
 9GAG | http://9gag.com/
-a | a
 A List Apart | http://alistapart.com/
 A/B Testing | http://abtests.de/
 A5字体下载 | http://ziti.admin5.com/

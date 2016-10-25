@@ -5,15 +5,28 @@
 export default class extends think.model.base {
     getPage(num = 1, listRows = 20) {
         //查询第 1 页数据，每页 10 条数据
-        let id = this.getTableName() + '.id';
+        return this.page(num, listRows);
+    }
 
-        return this.page(num, listRows).select();
+    getCacheData() {
+        return this.cache(10);
+    }
+
+    getOrder() {
+        return this.order('sort_order asc');
     }
 
     getOrderList() {
-        let res = this.cache(10).order('sort_order asc').select();
+        return this.getCacheData().getOrder().select();
+    }
 
-        return res;
+
+    getTopicIdList (topicId) {
+        if(think.isEmpty(topicId) || think.isObject(topicId)) {
+            return [];
+        }
+
+        return this.getCacheData().where(topicId).getOrder().select();
     }
 
     getTopicList(topicId, userId) {

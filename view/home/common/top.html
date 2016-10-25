@@ -14,11 +14,11 @@
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
                         <li><a href="/favorites/index.html"><i class="fa fa-plus pull-right"></i> 新建收藏夹</a></li>
                         <li><a href="/favorites/edit.html?id=<%=controller.navType%>"><i class="fa fa-edit pull-right"></i> 修改收藏夹</a></li>
-                        <li><a href="javascript:;"><i class="fa fa-user pull-right"></i> 个人设置</a></li>
+                        <li><a href="/user/setting.html"><i class="fa fa-user pull-right"></i> 个人设置</a></li>
                         <li><a href="/login/logout.html"><i class="fa fa-sign-out pull-right"></i> 退出</a></li>
                     </ul>
                 </li>
-                <li>
+                <li style="display: none">
                     <form method="post" action="/admin/link/search.html" class="form-group pull-right search">
                         <div class="input-group search-input">
                             <input type="text" class="form-control" name="keywords" placeholder="搜索...">
