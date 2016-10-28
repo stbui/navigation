@@ -4,8 +4,8 @@ import Base from './base.js';
 
 export default class extends Base {
 
-    indexAction() {
-        const links = this.model('links').countSelect();
+    async indexAction() {
+        const links = await this.model('links').countSelect();
         this.assign({
             links: links,
             count: {

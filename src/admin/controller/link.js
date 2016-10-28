@@ -41,9 +41,9 @@ export default class extends Base {
 
     editAction() {
         const param = this.param();
-        const {id} = param;
-        const {type, page} = param;
-        const {title, link, catalog_id, sort_order, description, status_is, image_link, link_github,tag} = param;
+        const {id, type, page, url} = param;
+        const {title, link, sort_order, description, status_is, image_link, link_github, tag} = param;
+        const {topic_id} = param;
 
         let links = this.model('links');
         if (this.isPost()) {
@@ -51,7 +51,7 @@ export default class extends Base {
                 title,
                 link,
                 link_github,
-                catalog_id,
+                topic_id,
                 sort_order,
                 description,
                 image_link,
@@ -59,27 +59,31 @@ export default class extends Base {
                 tag
             });
 
+            if (!think.isEmpty(url)) {
+                return this.redirect(url);
+            }
+
             switch (type) {
                 case 'status':
-                    this.redirect('/admin/link/search.html?type=' + type);
+                    return this.redirect('/admin/link/search.html?type=' + type);
                     break;
                 case 'catalog':
-                    this.redirect('/admin/link/search.html?type=' + type);
+                    return this.redirect('/admin/link/search.html?type=' + type);
                     break;
                 default:
-                    this.redirect('/admin/link.html?page=' + page);
+                    return this.redirect('/admin/link.html?page=' + page);
                     break;
             }
 
-            this.assign('data', []);
         } else {
             links = links.getSingleList({id});
-            const catalog = this.model('catalog').order('sort_order asc').select();
+            const topic = this.model('topic').order('sort_order asc').select();
             this.assign({
                 data: links,
-                catalog: catalog
+                topic: topic
             });
         }
+
 
         return this.display();
     }
@@ -155,7 +159,7 @@ export default class extends Base {
         this.assign({
             links: data,
             type: type,
-            keywords:keywords
+            keywords: keywords
         });
 
         return this.display();

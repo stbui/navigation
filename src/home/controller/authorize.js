@@ -4,9 +4,7 @@ export default class extends think.controller.base {
     async __before() {
         let userInfo = await this.session('userInfo');
         if (think.isEmpty(userInfo)) {
-            this.redirect('/login/index.html');
-        } else {
-
+            return this.redirect('/login/index.html');
         }
 
         think.log(userInfo, 'session');

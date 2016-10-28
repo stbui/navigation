@@ -142,10 +142,13 @@ select { font-size: 16px; padding: 5px; }
     margin-left: 10px;
     list-style: none;
 }
+.menu-nav li {
+    float: left;
+}
 .menu-nav li a {
     display: block;
-    padding: 16px 0;
-    width: 50px;
+    padding: 16px 10px;
+    width: 70px;
     text-align: center;
 }
 .menu-nav li a:hover {

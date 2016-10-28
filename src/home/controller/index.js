@@ -15,7 +15,7 @@ export default class extends Base {
 
         const topicModel =  this.model('topic').getTopList();
         const catalogModel =  this.model('catalog').getCacheData().where({topic_id: topic_id}).getOrder().select();
-        const linksModel =  this.model('links').getCacheData().where({topic_id: topic_id}).getOrder().select();
+        const linksModel =  this.model('links').getCacheData().where({topic_id: topic_id}).where({status_is:'Y'}).getOrder().select();
         const linksCount = await this.model('links').getCount();
 
         this.assign({
@@ -120,8 +120,12 @@ export default class extends Base {
             let userInfo = await this.session('userInfo');
             post.user_id = userInfo.id;
 
+            let dateTime = think.datetime();
+            post.create_time = dateTime;
+
             let result = await this.model('links').thenAdd(post, {link});
             if(result.type == 'exist') {
+                // 链接已经存在，修改其它字段
                 result = await this.model('links').where({link}).update(post);
                 if(result) {
                     this.end('<script>window.close();</script>');
