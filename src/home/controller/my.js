@@ -13,6 +13,7 @@ export default class extends Authorize {
 
         let userInfo = await this.session('userInfo');
         const catalogModel = await this.model('catalog').getTopicList(id, userInfo.id);
+        // const catalogModel = this.model('catalog').findList({topic_id: id});
         this.navType = id;
 
         this.assign({

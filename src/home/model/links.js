@@ -18,16 +18,16 @@ export default class extends think.model.base {
         return this.order('sort_order asc');
     }
 
+    getShow() {
+        return this.where({status_is:'Y'});
+    }
+
     getOrderList() {
         return this.getCacheData().getOrder().select();
     }
 
-    getLinkTopicIdList (topicId) {
-        if(think.isEmpty(topicId) || think.isObject(topicId)) {
-            return [];
-        }
-
-        return this.getCacheData().where(topicId).getOrder().select();
+    findList(params) {
+        return this.getCacheData().where(params).getShow().getOrder().select();
     }
 
     getList(num = 1) {

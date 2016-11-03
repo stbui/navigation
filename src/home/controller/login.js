@@ -3,13 +3,18 @@
 import Base from './base.js';
 import fs from 'fs';
 
+let returnUrl;
 
 export default class extends Base {
-
     indexAction() {
+        returnUrl = this.get().returnUrl;
         return this.display();
     }
 
+    /**
+     * 用户登陆
+     *
+     * */
     async signinAction() {
         const params = this.post();
         let {username, password} = params;
@@ -28,7 +33,10 @@ export default class extends Base {
         await this.session('userInfo', result);
         // return this.success({username}, '操作成功');
 
-        this.redirect('/my.html');
+        if (!think.isEmpty(returnUrl)) {
+            return this.redirect(returnUrl);
+        }
+        return this.redirect('/my.html');
     }
 
     async registerAction() {

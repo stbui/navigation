@@ -16,18 +16,19 @@ export default class extends think.model.base {
         return this.order('sort_order asc');
     }
 
+    getShow() {
+        let status_is = this.getTableName() + '.status_is';
+        return this.where({[status_is]: 'Y'});
+    }
+
     getOrderList() {
         return this.getCacheData().getOrder().select();
     }
 
-
-    getTopicIdList (topicId) {
-        if(think.isEmpty(topicId) || think.isObject(topicId)) {
-            return [];
-        }
-
-        return this.getCacheData().where(topicId).getOrder().select();
+    findList(params) {
+        return this.getCacheData().where(params).getOrder().select();
     }
+
 
     getTopicList(topicId, userId) {
         let table = this.getTableName() + '.*';
@@ -45,9 +46,9 @@ export default class extends think.model.base {
         });
 
         if (think.isEmpty(topicId)) {
-            return res.where({[topicTablePrefix + 'user_id']: userId}).select();
+            return res.where({[topicTablePrefix + 'user_id']: userId}).getOrder().select();
         } else {
-            return res.where({topic_id: topicId, [status_is]: 'Y'}).select();
+            return res.where({topic_id: topicId, [status_is]: 'Y'}).getOrder().select();
         }
     }
 
