@@ -5,7 +5,7 @@ import fs from 'fs';
 
 export default class extends Base {
 
-     async indexAction() {
+    async indexAction() {
         let get = this.get();
         let topic_id = get.id;
 
@@ -13,9 +13,9 @@ export default class extends Base {
             topic_id = 1;
         }
 
-        const topicModel =  this.model('topic').getTopList();
-        const catalogModel =  this.model('catalog').getCacheData().where({topic_id: topic_id}).getOrder().select();
-        const linksModel =  this.model('links').getCacheData().where({topic_id: topic_id}).where({status_is:'Y'}).getOrder().select();
+        const topicModel = this.model('topic').getList();
+        const catalogModel = this.model('catalog').findList({topic_id: topic_id});
+        const linksModel = this.model('links').findList({topic_id: topic_id});
         const linksCount = await this.model('links').getCount();
 
         this.assign({
@@ -112,7 +112,7 @@ export default class extends Base {
         const params = this.get();
         let {url, name, description, imgUrl} = params;
 
-        if(this.isPost()) {
+        if (this.isPost()) {
             let post = this.post();
             let {link} = post;
 
@@ -124,13 +124,13 @@ export default class extends Base {
             post.create_time = dateTime;
 
             let result = await this.model('links').thenAdd(post, {link});
-            if(result.type == 'exist') {
+            if (result.type == 'exist') {
                 // 链接已经存在，修改其它字段
                 result = await this.model('links').where({link}).update(post);
-                if(result) {
+                if (result) {
                     this.end('<script>window.close();</script>');
                     // return this.success(post,'修改成功');
-                } else  {
+                } else {
                     return this.fail(1001, '提交失败', post);
                 }
             }
@@ -140,6 +140,10 @@ export default class extends Base {
         }
 
         let userInfo = await this.session('userInfo');
+        if (think.isEmpty(userInfo)) {
+            return this.redirect('/login/index.html?returnUrl=' + encodeURIComponent(this.http.url));
+        }
+
         let user_id = userInfo.id;
 
         const topicModel = this.model('topic').where({user_id: user_id}).select();

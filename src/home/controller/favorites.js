@@ -18,18 +18,18 @@ export default class extends Authorize {
         post.create_time = create_time;
         post.user_id = id
 
-        let result = await this.model('topic').thenAdd(post, {name});
+        let result = await this.model('topic').add(post, {name});
         if (this.isAjax()) {
-            if (result.type == 'exist') {
-                return this.fail(1001, '操作失败', post);
-            }
+            // if (result.type == 'exist') {
+            //     return this.fail(1001, '操作失败', post);
+            // }
 
             return this.success(post, '操作成功');
         }
 
-        if (result.type == 'exist') {
-            return this.fail(1001, '操作失败', post);
-        }
+        // if (result.type == 'exist') {
+        //     return this.fail(1001, '操作失败', post);
+        // }
 
         return this.redirect('/my/index.html');
     }
@@ -41,7 +41,7 @@ export default class extends Authorize {
             let {id} = params;
             topicModel.where({id}).update(params);
 
-            this.redirect('/my.html?id='+id);
+            this.redirect('/my.html?id=' + id);
         } else {
             let {id} = this.get();
             topicModel = topicModel.where({id}).find();
