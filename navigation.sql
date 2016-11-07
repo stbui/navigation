@@ -1,22 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 127.0.0.1
-Source Server Version : 50547
+Source Server         : localhost_3306
+Source Server Version : 50553
 Source Host           : localhost:3306
 Source Database       : navigation
 
 Target Server Type    : MYSQL
-Target Server Version : 50547
+Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2016-11-04 21:25:35
+Date: 2016-11-06 02:07:37
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for nav_admin
+-- Table structure for `nav_admin`
 -- ----------------------------
 DROP TABLE IF EXISTS `nav_admin`;
 CREATE TABLE `nav_admin` (
@@ -44,7 +44,7 @@ INSERT INTO `nav_admin` VALUES ('2', 'demo', 'fe01ce2a7fbac8fafaed7c982a04e229',
 INSERT INTO `nav_admin` VALUES ('3', 'eastmoney', 'a8abeb68d2492961e2cb2e580268057f', '', '0', '127', '0', '0', 'Y', '2147483647');
 
 -- ----------------------------
--- Table structure for nav_admin_group
+-- Table structure for `nav_admin_group`
 -- ----------------------------
 DROP TABLE IF EXISTS `nav_admin_group`;
 CREATE TABLE `nav_admin_group` (
@@ -65,7 +65,7 @@ INSERT INTO `nav_admin_group` VALUES ('3', '普通管理组', '|config|links|uni
 INSERT INTO `nav_admin_group` VALUES ('4', '编辑组', '|links|union|catalog_index|catalog_create|catalog_update|catalog_delete|catalog_sort_order|catalog_unverify|catalog_verify|links_index|links_create|links_update|links_verify|links_commend|links_delete|links_createbatch|links_createimport|union_index|', 'Y', '1402477564');
 
 -- ----------------------------
--- Table structure for nav_admin_logger
+-- Table structure for `nav_admin_logger`
 -- ----------------------------
 DROP TABLE IF EXISTS `nav_admin_logger`;
 CREATE TABLE `nav_admin_logger` (
@@ -86,7 +86,7 @@ CREATE TABLE `nav_admin_logger` (
 INSERT INTO `nav_admin_logger` VALUES ('1', '0', 'login', '', '用户登录成功:admin', '127.0.0.1', '1473767199');
 
 -- ----------------------------
--- Table structure for nav_catalog
+-- Table structure for `nav_catalog`
 -- ----------------------------
 DROP TABLE IF EXISTS `nav_catalog`;
 CREATE TABLE `nav_catalog` (
@@ -101,7 +101,7 @@ CREATE TABLE `nav_catalog` (
   `create_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '录入时间',
   PRIMARY KEY (`id`),
   KEY `status_is` (`status_is`)
-) ENGINE=MyISAM AUTO_INCREMENT=652 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=658 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of nav_catalog
@@ -158,9 +158,15 @@ INSERT INTO `nav_catalog` VALUES ('648', '公开课', null, '15', 'Y', '', '', '
 INSERT INTO `nav_catalog` VALUES ('649', '平台商', null, '18', 'Y', '', '', '0', '0');
 INSERT INTO `nav_catalog` VALUES ('650', '开发板', null, '18', 'Y', '', '', '0', '0');
 INSERT INTO `nav_catalog` VALUES ('651', '在线', null, '8', 'Y', '', '', '0', '0');
+INSERT INTO `nav_catalog` VALUES ('652', '系统镜像', null, '22', 'Y', '', '', '0', '0');
+INSERT INTO `nav_catalog` VALUES ('653', '工具', null, '22', 'Y', '', '', '0', '0');
+INSERT INTO `nav_catalog` VALUES ('654', '项目', null, '22', 'Y', '', '', '0', '0');
+INSERT INTO `nav_catalog` VALUES ('655', '文章', null, '22', 'Y', '', '', '0', '0');
+INSERT INTO `nav_catalog` VALUES ('656', '教程', null, '22', 'Y', '', '', '0', '0');
+INSERT INTO `nav_catalog` VALUES ('657', '社区', null, '22', 'Y', '', '', '0', '0');
 
 -- ----------------------------
--- Table structure for nav_config
+-- Table structure for `nav_config`
 -- ----------------------------
 DROP TABLE IF EXISTS `nav_config`;
 CREATE TABLE `nav_config` (
@@ -194,7 +200,7 @@ INSERT INTO `nav_config` VALUES ('page_charset', 'utf-8', '');
 INSERT INTO `nav_config` VALUES ('is_cron', '1', '');
 
 -- ----------------------------
--- Table structure for nav_links
+-- Table structure for `nav_links`
 -- ----------------------------
 DROP TABLE IF EXISTS `nav_links`;
 CREATE TABLE `nav_links` (
@@ -236,14 +242,14 @@ INSERT INTO `nav_links` VALUES ('4370', 'React', 'https://facebook.github.io/rea
 INSERT INTO `nav_links` VALUES ('4371', 'Backbone', 'http://backbonejs.org/', null, null, '', 'http://wwwhere.io/img/thumbs/backbone.jpg', '0', '1', '608', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4372', 'Pure', 'http://purecss.io/', null, null, '小巧的响应式 CSS 库，Yahoo!出品', '', '0', '1', '610', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4373', '开源中国', 'http://www.oschina.net/', '', null, '', '', '9', '1', '611', '2', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('4374', 'nodejs', 'https://nodejs.org/en/', null, null, null, null, '0', '1', '0', '0', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('4374', 'Minibian', 'https://minibianpi.wordpress.com/', '', '', '最小的 Raspbian (比 Jessie Lite还要轻量)', '', '0', '1', '652', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4375', 'Bower', 'https://bower.io/', '', null, '是一个客户端技术的软件包管理器，它可用于搜索、安装和卸载如JavaScript、HTML、CSS之类的网络资源。', '', '6', '1', '621', '4', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4376', 'NPM', 'https://www.npmjs.com/', null, null, null, null, '0', '1', '0', '0', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('4377', 'Yeoman', 'https://github.com/yeoman/yeoman', '', null, '', '', '5', '1', '621', '4', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('4377', '1', '', '', '', '', '', '5', '1', '0', '22', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4378', 'Gulp', 'http://www.gulpjs.com.cn/', '', null, '基于 Node.js 构建的一个自动化构建工具,开发者可以使用它在项目开发过程中自动执行常见任务。', 'http://wwwhere.io/img/thumbs/gulp.jpg', '3', '1', '621', '4', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4379', 'Duo', 'http://duojs.org/', null, null, null, null, '0', '1', '0', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4380', 'webpack', 'https://webpack.github.io/', '', null, '一个前端资源加载/打包工具，只需要相对简单的配置就可以提供前端工程化需要的各种功能，并且如果有需要它还可以被整合到其他比如 Grunt / Gulp 的工作流。', '', '2', '1', '621', '4', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('4381', 'RequireJS', 'http://requirejs.org/', null, null, '', '', '0', '1', '608', '0', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('4381', 'Smart Mirror', 'https://github.com/evancohen/smart-mirror', '', '', '带语音控制智能镜子，集成物联网', '', '0', '1', '654', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4382', 'RequireJS', 'http://requirejs.org/', null, null, 'JS模块化是构建复杂项目的第一步 中文学习文档奉上', '', '0', '1', '608', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4383', 'SeaJS', 'http://seajs.org/', null, null, null, null, '0', '1', '608', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4384', 'Less', 'http://lesscss.org/', null, null, '一种动态样式语言,属于CSS预处理语言的一种,它使用类似CSS的语法,为CSS的赋予了动态语言的特性,如变量、继承、运算、函数等,更方便CSS的编写和维护。', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
@@ -275,7 +281,7 @@ INSERT INTO `nav_links` VALUES ('4409', 'Knockout', 'http://knockoutjs.com/', nu
 INSERT INTO `nav_links` VALUES ('4410', 'W3C', 'http://www.w3.org/', null, null, null, null, '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4411', 'Github', 'https://www.github.com/', null, null, null, null, '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4412', 'Linux运维派开源镜像站', 'http://mirrors.skyshe.cn/', '', '', '', '', '0', '1', '621', '10', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('4413', 'segmentfault', 'https://segmentfault.com/', '', null, '是中国领先的开发者技术社区。 为编程爱好者提供一个纯粹、高质的技术交流的平台, 与开发者一起学习、交流与成长。', 'https://sf-static.b0.upaiyun.com/v-57e21b1f/global/img/logo-b.svg', '1', '1', '611', '2', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('4413', 'Magic Mirror', 'http://magicmirror.builders/', '', '', '开源模块化智能镜子平台', '', '1', '1', '654', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4414', '知乎', 'http://www.zhihu.com/', '', null, '', '', '0', '1', '611', '2', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4415', 'csdn', 'http://www.csdn.net/', null, null, null, null, '0', '1', '611', '2', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4416', '博客园', 'http://www.cnblogs.com/', null, null, null, null, '0', '1', '611', '2', 'Y', '0000-00-00 00:00:00');
@@ -323,7 +329,7 @@ INSERT INTO `nav_links` VALUES ('4457', '熊猫PNG压缩', 'https://tinypng.com/
 INSERT INTO `nav_links` VALUES ('4458', '智图压缩', 'http://zhitu.isux.us/', null, null, null, null, '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4459', 'svg生成工具', 'http://editor.method.ac/', null, null, null, null, '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4460', 'Koala', 'http://koala-app.com/', 'https://github.com/oklai/koala/', '', '', '', '12', '1', '621', '4', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('4461', 'ProcessOn', 'https://www.processon.com/', null, null, ' 和百度脑图的功能类似，脑图工具。但是还有社交、通讯的功能，提倡 协作绘图 的理念。感觉网页跳转的时候有点慢，模板样式比百度脑图好看(个人观点)，而且团队协作的功能真的相当好用。', '', '0', '1', '606', '0', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('4461', 'Door bot', 'https://blog.haschek.at/post/f31aa', '', '', '门卫机器人，感知到门被打开时将给你发送信息', '', '0', '1', '654', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4462', '看云', 'http://www.kancloud.cn/', null, null, null, null, '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4463', '淘宝前端', 'http://taobaofed.org/', '', null, '内容涵盖 Web 和 Node，要深度有深度，要广度有广度', '', '0', '1', '622', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4464', 'AMFE', 'https://github.com/amfe/article', '', null, '', '', '0', '1', '622', '1', 'Y', '0000-00-00 00:00:00');
@@ -350,7 +356,7 @@ INSERT INTO `nav_links` VALUES ('4484', '高性能网站建设指南', 'https://
 INSERT INTO `nav_links` VALUES ('4485', '高性能网站建设进阶指南', 'https://book.douban.com/subject/4719162/', null, null, null, null, '0', '1', '612', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4486', 'Web站点优化', 'https://book.douban.com/subject/4124141/', null, null, null, null, '0', '1', '612', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4487', 'JavaScript高级程序设计（第3版）', 'https://book.douban.com/subject/10546125/', null, null, '', '', '0', '1', '612', '0', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('4488', 'JavaScript权威指南(第6版)', 'https://book.douban.com/subject/10549733/', null, null, '', '', '0', '1', '612', '0', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('4488', 'BerryBoot', 'http://www.berryterminal.com/doku.php/berryboot', '', '', '系统启动加载器(Bootloader) /通用操作系统安装程序 , 支持 VNC 和 HDMI-CEC', '', '0', '1', '652', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4489', 'JavaScript语言精粹', 'http://book.douban.com/subject/3590768/', null, null, null, null, '0', '1', '612', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4490', '关于前端面试', 'https://mdluo.github.io/blog/about-front-end-interview/', null, null, null, null, '0', '1', '618', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4491', '极乐网', 'http://www.dreawer.com/home.html', null, null, null, null, '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
@@ -365,7 +371,7 @@ INSERT INTO `nav_links` VALUES ('4499', 'Node.js专业中文社区', 'https://cn
 INSERT INTO `nav_links` VALUES ('4500', '了不起的Node.js', 'https://book.douban.com/subject/25767596/', null, null, null, null, '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4501', '深入浅出Node.js', 'https://book.douban.com/subject/25768396/', null, null, null, null, '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4502', 'Node.js入门经典', 'https://book.douban.com/subject/23780706/', null, null, null, null, '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('4503', 'Node.js开发指南', 'https://book.douban.com/subject/10789820/', null, null, null, null, '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('4503', 'PirateBox', 'https://piratebox.cc/raspberry_pi:diy', '', '', '匿名的离线移动文件共享/通信系统', '', '0', '1', '652', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4504', '编码规范', 'http://zoomzhao.github.io/code-guide/', null, null, null, null, '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4505', 'CSS 词汇表', 'http://yisibl.github.io/css-vocabulary/', null, null, null, null, '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4506', 'Web前端开发大系概览', 'https://github.com/unruledboy/WebFrontEndStack', null, null, '', null, '1', '1', '611', '2', 'Y', '0000-00-00 00:00:00');
@@ -400,7 +406,7 @@ INSERT INTO `nav_links` VALUES ('4536', 'gitbook', 'https://www.gitbook.com', nu
 INSERT INTO `nav_links` VALUES ('4537', 'esma 兼容列表', 'http://kangax.github.io/compat-table/es6', null, null, '', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4538', 'http://csscreator.com/properties', 'csscreator', null, null, '', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4539', '在线测兼容-移动端', 'http://www.responsinator.com', null, null, '', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('4540', 'Semantic UI', 'http://semantic-ui.com', null, null, 'Semantic UI 是一款语义化设计的前端开源框架,其功能强大,使用简单,为设计师和开发师提供可复用的完美设计方案。', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('4540', 'Raspberry Pi Zero: Programming over USB', 'http://blog.gbaman.info/?p=791', '', '', '树莓派Zero：使用USB来编程，无需网络连接、键盘或者屏幕', '', '0', '1', '656', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4541', 'MetroUI', 'http://metroui.org.ua/', null, null, '好看好用，重点是样式特别、个性', '', '0', '1', '609', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4542', 'Buttons', 'http://alexwolfe.github.io/Buttons', null, null, '', '', '0', '1', '609', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4543', 'pintuer', 'http://www.pintuer.com', null, null, '', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
@@ -414,7 +420,7 @@ INSERT INTO `nav_links` VALUES ('4550', 'alloyteam-github', 'http://alloyteam.gi
 INSERT INTO `nav_links` VALUES ('4551', '奇舞团开源项目', 'http://75team.github.io', '', null, '', '', '0', '1', '621', '1', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4552', 'detector', 'http://75team.github.io/novaUI/tools/detector', null, null, '移动浏览器信息监测', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4553', 'fastclick', 'https://github.com/ftlabs/fastclick', null, null, '', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('4554', 'KISSY', 'http://docs.kissyui.com', null, null, ' 阿里前端JavaScript库', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('4554', 'OctoPi', 'https://octopi.octoprint.org/', '', '', '为3d打印机准备的发行版', '', '0', '1', '652', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4555', 'nej', 'http://nej.netease.com', '', null, '网易前端JavaScript库', '', '0', '1', '626', '1', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4556', '百度分享', 'http://share.baidu.com', null, null, '', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4557', 'JiaThis', 'http://jiathis.com', null, null, '', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
@@ -430,9 +436,9 @@ INSERT INTO `nav_links` VALUES ('4566', '浏览器端调试安卓', 'https://ope
 INSERT INTO `nav_links` VALUES ('4567', '移动端前端开发调试', 'http://yujiangshui.com/multidevice-frontend-debug', null, null, '', '', '0', '1', '0', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4568', '微信调试工具', 'http://blog.qqbrowser.cc', null, null, '', '', '0', '1', '0', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4569', '远程console', 'http://jsconsole.com', null, null, '', '', '0', '1', '0', '0', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('4570', '代码大全', '1', null, null, '公认的关于编程的最佳实践指南之一， 在过去的十多年间，本书一直在帮助开发人员编写更好的软件。', '', '0', '1', '612', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('4571', '程序员修炼之道', '1', '', null, '对于那些已经学习过编程机制的程序员来说，这是一本卓越的书。 或许他们还是在校生，但对要自己做什么，还感觉不是很安全。', '', '0', '1', '621', '7', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('4572', '人月神话', '1123', '', null, '在软件领域，很少能有像《人月神话》一样具有深远影响力并且畅销不衰的著作。', '', '0', '1', '621', '7', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('4570', '代码大全', '#', null, null, '公认的关于编程的最佳实践指南之一， 在过去的十多年间，本书一直在帮助开发人员编写更好的软件。', '', '0', '1', '612', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('4571', '程序员修炼之道', '#', '', null, '对于那些已经学习过编程机制的程序员来说，这是一本卓越的书。 或许他们还是在校生，但对要自己做什么，还感觉不是很安全。', '', '0', '1', '621', '7', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('4572', '人月神话', '#', '', null, '在软件领域，很少能有像《人月神话》一样具有深远影响力并且畅销不衰的著作。', '', '0', '1', '621', '7', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4573', '编程书籍索引', 'https://github.com/vhf/free-programming-books/blob/master/free-programming-books-zh.md', null, null, 'github 上的一个流行的编程书籍索引', '', '0', '1', '612', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4574', 'Chrome扩展开发文档', 'Chrome扩展开发文档', null, null, '', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4575', '效果网', 'http://www.jq22.com', null, null, '', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
@@ -505,7 +511,7 @@ INSERT INTO `nav_links` VALUES ('4640', 'Meteor', 'https://www.meteor.com/', nul
 INSERT INTO `nav_links` VALUES ('4641', 'Atom', 'https://atom.io/', '', null, '更为先进的文本代码编辑器 - 由 Github 打造的下一代编程开发利器在代码编辑器、文本编辑器领域,有着不少的「神器」级的产品。', '', '0', '1', '621', '8', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4642', 'Visual Studio Code', 'https://www.visualstudio.com/products/code-vs', '', null, '微软推出，一个运行于 Mac OS X、Windows和 Linux 之上的，针对于编写现代 Web 和云应用的跨平台源代码编辑器。', '', '0', '1', '621', '8', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4643', 'IconMonster', 'http://iconmonstr.com/', null, null, '免费，高质量, 庞大且资源不断增长的简洁的icon图标库。', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('4644', 'IconFinder', 'https://www.iconfinder.com/', null, null, 'Iconfinder提供美丽的图标,服务数以百万计的设计师,开发商和其他有创意的专业人员。', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('4644', 'Kano OS', 'http://developers.kano.me/downloads/', '', '', '为探索、创造和玩耍准备准备的开源操作系统 – 对树莓派免费', '', '0', '1', '652', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4645', 'Fontello', 'http://fontello.com/', null, null, '一个目测有200+个图标（数量还在增加）的 Web-font 图标市场，对于广大设计师、前端开发者来说是很棒的资源。', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4646', '阿里妈妈矢量图标库 ', 'http://iconfont.cn/', null, null, 'Iconfont.cn是由阿里巴巴UX部门推出的矢量图标管理网站，也是国内首家推广Webfont形式图标的平台。', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4647', '全栈社区', 'http://www.fullstackspace.com/', null, null, '中国最大的全栈开发者社区,致力于打造一个问题解答,技术文章分享,全栈人员创业的服务平台,让开发更容易,让创业更简单.', '', '0', '1', '611', '2', 'Y', '0000-00-00 00:00:00');
@@ -531,7 +537,7 @@ INSERT INTO `nav_links` VALUES ('4667', '高性能JavaScript', 'https://book.dou
 INSERT INTO `nav_links` VALUES ('4668', 'JavaScript DOM编程艺术 （第2版）', 'https://book.douban.com/subject/6038371/', null, null, '', '', '0', '1', '612', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4669', '编写可维护的JavaScript', 'https://book.douban.com/subject/21792530/', null, null, '', '', '0', '1', '612', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4670', 'JAVASCRIPT语言精髓与编程实践', 'https://book.douban.com/subject/3012828/', null, null, '', '', '0', '1', '612', '0', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('4671', 'JavaScript设计模式', 'https://book.douban.com/subject/3329540/', null, null, '', '', '0', '1', '612', '0', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('4671', 'resinOS', 'https://resinos.io/', '', '', '在嵌入式设备中跑docker容器的开源操作系统, 考虑了生产环境所需的可靠性', '', '0', '1', '652', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4672', '基于MVC的JavaScript Web富应用开发', 'https://book.douban.com/subject/10733304/', null, null, '', '', '0', '1', '612', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4673', 'web性能实践日志', 'https://book.douban.com/subject/25891125/', null, null, '', '', '0', '1', '612', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4674', 'Web性能权威指南', 'https://book.douban.com/subject/25856314/', '', null, '', '', '0', '1', '621', '7', 'Y', '0000-00-00 00:00:00');
@@ -545,13 +551,13 @@ INSERT INTO `nav_links` VALUES ('4681', 'D3', 'http://d3js.org/', null, null, ''
 INSERT INTO `nav_links` VALUES ('4682', 'Flot', 'http://www.flotcharts.org/', null, null, '', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4683', 'bounce', 'http://bouncejs.com/', null, null, '', '', '0', '1', '610', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4684', 'move.js', 'https://visionmedia.github.io/move.js/', null, null, '', '', '0', '1', '610', '0', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('4685', '1', '', '', '', null, '', '0', '1', '610', '0', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('4685', 'NOOBS', 'https://www.raspberrypi.org/downloads/noobs/', '', '', '新的开箱即用软件, 为初学者准备的系统安装工具', '', '0', '1', '652', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4686', 'Handlebars', 'http://handlebarsjs.com/', null, null, '', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4687', 'Jade', 'http://jade-lang.com/', null, null, '', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4688', 'Ejs', 'http://www.embeddedjs.com/', null, null, '', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4689', 'CoffeeScript', 'http://coffeescript.org/', null, null, '', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4690', 'TypeScript', 'http://www.typescriptlang.org/', null, null, '', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('4691', 'PhoneGap', 'https://cordova.apache.org/', null, null, '', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('4691', 'Chromebook Charger Kiosk', 'https://www.reddit.com/r/raspberry_pi/comments/53nj1z/chromebook_charger_kiosk_last_minute_charge_for/', '', '', '给在校生的Chromebooks准备的定时充电站', '', '0', '1', '654', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4692', 'ipip', 'https://www.ipip.net/', '', null, '', '', '0', '1', '1', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4693', 'NW', 'http://nwjs.io/', null, null, '', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4694', 'ourjs', 'http://ourjs.com/', null, null, '', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
@@ -563,14 +569,14 @@ INSERT INTO `nav_links` VALUES ('4699', '司徒正美', 'http://www.cnblogs.com/
 INSERT INTO `nav_links` VALUES ('4700', 'JerryQu 的小站', 'https://imququ.com/', null, null, '', '', '0', '1', '607', '3', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4701', '前端小武', 'https://xuexb.com/', null, null, '', '', '0', '1', '607', '3', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('4702', '赵鹏', 'http://zhaopeng.me/', null, null, '', '', '0', '1', '607', '3', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('5956', '1', '', '', '', null, '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('5956', 'Ubuntu MATE', 'https://ubuntu-mate.org/raspberry-pi/', '', '', '为树莓派准备的Ubuntu发行版，基于MATE桌面环境', '', '0', '1', '652', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5955', 'jsdo.it', 'http://jsdo.it/', null, null, 'jsdo.it是一个专为前端工程师打造的社区。无论你是网页设计师，网页重构师或是JavaScript工程师，都可以在这里使用我们的在线编辑器，编写并尝试运行代码。同时你也可以将代码保存在我们的服务器上，并向其他人公开展示你的作品。如果你对自己的代码技能没有自信也不必担心！通过在别人的代码的基础上加以修改，你就可以在最短的时间里学习到最前沿的技术。 ', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5953', 'Browserhacks', 'http://browserhacks.com/', null, null, '浏览器hack速查', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5954', 'JSFuck', 'http://www.jsfuck.com/', null, null, '是用匿名函数的原生形式，解码则按照编码原理倒过来写个程序。其特点是由“[]，()，{}，+,！”组成的编码后的字符，这是一个JavaScript的绕过代码编码方式。', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5952', 'Bilibili', 'https://github.com/Bilibili', 'https://github.com/Bilibili', '', 'GitHub is where people build software. More than 15 million people use GitHub to discover, fork, and contribute to over 38 million projects.', '', '0', '1', '0', '1', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5949', 'NIPPON COLORS', 'http://nipponcolors.com/', null, null, '配色工具，非常小清新', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5950', 'JSLint', 'http://jslint.com/', null, null, '在线JS校验工具', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('5951', 'JSHint', 'http://jslint.com/', null, null, 'JSHint是一个JavaScript的代码质量检查工具，主要用来检查代码质量以及找出一些潜在的代码缺陷。', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('5951', 'PiBakery', 'http://www.pibakery.org/', '', '', '基于google的blockly项目, 为树莓派准备的易用的配置工具', '', '0', '1', '653', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5948', '在线压缩JS代码', 'http://jscompress.com/', null, null, '免费在线即时JavaScript压缩工具。复制并粘贴你的代码，或者上传多个文件，将它们组合在一起。', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5947', '缓动函数速查表', 'http://easings.net/zh-cn', '', null, '缓动函数允许指定动画在执行时的进度，使其看起来更加真实。现实物体照着一定速率移动，并不是一开始就移动得很快。本页可以在每次你需要时，帮助你找到想要的缓动函数。', '', '0', '1', '621', '9', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5946', 'TesterHome', 'https://testerhome.com/', null, null, 'TesterHome 移动测试社区，由众多移动测试工作者维护，致力于推进国内测试技术。', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -580,7 +586,7 @@ INSERT INTO `nav_links` VALUES ('5944', 'sinonjs', 'http://sinonjs.org/', null, 
 INSERT INTO `nav_links` VALUES ('5941', 'Mocha', 'http://mochajs.org', null, null, 'mocha 是一个简单、灵活有趣的 JavaScript 测试框架,用于 Node.js 和浏览器上的 JavaScript 应用测试。', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5942', 'chai', 'http://chaijs.com', null, null, 'chai是一个断言库，和Mocha搭配使用更佳，所以合称“抹茶”（其实mocha是咖啡）。“抹茶”特点是： 简单，Hour级学习成本，node和浏览器都可运行', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5940', 'CSS3动画参考', 'http://isux.tencent.com/css3/index.html', '', null, '这是腾讯团队出品的一个CSS3 动画样式参考手册，同时还配备了一个动画工具。', '', '0', '1', '621', '9', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('5938', 'RegExr', 'http://www.regexpal.com/', null, null, '一个用JS写的在线正则测试工具', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('5938', 'Jasper', 'https://jasperproject.github.io/', '', '', '灵活的开源个人助理', '', '0', '1', '654', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5939', 'Browser Sandbox&trade', 'https://spoon.net/browsers/', null, null, '点击你需要测试的浏览器环境，安装插件就可以进行测试了。帮助你测试网页在Safari、Chrome、Firefox和Opera浏览器中是否正常，测试兼容性工具', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5937', 'RegExr', 'http://regexr.com/', null, null, '一个用Flex写的在线测试正则的工具', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5936', 'JSConf', 'http://jsconf.cn/', null, null, 'JS中国开发者大会，中国主要的JavaScript会议，我们一起在。', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -602,9 +608,9 @@ INSERT INTO `nav_links` VALUES ('5921', 'JS-YAML', 'http://nodeca.github.io/js-y
 INSERT INTO `nav_links` VALUES ('5917', '栅格化白板', 'http://sneakpeekit.com/', null, null, '提供可打印的栅格化白板下载', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5918', '黄金栅格化', 'http://goldengridsystem.com/', null, null, '响应式Web设计栅格化', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5919', 'Css3Maker', 'http://www.css3maker.com/', null, null, 'css3在线生成器', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('5920', 'JS Bin', 'http://jsbin.com/', null, null, '前端工程师必备的技术网站，直接在显示编辑代码片段样本并分享。', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('5920', 'ApplePi Bakery', 'http://www.tweaking4all.com/software/macosx-software/macosx-apple-pi-baker/', '', '', 'macOS应用程序,可轻松地将系统镜像安装/备份/恢复到SD卡上', '', '0', '1', '653', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5916', '栅格化创造者', 'http://modulargrid.org/', null, null, '在线栅格化系统', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('5915', 'ZURB CSS', 'http://www.zurb.com/playground/css-grid-builder', null, null, 'ZURB CSS栅格化生成器', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('5915', '1', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5914', 'The grid system', 'http://www.thegridsystem.org/', null, null, '较全面的栅格化系统资源', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5913', 'Grid lover', 'http://www.gridlover.net/', null, null, '可手动拖拽调整栅格', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5911', '3X4栅格构建器', 'http://www.3x4grid.com/', null, null, '方便直观的3X4栅格构建系统', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -619,7 +625,7 @@ INSERT INTO `nav_links` VALUES ('5903', 'Iconfever', 'http://iconfever.com/', nu
 INSERT INTO `nav_links` VALUES ('5904', 'IconFinder', 'http://www.iconfinder.com/', null, null, 'iconfinder图标搜索引擎', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5902', 'Icomoon', 'http://icomoon.io/', null, null, '强大的简约图标库', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5901', 'Greatvectors', 'http://www.greatvectors.com/', null, null, '国外专注于提供矢量素材下载的网站，更新频率较快', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('5900', '1', '', '', '', null, '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('5900', 'Snappy Ubuntu Core', 'https://developer.ubuntu.com/en/snappy/start/raspberry-pi-2/', '', '', '为物联网准备的Ubuntu官方最小发行版', '', '0', '1', '652', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5899', 'Favicon', 'http://www.favicon.cc/', null, null, '在线生成ico浏览器图标', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5898', 'Easy Icon', 'http://www.easyicon.cn/', null, null, '图标搜索引擎，支持中文检索', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5897', 'Evil Icons', 'http://evil-icons.io/', null, null, '简单干净的SVG图标包的代码支持Rails, Sprockets, Node.js, Gulp, Grunt and CDN。', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -628,15 +634,15 @@ INSERT INTO `nav_links` VALUES ('5895', '线框杂志', 'http://wireframes.linow
 INSERT INTO `nav_links` VALUES ('5894', '用户体验资讯网', 'http://uxinfo.com/', null, null, 'IXDC旗下资讯网，引领中国交互设计行业发展', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5893', '深圳体验设计专业委员会', 'http://www.uxdc.org/', null, null, '中国首个体验设计专业组织，倡导推广体验设计行业能力标准和业务流程，竭力促进体验设计与传统行业的对接，积极引领国内体验设计行业与国际接轨', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5892', '交互设计专业委员会', 'http://ixdc.org/', null, null, '引领中国交互设计行业发展', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('5891', 'WebPPD', 'http://www.webppd.com/', null, null, 'axure产品原型设计，务实产品经理基本功', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('5891', '1', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5885', 'THEnextweb', 'http://thenextweb.com/', null, null, '国外交互设计资讯平台', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('5886', 'User Experience', 'http://ux.stackexchange.com/', null, null, '一个免费为用户体验研究人员和专家提供问答服务的社区', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('5887', 'UX Magazine', 'http://uxmag.com/', null, null, '设计、技术、用户体验等最好最新思想的原创文章', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('5886', 'Use a Raspberry Pi with multiple WiFi networks', 'https://www.mikestreety.co.uk/blog/use-a-raspberry-pi-with-multiple-wifi-networks', '', '', '将树莓派接入多个无线网络的教程', '', '0', '1', '656', '22', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('5887', 'Raspberry Pi Media Server Guides', 'http://www.htpcguides.com/category/raspberry-pi/', '', '', '用树莓派搭建媒体服务器的教程（HTPC：Home Theater Personal Computer，即家庭影院电脑）', '', '0', '1', '656', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5888', 'UXbooth', 'http://www.uxbooth.com/', null, null, '侧重用户体验、交互、可用性等内容', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5889', 'UXDE', 'http://www.uxde.net/', null, null, '提供交互设计和开发的灵感、教程、资源等', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5890', 'UX杂志', 'http://uxmag.com', null, null, '提供持续、丰富、权威的用户体验和相关领域的信息', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5883', 'OneAPM Browser Insight', 'http://www.oneapm.com/bi/feature.html', null, null, '基于真实用户的 Web 前端性能监控平台', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('5884', 'SmashingMagazine', 'http://www.smashingmagazine.com/', null, null, '前端与用户体验为核心的杂志类知名博客', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('5884', 'Turn the Raspberry Pi Zero into a mini dongle computer', 'http://n-o-d-e.net/post/150780207431/turn-the-raspberry-pi-zero-into-a-mini-dongle', '', '', '设置pi0，使其可以用USB登录ssh 和 vnc', '', '0', '1', '656', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5879', '腾讯ISD', 'http://isd.tencent.com/blog', '', null, 'QQ空间、QQ会员、QQ秀、QQmusic、腾讯视频、拍拍、QQ商城等产品体验设计', '', '0', '1', '623', '1', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5880', '腾讯ISUX', 'http://isux.tencent.com', null, null, '腾讯社交用户体验设计部', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5881', '迅雷CUED', 'http://cued.xunlei.com/', '', null, '迅雷CUED', '', '0', '1', '621', '1', 'Y', '0000-00-00 00:00:00');
@@ -670,7 +676,7 @@ INSERT INTO `nav_links` VALUES ('5853', '前端开发', 'http://www.css88.com/',
 INSERT INTO `nav_links` VALUES ('5852', 'Web Platform', 'http://www.webplatform.org/', null, null, '苹果、Google、微软、Facebook等巨头强势联盟，加入W3C共推维基式开放网站Web Platform。该网站将提供关于HTML5, CSS3以及其他跟Web标准相关的最新优质内容，并提供关于这类技术开发、实践技巧，打造互联网上该类内容的单一、权威发布平台', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5851', 'F2E - 前端技术社区', 'http://f2e.im/', null, null, '前端技术社区，分享讨论。', '', '0', '1', '0', '2', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5850', 'Web App Trend', 'http://www.webapptrend.com/', null, null, '关注跨平台开发以及Web App技术发展与实践', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('5848', 'w3ctech', 'http://w3ctech.com/', null, null, 'web标准化交流会', '', '0', '1', '611', '2', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('5848', '1', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5849', 'W3C在线检验', 'http://validator.w3.org/', null, null, 'W3C在线检验', 'http://www.w3.org/2008/site/images/favicon.ico', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5847', 'Bootstrap中文网', 'http://www.bootcss.com/', null, null, 'Bootstrap是Twitter推出的一个用于前端开发的开源工具包。它由Twitter的设计师Mark Otto和Jacob Thornton合作开发，是一个CSS/HTML框架。目前，Bootstrap最新版本为3.0 。Bootstrap中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者掌握并使用这一框架。', 'http://static.bootcss.com/www/assets/ico/favicon.png', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5846', '前端乱炖', 'http://html-js.com/', null, null, '前端乱炖，这里是最专业的前端知识平台，汇集国内大部分前端开发人员的前端花名册，最精彩的原创文章专栏，最专业的问答平台，最火热的话题频道，最丰富的线下线上活动。', '', '0', '1', '0', '2', 'Y', '0000-00-00 00:00:00');
@@ -679,7 +685,7 @@ INSERT INTO `nav_links` VALUES ('5844', 'W3school 英文网站', 'http://www.w3s
 INSERT INTO `nav_links` VALUES ('5843', 'plainJS', 'https://plainjs.com/', null, null, '该仓库都是用原生js写的插件和组件，很实用', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6315', '程序员客栈', 'https://www.proginn.com/', null, null, '程序员客栈提供优秀的程序员为您解决网站建设制作开发以及手机移动端APP制作开发包括网站web前端视觉页面开发设计，APP软件开发要多少钱、web前端开发、安卓软件开发、网站设计、UI设计、原型设计、网站外包、设计外包、APP外包等等业务都可以在程序员客栈得到完美的解决。', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6314', 'uxcore', 'http://uxco.re', 'https://github.com/uxcore', 'react', '', 'https://avatars1.githubusercontent.com/u/12255016?v=3&s=200', '0', '1', '632', '6', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('5842', 'RunJS', 'http://runjs.cn/', null, null, 'RunJS,在线编写、展示html、js、css代码，拥有实时预览、分享、Fork、代码高亮、自动完成等多项特性，提供文件上传、多种登录方式。', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('5842', 'Lightberry', 'https://lightberry.eu/', '', '', '为树莓派和电视准备的LED照明解决方', '', '0', '1', '654', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5841', 'Browsershot', 'http://browsershots.org/', null, null, '超多的浏览器兼容性在线测试，免去了在本机安装N多浏览器的烦恼', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7229', '有道网页翻译2.0', 'http://fanyi.youdao.com/web2/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7230', 'Backgroundlabs', 'http://www.backgroundlabs.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -713,7 +719,7 @@ INSERT INTO `nav_links` VALUES ('7206', '百度流量研究院', 'http://tongji.
 INSERT INTO `nav_links` VALUES ('7203', '数据分析在中国', 'http://www.chinawebanalytics.cn/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7201', '图研所', 'http://www.tuyansuo.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7202', '图表汇', 'http://blog.sina.com.cn/huangyu4124', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7200', 'Visualising Data', 'http://www.visualisingdata.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7200', 'How To Make a Raspberry Pi Turn on a Lamp with iBeacon™ Technology', 'http://developer.radiusnetworks.com/2014/04/27/how-to-make-a-raspberry-pi-turn-on-a-lamp-with-an-ibeacon.html', '', '', 'iBeacon新手教程', '', '0', '1', '656', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7198', 'Flowingdata', 'http://flowingdata.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7199', 'internetretailer', 'http://www.internetretailer.com/trends/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7194', '商业不靠谱', 'http://www.bukop.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -777,14 +783,14 @@ INSERT INTO `nav_links` VALUES ('7139', 'WebDesignShock', 'http://www.webdesigns
 INSERT INTO `nav_links` VALUES ('7140', 'What is Woo', 'http://www.wookmark.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7137', 'The Verge', 'http://www.theverge.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7138', 'Webdesignledger', 'http://webdesignledger.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7135', 'Six Revisions', 'http://sixrevisions.com', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7136', 'Speckyboy', 'http://speckyboy.com', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7135', 'Build a $35 Time Capsule', 'https://raymii.org/s/articles/Build_a_35_dollar_Time_Capsule_-_Raspberry_Pi_Time_Machine.html', '', '', '时光机器（备份服务）', '', '0', '1', '656', '22', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7136', 'Raspberry Pi Game Console', 'https://lifehacker.com/how-to-turn-your-raspberry-pi-into-a-retro-game-console-498561192', '', '', '用35美元搭建一个树莓派复古游戏机', '', '0', '1', '656', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7133', 'qnt画廊', 'http://www.quandtnet.de/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7134', 'SINCE1984', 'http://since1984.cn/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7131', 'Pinterest', 'http://pinterest.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7131', 'SecPi', 'https://github.com/SecPi/SecPi', '', '', '基于Raspberry Pi的家庭报警系统', '', '0', '1', '654', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7132', 'Poboo', 'http://www.poboo.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7130', 'NewWebPick', 'http://www.newwebpick.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7129', 'Mustified', 'http://mustified.com', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7129', 'Etcher', 'https://www.etcher.io/', '', '', '跨平台的SD卡烧录程序，使用简单，易于扩展', '', '0', '1', '653', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7128', 'Instantshift', 'http://www.instantshift.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7124', 'gulp 入门指南', 'https://github.com/nimojs/gulp-book', 'https://github.com/nimojs/gulp-book', '', '', '', '0', '1', '621', '9', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7125', 'Designrfix', 'http://designrfix.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -805,7 +811,7 @@ INSERT INTO `nav_links` VALUES ('7113', '移动玩家', 'http://www.mobileawesom
 INSERT INTO `nav_links` VALUES ('7108', 'Pttrns', 'http://pttrns.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7109', 'TappGala', 'http://www.tappgala.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7110', 'Tutsplus', 'http://mobile.tutsplus.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7111', 'UI4App', 'http://ui4app.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7111', 'Official Forum', 'https://www.raspberrypi.org/forums/', '', '', '', '', '0', '1', '657', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7106', 'MobiUE', 'http://www.mobiue.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7107', 'Mycolorscreen', 'http://mycolorscreen.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7104', 'CssiPhone', 'http://www.cssiphone.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -840,14 +846,14 @@ INSERT INTO `nav_links` VALUES ('7077', 'quora', 'http://www.quora.com/', null, 
 INSERT INTO `nav_links` VALUES ('7078', 'JSDoc', 'http://www.css88.com/doc/jsdoc/index.html', '', '', '', '', '0', '1', '0', '9', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7075', 'ATHENA', 'https://athena.aotu.io/', 'https://github.com/o2team/athena', '', '凹凸实验室出品－前端自动化流程构建工具', '', '7', '1', '621', '4', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7074', 'HiApp', 'http://hi.dearb.me/', null, null, '', '', '0', '1', '608', '0', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7073', '1', '', '', '', null, '', '0', '1', '0', '7', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7073', 'Windows 10 IoT Core', 'https://developer.microsoft.com/nl-nl/windows/iot/Downloads.htm', '', '', '为物联网准备的Windows 10发行版', '', '0', '1', '652', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7072', 'JavaScript模式', '', null, null, null, null, '0', '1', '0', '7', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7071', 'JavaScript语言精粹(修订版)', '', null, null, null, null, '0', '1', '0', '7', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7070', 'Ant-Tool', 'http://ant-tool.github.io/', '', '', '蚂蚁金服新一代构建和调试工具。', '', '9', '1', '621', '4', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7069', 'JavaScript设计模式', '', null, null, null, null, '0', '1', '0', '7', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7068', 'JavaScript DOM编程艺术(第2版)', '', null, null, null, null, '0', '1', '0', '7', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7067', 'JavaScript权威指南(第6版)', '', null, null, null, null, '0', '1', '0', '7', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7066', 'JavaScript高级程序设计(第3版)', '', null, null, null, null, '0', '1', '0', '7', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7069', 'PiShrink', 'https://github.com/Drewsif/PiShrink/', '', '', 'Bash脚本，它会自动缩小pi镜像，之后在启动时将其调整为SD卡的最大存储空间大小', '', '0', '1', '653', '22', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7068', 'OpenVPN-Setup', 'https://github.com/StarshipEngineer/OpenVPN-Setup', '', '', ' 用于将树莓派设置为OpenVPN服务器的Shell脚本', '', '0', '1', '653', '22', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7067', 'pi-gen', 'https://github.com/RPi-Distro/pi-gen', '', '', '用于构建树莓派官方镜像的工具. 你可以将其用于构建自己的定制镜像（预装特定软件）', '', '0', '1', '653', '22', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7066', 'PiVPN', 'http://www.pivpn.io/', '', '', '简单、灵活的单行安装脚本，用于在树莓派上安装OpenVPN服务', '', '0', '1', '653', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7065', 'IOS官方教程', 'https://developer.apple.com/cn/technologies/ios/', null, null, null, null, '0', '1', '0', '7', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7063', 'HTML5浏览器测试', 'http://html5test.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7064', 'WIN8开发指南', 'http://msdn.microsoft.com/library/windows/apps/br211385.aspx', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -870,7 +876,7 @@ INSERT INTO `nav_links` VALUES ('7048', 'LimeJS', 'http://www.limejs.com/', null
 INSERT INTO `nav_links` VALUES ('7046', 'melonjs', 'http://melonjs.org/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7044', 'createjs', 'http://www.createjs.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7045', 'craftyjs', 'http://craftyjs.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7042', '1', '', '', '', null, '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7042', 'OSMC', 'https://osmc.tv/', '', '', '基于Kodi的开源数字媒体中心系统', '', '0', '1', '652', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7043', 'ImpactJS', 'http://impactjs.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7041', 'node.js中文社区', 'http://cnodejs.org/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7039', 'sizzlejs', 'http://sizzlejs.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -882,9 +888,9 @@ INSERT INTO `nav_links` VALUES ('7035', 'Dojo', 'http://dojotoolkit.org/', null,
 INSERT INTO `nav_links` VALUES ('7033', 'jQuery', 'http://jquery.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7034', 'mootools', 'http://mootools.net/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7031', 'W3CPLUS', 'http://www.w3cplus.com/blog/tags/11.html', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7032', 'Mozilla CSS3', 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7032', 'Network Presence Detector', 'https://github.com/initialstate/pi-sensor-free-presence-detector/wiki', '', '', '配置Pi0，使其可以在wifi网络里扫描，发现谁是\"home\"', '', '0', '1', '653', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7030', 'IE默认CSS', 'http://www.iecss.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7028', '马克鳗', 'http://www.getmarkman.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7028', 'Raspberry Pi (@Raspberry_Pi) | Twitter', 'https://twitter.com/Raspberry_Pi', '', '', '来自 Raspberry Pi (@Raspberry_Pi). The official Twitter account for the Raspberry Pi Foundation. News and info about our low-cost mini PC. Cambridge, UK 的最新推文', '', '0', '1', '657', '22', 'Y', '2016-11-06 01:23:26');
 INSERT INTO `nav_links` VALUES ('7029', 'electron', 'https://github.com/electron/electron/tree/master/docs-translations/zh-CN', '', '', '', '', '0', '1', '0', '9', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7027', 'jQuery1.7手册', 'http://www.php100.com/manual/jQuery/', '', null, '', '', '0', '1', '621', '9', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7026', '原生JS手册', 'http://www.php100.com/manual/javascript.html', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -899,7 +905,7 @@ INSERT INTO `nav_links` VALUES ('7018', 'vmware', 'http://www.vmware.com/cn', nu
 INSERT INTO `nav_links` VALUES ('7016', 'IEtester', 'http://www.my-debugbar.com/wiki/IETester/HomePage', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7017', 'WINXPmode', 'http://windows.microsoft.com/zh-cn/windows7/install-and-use-windows-xp-mode-in-windows-7', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7010', '阿里测', 'http://www.alibench.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7011', '1', '1', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7011', 'PiNet', 'http://pinet.org.uk/', '', '', '用于管理树莓派课堂的系统', '', '0', '1', '652', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7012', 'httpwatch', 'http://www.httpwatch.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7013', 'CSS3generator', 'http://css3generator.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7014', 'CSS3按钮生成', 'http://css-tricks.com/examples/ButtonMaker/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -944,7 +950,7 @@ INSERT INTO `nav_links` VALUES ('6973', 'NicholasZakas', 'http://www.nczonline.n
 INSERT INTO `nav_links` VALUES ('6971', 'SteveSouders', 'http://www.stevesouders.com/blog/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6972', 'EricMeyer', 'http://meyerweb.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6969', 'CSS-Tricks', 'http://css-tricks.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6970', 'SmashingMagazine', 'http://smashingmagazine.com', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6970', '树莓派(Raspberry Pi)资源大全中文版', 'https://github.com/wwj718/awesome-raspberry-pi-zh', '', '', '', '', '0', '1', '0', '22', 'Y', '2016-11-06 01:23:26');
 INSERT INTO `nav_links` VALUES ('6968', 'brucewar', 'http://www.brucewar.com/', null, null, '', '', '0', '1', '607', '3', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6966', '葵中剑', 'http://swordair.com/', null, null, '', '', '0', '1', '607', '3', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6967', 'css3China', 'http://www.css3china.com/', null, null, '', '', '0', '1', '607', '3', 'Y', '0000-00-00 00:00:00');
@@ -994,7 +1000,7 @@ INSERT INTO `nav_links` VALUES ('6923', '求是设计会', 'http://weibo.com/qiu
 INSERT INTO `nav_links` VALUES ('6921', '微盘', 'http://weibo.com/wepan', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6922', '百度用户体验部', 'http://weibo.com/baiduuxc', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6920', '意匠id', 'http://weibo.com/mdabao', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6918', '1', '', '', '', null, '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6918', 'Risc OS', 'https://www.riscosopen.org/content/downloads/raspberry-pi', '', '', '非Linux操作系统, 来自ARM微处理器的开发小组', '', '0', '1', '652', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6919', '优秀网页设计', 'http://weibo.com/uidesign', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6917', '优设基础训练营', 'http://weibo.com/u/2438286757', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6915', '尖峰视界', 'http://weibo.com/ArtisansAndArtists', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -1013,16 +1019,16 @@ INSERT INTO `nav_links` VALUES ('6903', '响站', 'http://www.xiangzhan.com/?ad=
 INSERT INTO `nav_links` VALUES ('6904', '交互设计神器iH5', 'http://www.ih5.cn/?vxfrom=uisdc', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6902', 'Frog 中国', 'http://www.frogdesign.cn/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6900', '虎嗅网', 'https://www.huxiu.com/', '', null, '', '', '0', '2', '621', '11', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6901', 'Reddit', 'https://www.reddit.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6901', 'PiClock', 'https://github.com/n0bel/PiClock', '', '', '别致的时钟', '', '0', '1', '654', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6899', '日本免费动漫视频网', 'http://anipo.jp/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6897', '插画世界', 'http://www.n8w.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6898', 'VIZ', 'http://www.viz.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6896', '动漫之家', 'http://www.dmzj.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6894', '布卡漫画', 'http://www.buka.cn/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6895', '插画驿站', 'https://www.behance.net/galleries/1/Illustration', '', '', '', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6893', 'Photography Served', 'https://www.behance.net/galleries/7/Photography', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6893', 'Garage Door Opener', 'https://github.com/benjefferies/gogo-garage-opener', '', '', '车库开门器', '', '0', '1', '654', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6891', 'infogr.am', 'https://infogr.am/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6892', 'WebPPD', 'http://www.axure.org/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6892', '1', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6890', '每日图表', 'http://www.dailyinfographic.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6888', 'Comic Neue', 'http://comicneue.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6889', '叶根友字体', 'http://www.yegenyou.com/font.htm?u=159', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -1033,37 +1039,37 @@ INSERT INTO `nav_links` VALUES ('6885', '网站改版灵感库', 'http://redsgn.
 INSERT INTO `nav_links` VALUES ('6883', 'Lapa网页灵感图库', 'http://lapa.ninja/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6882', 'Product Hunt', 'https://www.producthunt.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6881', '花瓣', 'http://huaban.com/all/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6880', 'Pinterest', 'https://www.pinterest.com/categories/design/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6880', 'Movel', 'https://github.com/stevelacy/movel', '', '', '树莓派车载电脑', '', '0', '1', '654', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6878', '响站', 'http://www.xiangzhan.com/?ad=uisdcnav1', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6879', '全球响应式网站', 'http://mediaqueri.es/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6877', '1', '', '', '', null, '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6877', 'RuneAudio', 'http://www.runeaudio.com/', '', '', '免费和开源和操作系统，可将嵌入式硬件变为Hi-fi音乐播放器', '', '0', '1', '652', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6875', 'Templated', 'https://templated.co/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6876', 'ThemeForest', 'https://themeforest.net/category/site-templates', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6876', 'StackExchange', 'https://raspberrypi.stackexchange.com/', '', '', '', '', '0', '1', '657', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6874', '免费模版库', 'https://www.freewebtemplates.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6873', '登录界面模版网', 'http://www.landingfolio.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6871', 'Icon Deposit', 'https://www.icondeposit.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6871', 'Mini OONTZ', 'https://cdn-learn.adafruit.com/downloads/pdf/mini-oontz-3d-printed-midi-controller.pdf', '', '', '3D打印的迷你MIDI控制器', '', '0', '1', '654', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6872', '网页模版巨人', 'http://www.templatemonster.com/?aff=uisdc', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6870', 'Site Inspire', 'https://www.siteinspire.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6870', '1', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6868', 'ColorFavs', 'http://www.colorfavs.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6869', 'MaterialUI', 'https://www.materialui.co/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6867', '色彩猎人', 'http://colorhunt.co/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6866', '漂亮的渐变颜色', 'http://uigradients.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6864', 'Pixabay', 'https://pixabay.com/zh/photos/?order=latest', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6864', 'PiFanTuner', 'https://github.com/winkidney/PIFanTuner', '', '', 'CPU风扇控制程序', '', '0', '1', '654', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6865', 'Coolors', 'https://coolors.co/browser/latest/1', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6863', 'Yestone创意图片库', 'http://www.yestone.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6862', 'Pexels', 'https://www.pexels.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6863', '1', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6862', 'Power Sniffing Strip', 'https://gnurds.com/index.php/2012/10/02/raspberry-pi-power-strip/', '', '', '藏在电源插座里的树莓派, 用于嗅探网络数据', '', '0', '1', '654', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6861', '微软Bing图库', 'http://www.bing.com/gallery/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6859', '1', '', '', '', null, '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6859', 'OpenELEC', 'http://openelec.tv/', '', '', '开放的嵌入式Linux娱乐中心，基于Kodi构建的轻量级系统', '', '0', '1', '652', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6860', '百度以图搜图', 'http://image.baidu.com/?fr=shitu', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6858', '[故事]', 'http://www.uisdc.com/remember-and-rip-wallbase', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6856', 'Coliss', 'http://coliss.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6857', 'WallHaven涅盘新生', 'https://alpha.wallhaven.cc/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6857', '1', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6855', 'PhotoshopVIP', 'http://photoshopvip.net/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6854', 'Adobe 设计周报', 'http://create.adobe.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6852', 'LogoPond', 'https://logopond.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6853', 'PSDTuts+', 'http://design.tutsplus.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6852', 'Raspberry Pi Erlang Cluster', 'https://medium.com/@pieterjan_m/erlang-pi2-arm-cluster-vs-xeon-vm-40871d35d356#.bpao66cm8', '', '', '跑在树莓派2代上的Erlang集群', '', '0', '1', '654', '22', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6853', 'SkyJack', 'https://samy.pl/skyjack/', '', '', '在无线距离内，劫持并控制任何的Parrot AR Drone', '', '0', '1', '654', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6851', '中山大学', 'http://mirror.sysu.edu.cn/', '', '', 'SUN YAT-SEN  University Mirrors', '', '0', '1', '0', '10', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6849', '1', '', '', '', null, '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6849', 'HypriotOS', 'http://blog.hypriot.com/about/', '', '', '基于Debian的最小操作系统，为运行docker做了优化', '', '0', '1', '652', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6850', '网页模版巨人', 'http://www.templatemonster.com/?aff=uisdc', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6848', '百变纹理', 'https://www.transparenttextures.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6847', '移动观象台', 'http://mi.talkingdata.com/index.html', null, null, 'TalkingData移动观象台基于设备用户的操作行为,提供业界最具影响力的数据报告,应用排行,人迹地图等', '', '0', '1', '1', '0', 'Y', '0000-00-00 00:00:00');
@@ -1123,7 +1129,7 @@ INSERT INTO `nav_links` VALUES ('6793', '沪深B股', 'http://vip.stock.finance.
 INSERT INTO `nav_links` VALUES ('6794', '创业板', 'http://vip.stock.finance.sina.com.cn/mkt/#cyb', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6792', '深A涨幅', 'http://vip.stock.finance.sina.com.cn/mkt/#stock_sz_up', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6790', '上证指数', 'http://quote.eastmoney.com/flash/zs000001.html', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6791', '沪A涨幅', '1', null, null, '', '', '0', '1', '621', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6791', '沪A涨幅', '#', null, null, '', '', '0', '1', '621', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6788', '环球医药', 'http://data.qgyyzs.net/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6789', 'DrugBank', 'http://www.drugbank.ca/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6786', '药智数据', 'http://db.yaozh.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -1208,7 +1214,7 @@ INSERT INTO `nav_links` VALUES ('6709', 'Splunk', 'http://zh-hans.splunk.com/', 
 INSERT INTO `nav_links` VALUES ('6707', 'Compuware', 'http://www.compuware.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6708', 'Riverbed', 'http://cn.riverbed.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6706', 'Webpagetest', 'http://www.webpagetest.org/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6704', 'Pingdom', 'http://tools.pingdom.com/fpt/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6704', 'Nerves Project', 'https://github.com/nerves-project', '', '', '为嵌入式设备准备的erlang交叉编译环境', '', '0', '1', '654', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6705', 'Web Page Analyzer', 'http://www.websiteoptimization.com/services/analyze/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6703', 'GT Metrix', 'http://gtmetrix.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6701', 'Vitess', 'https://github.com/youtube/vitess', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -1308,7 +1314,7 @@ INSERT INTO `nav_links` VALUES ('6607', 'Google Charts', 'https://developers.goo
 INSERT INTO `nav_links` VALUES ('6608', 'Databricks', 'https://databricks.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6609', 'Wolfram', 'http://www.wolfram.com/mathematica/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6604', '中国P2P网贷指数', 'http://www.p2p001.com/wdzs/wdzs_p2pline.html', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6605', '1', '', '', '', null, '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6605', 'Kali Linux', 'https://www.offensive-security.com/kali-linux-arm-images/', '', '', '为渗透测试和正义黑客准备的Linux发行版，运行在ARM设备上', '', '0', '1', '652', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6606', 'Cytoscape', 'http://www.cytoscape.org/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6603', '网贷看盘', 'http://www.wangdaidp.com/archives-kanpan.html', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6602', '网贷天下', 'http://www.wangdaichina.com/loandata/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -1484,7 +1490,7 @@ INSERT INTO `nav_links` VALUES ('6432', 'Tedcom', 'http://www.ted.com/', null, n
 INSERT INTO `nav_links` VALUES ('6433', '剪客简报', 'http://www.vjianke.com/2/findclip.clip', null, null, null, null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6431', 'TedtoChina', 'http://www.tedtochina.com/', null, null, null, null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6430', '创业公开课', 'http://open.cyz.org.cn/sem/index.html', null, null, null, null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6429', '中国公开课', 'http://opencla.cntv.cn/', null, null, null, null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6429', '1', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6428', '大学公开课', 'http://www.icourses.cn/home/', null, null, null, null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6426', '网易公开课', 'http://open.163.com/', null, null, null, null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6427', '凤凰公开课', 'http://v.ifeng.com/gongkaike/', null, null, null, null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -1603,7 +1609,7 @@ INSERT INTO `nav_links` VALUES ('6311', 'AngularJs2', 'https://angular.cn', null
 INSERT INTO `nav_links` VALUES ('6312', '众成翻译', 'http://www.zcfy.cc/', null, null, '技术文章翻译社区', '', '0', '2', '0', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6309', '碼天狗週刊', 'http://weekly.codetengu.com/', null, null, 'CodeTengu Weekly（碼天狗週刊）是一份開發者導向的 IT 技術週刊，適合所有患有資訊焦慮症、氣血循環不順以及性受挫的軟體工程師們。致力於解決開發者之間的資訊不對稱。', '', '0', '2', '0', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6308', 'egghead.io', 'https://egghead.io/', null, null, 'Learn professional JavaScript tools with Tutorial Videos & Training', '', '0', '2', '0', '0', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6307', 'iReact', 'http://iReact.cn/', null, null, 'React是Facebook开源的前段开发框架，iReact是收集Github上开源的react组件库，方便用户查询需要的组件。辅助开发工作。', '', '0', '2', '0', '0', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6307', 'NTP driven Nixie Clock', 'http://www.mjoldfield.com/atelier/2012/08/ntp-nixie.html', '', '', '由树莓派驱动的数码管时钟', '', '0', '1', '654', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6306', 'G2', 'http://antvis.github.io/', null, null, 'G2(The Grammar Of Graphics) 是一个由纯 javascript 编写、强大的语义化图表生成工具，它提供了一整套图形语法，可以让用户通过简单的语法搭建出无数种图表，并且集成了大量的统计工具，支持多种坐标系绘制，可以让用户自由得定制图表，是为大数据时代而准备的强大的可视化工具。', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6305', 'Libraries', 'https://libraries.io', null, null, '可以查询在您的项目中使用的模块和库的版本是否为新版本。', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6304', 'Moment.js', 'http://momentjs.com/', null, null, '一款大名鼎鼎的日期插件', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -1630,7 +1636,7 @@ INSERT INTO `nav_links` VALUES ('6284', 'je原创插件库', 'http://www.jayui.c
 INSERT INTO `nav_links` VALUES ('6283', 'Phodal', 'https://www.phodal.com/', null, null, 'Phodal - 狼和凤凰 | Growth Engineer', 'https://www.phodal.com/static/phodal/images/favicon.ico', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6282', '江小湖Laker', 'http://laker.me/blog', null, null, '江小湖的主页—进击的程序媛', 'http://laker.me/blog/favicon.ico', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6281', 'tool.lu', 'http://tool.lu/', null, null, '在线工具，提供代码格式化、压缩、加密、解密、正则测试、在线运行代码等功能', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6280', '1', '', '', '', null, '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6280', 'RetroPie', 'https://retropie.org.uk/', '', '', '在树莓派玩复古游戏', '', '0', '2', '652', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6279', 'ECMAScript 6入门', 'http://es6.ruanyifeng.com/', null, null, '阮一峰著《ECMAScript 6入门》', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6278', 'React Native for OS X', 'https://github.com/ptmt/react-native-desktop', null, null, '使用React Native 和 Cocoa构建操作系统的桌面应用程序使用', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6277', '阿城的blog', 'http://qiutc.me/', null, null, '阿城的blog', '', '0', '2', '607', '3', 'Y', '0000-00-00 00:00:00');
@@ -1652,7 +1658,7 @@ INSERT INTO `nav_links` VALUES ('6263', 'PixelsTech', 'http://www.pixelstech.net
 INSERT INTO `nav_links` VALUES ('6262', 'WEB骇客', 'http://www.webhek.com/', null, null, '关注HTML5、CSS3等浏览器前端技术，包括各种HTML5、CSS3资料，HTML5、CSS3网站、HTML5、CSS3资讯、HTML5、CSS3应用、HTML5、CSS3游戏、HTML5、CSS3教程、HTML5、CSS3视频、HTML5、CSS3论坛等。', '', '0', '2', '611', '2', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6261', '朱英达的个人博客', 'https://www.zhuyingda.com/', null, null, '技术博客，有关web的安全问题和性能问题', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6260', 'npm-stat', 'http://npm-stat.com/', null, null, '查看npm包或者用的数据统计。', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6259', 'W3Help', 'http://www.w3help.org/zh-cn/kb', null, null, '多家关注Web标准的公司、团体、标准组织及科研单位共同创立的Web标准推广网站', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6259', '1', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6258', 'cssmatic', 'http://www.cssmatic.com', null, null, '一个帮忙调试CSS效果的工具', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6257', 'clipboard.js', 'https://zenorocha.github.io/clipboard.js', null, null, ':scissors: Modern copy to clipboard. No Flash. Just 2kb :clipboard:', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6256', '百度Fis', 'http://fis.baidu.com', null, null, '解决前端开发中自动化工具、性能优化、模块化框架、开发规范、代码部署、开发流程等问题。', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -1695,7 +1701,7 @@ INSERT INTO `nav_links` VALUES ('6220', 'idoc', 'http://jaywcjlove.github.io/ido
 INSERT INTO `nav_links` VALUES ('6219', 'translater.js', 'http://jaywcjlove.github.io/translater.js', null, null, '这是一个利用HTML注释的页面翻译解决方案。对于少量的静态页面，这种解决方案显得更简单。它没有依赖，压缩只有只有(~2kb)。', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6218', 'Hotkeys', 'http://jaywcjlove.github.io/hotkeys', null, null, '这是一个强健的 Javascript 库用于捕获键盘输入和输入的组合键，它没有依赖，压缩只有只有(~3kb)。', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6217', 'validator.js', 'http://jaywcjlove.github.io/validator.js', null, null, '轻量级的JavaScript表单验证，字符串验证。没有依赖，支持UMD，~3kb。', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6215', 'nodejs', 'http://nodejs.org/', null, null, '', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6215', '40-node Raspberry Pi Cluster', 'http://hackaday.com/2014/02/17/40-node-raspi-cluster/', '', '', '40个节点构成的树莓派集群', '', '0', '1', '654', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6216', 'curl.js', 'https://github.com/cujojs/curl', null, null, '', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6213', 'commonjs', 'http://www.commonjs.org/', null, null, '', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6214', 'seajs', 'http://seajs.org/docs/', null, null, '', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -1759,9 +1765,9 @@ INSERT INTO `nav_links` VALUES ('6156', 'Fredo and Pidjin', 'http://www.pidjin.n
 INSERT INTO `nav_links` VALUES ('6155', 'Duri.me', 'http://duri.me/', null, null, 'Duri.me 在线帮你生成了图片、CSS和Base64字符串三种形式的代码，可以根据自己的需要拷贝生成的内容。', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6154', 'Cool Vibe', 'http://coolvibe.com/', null, null, '超酷！展示高清插画壁纸以及动漫、梦幻图片的地方', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6153', '插画驿站', 'http://www.illustrationserved.com/', null, null, 'Behance旗下的插画网', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6152', 'SAKIROO', 'http://sakiroo.com/', null, null, '韩国插画设计网，人设为主', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6152', 'Wordpress using Docker', '使用docker跑wordpress（采用动态DNS）', '', '', '使用docker跑wordpress（采用动态DNS）', '', '0', '1', '654', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6151', '布卡漫画', 'http://www.ibuka.cn/', null, null, '最受欢迎的手机看漫画应用！可直接应用里搜索', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6150', 'P站！', 'http://www.pixiv.net/', null, null, '大名鼎鼎的日本高清同人画、插画作品分享站', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6150', 'Pi-hole', 'https://pi-hole.net/', '', '', '为互联网广告准备的黑洞', '', '0', '1', '654', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6149', 'NAVER摄影图库', 'http://photo.naver.com/', null, null, '韩国门户NAVER旗下的摄影图库', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6148', 'Photography Served', 'http://www.photographyserved.com/', null, null, '全球顶尖创意平台Behance旗下的摄影服务栏目', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6147', '图虫网', 'http://tuchong.com/', null, null, '图虫网，中国最专业的web2.0摄影社区', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -1774,16 +1780,16 @@ INSERT INTO `nav_links` VALUES ('6141', '蜂鸟网', 'http://www.fengniao.com/',
 INSERT INTO `nav_links` VALUES ('6140', '新浪图片', 'http://photo.sina.com.cn/', null, null, '有温度的视觉，摄影师成长平台，影像记录中国', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6139', '网易摄影', 'http://pp.163.com/square/', null, null, '网易旗下的摄影爱好者相片存储、作品展示社区', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6138', '美空', 'http://www.moko.cc/', null, null, '设计P图累的时候，不妨到这里看看美女吧', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6137', 'UIE', 'http://www.uie.com/articles/', null, null, '世界上最大的可用性研究组织。', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6137', 'Reddit Projects', 'https://www.reddit.com/r/RASPBERRY_PI_PROJECTS', '', '', '', '', '0', '1', '657', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6136', '中国互联网络信息中心', 'http://mirrors.cnnic.cn/', '', '', '', '', '0', '2', '0', '10', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6135', '交互案例分享', 'http://jumpui.com/', null, null, '每周分享各种Web和App上各种有意思的交互案例', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6135', '1', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6134', '交互神站：FFF', 'http://fff.cmiscm.com/', null, null, '前所未有的网页交互体验！震惊你的各种交互特效', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6133', 'WEB开发基础手册', 'http://wf.uisdc.com/', null, null, '谷歌出品！手把手教你学做第一个响应式网站', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6132', '微设计', 'http://littlebigdetails.com/', null, null, '超棒！汇集脍炙人口的交互体验，图文并茂', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6131', 'UX Booth', 'http://www.uxbooth.com/articles/', null, null, '资深用户体验、交互设计师的交流社区', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6130', 'User Experience', 'http://ux.stackexchange.com/', null, null, '人气问答站，设计师和用户体验专家常在那里鬼混', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6129', 'UX Magazine', 'http://uxmag.com/', null, null, '提供稳定、丰富、可靠的一站式用户体验资源', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6128', 'UI-Patterns', 'http://ui-patterns.com/', null, null, '为资深用户界面设计师寻提供灵感和参考的宝库', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6128', '小深刻的秋鼠', 'http://bupt-hjm.github.io/', '', '', '', '', '0', '1', '0', '3', 'Y', '2016-11-06 01:35:27');
 INSERT INTO `nav_links` VALUES ('6127', '美丽信息图', 'http://www.informationisbeautiful.net/', null, null, '一位信息图设计师的网站，爱馅饼讨厌饼图', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6126', '网易数读', 'http://data.163.com/special/datablog/', null, null, '网易数据新闻，有大量信息图、图表、及数据分析', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6125', '信息美学可视化', 'http://infosthetics.com/', null, null, '一场信息化设计的美学盛宴', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -1795,7 +1801,7 @@ INSERT INTO `nav_links` VALUES ('6120', '网商图媒体', 'http://www.wshang.co
 INSERT INTO `nav_links` VALUES ('6119', '图表腾讯', 'http://news.qq.com/newspedia/all.htm', null, null, '推荐！腾讯的新闻百科，中文信息图设计得很不错', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6118', 'Best Infographics', 'http://www.best-infographics.com/', null, null, '省事！帮你搜寻互联网上每天最热门的信息图', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6117', 'GOOD', 'http://www.good.is/infographics', null, null, 'GOOD信息图，前沿时尚、用色考究的信息图设计', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6116', 'Visual', 'http://visual.ly/', null, null, '各种各样的漂亮信息图！学信息图设计的同学必备', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6116', '高仿「ONE·一个」', 'https://github.com/lipeiwei-szu/ReactNativeOne', 'https://github.com/lipeiwei-szu/ReactNativeOne', '', '', '', '0', '1', '621', '5', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6115', '字体松鼠', 'http://www.fontsquirrel.com/', null, null, '赞！100%免费下载可商用！专为设计师精心挑选', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6114', 'Lost Type', 'http://www.losttype.com/browse/', null, null, '推荐：字体都非常漂亮，展示方式悦目清新', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6113', '印刷达人', 'http://typophile.com/', null, null, '一个比较高端的有关字体设计、印刷排版的交流圈子', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -1803,8 +1809,8 @@ INSERT INTO `nav_links` VALUES ('6112', '字体传奇', 'http://www.ziticq.com/'
 INSERT INTO `nav_links` VALUES ('6111', '求字体', 'http://www.qiuziti.com/', null, null, '找字体神器，并提供中文和英文字体库下载', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6110', '1001 Free Fonts', 'http://www.1001freefonts.com/', null, null, '超过25900个高质量的字体下载，从古典到时尚', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6108', 'Font Fabric', 'http://fontfabric.com/', null, null, '免费高品质字体打包下载', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6109', '1', '', '', '', null, '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6107', 'TypographyServed', 'http://www.typographyserved.com/', null, null, '推荐！字体专题频道，汇聚字体设计、印字、排版', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6109', 'Alpine Linux', 'https://wiki.alpinelinux.org/wiki/Raspberry_Pi', '', '', '面向安全的linux发行版，基于musl libc和busybox', '', '0', '2', '652', '22', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6107', 'vue2开发环境到入门', 'https://github.com/lzxb/vue2-demo', '', '', '', '', '0', '1', '621', '5', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6106', 'Abstract Fonts', 'http://www.abstractfonts.com/', null, null, '超过十三万免费字体下载，包括大热的web字体', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6104', 'Fontex', 'http://www.fontex.org/', null, null, '很酷的字体展现方式，字体免费可用于商业用途', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6105', 'FontEditor', 'http://font.baidu.com/editor/', null, null, 'FontEditor是一款在线字体编辑器软件， 能够打开本地或者远程的ttf|woff|eot|otf格式的字体文件， 能够导入和导出ttf|woff|eot|svg|otf格式的字体文件， 提供字形的编辑和轮廓编辑功能，提供字体的实时预览功能。', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -1821,7 +1827,7 @@ INSERT INTO `nav_links` VALUES ('6096', '大连理工大学', 'http://mirror.dlu
 INSERT INTO `nav_links` VALUES ('6092', '兰州大学开源社区镜像站', 'http://mirror.lzu.edu.cn/', '', '', '兰州大学开源社区镜像站提供主流Linux发行版以及开源、自由软件镜像。', '', '0', '1', '0', '10', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6093', '花瓣', 'http://huaban.com/design/?md=uisdc.com', null, null, '采集你喜欢的美好事物，发现新知，启发设计灵感', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6090', '日本酷站索引', 'http://bm.straightline.jp/', null, null, '近6000个！av大合集也没这么全，必备酷站', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6091', 'Pinterest', 'http://pinterest.com/all/?category=design', null, null, '一个受世界瞩目的，全球最大的创意灵感图片分享网站', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6091', 'Planning lunch with a Slackbot on resin.io', 'https://resin.io/blog/planning-lunch-with-a-slackbot-on-resin-io/', '', '', '用nodejs写的Slack机器人-- 帮助解决\"我们该吃什么\"', '', '0', '1', '654', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6088', 'One Page Love', 'https://onepagelove.com/', null, null, '单页迷你站点宝库，采集全球顶尖创意的单页酷站', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6089', '韩国设计研究所', 'http://www.ivdesign.co.kr/bbs/board.php?bo_table=goodsite', null, null, '碉堡！想把韩国最棒的设计一网打尽吗？', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6087', 'App for Reeoo', 'http://reeoo.com/?s=app', null, null, '国内人气最高的酷站画廊，设计App灵感必备', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -1833,8 +1839,8 @@ INSERT INTO `nav_links` VALUES ('6083', 'Muuuuu', 'http://muuuuu.org/', null, nu
 INSERT INTO `nav_links` VALUES ('6081', '日本 4db', 'http://4db.cc/', null, null, '强烈推荐！搜集日本各行各业、各地区的优秀网站', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6080', 'CSS Winner', 'http://www.csswinner.com/', null, null, '全球网页设计画廊，并对提交的佳作颁奖', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6079', '北京理工大学开源软件镜像服务', 'http://mirror.bit.edu.cn/web/', '', '', '', '', '0', '2', '0', '10', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6078', '1', '', '', '', null, '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6077', 'ThemeForest', 'http://themeforest.net/category/site-templates', null, null, 'TF下的频道，业内最大的网站模板和CMS主题商城之一', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6078', 'Arch Linux ARM', 'https://archlinuxarm.org/', '', '', '轻量且灵活的linux发行版，力图保持简单', '', '0', '2', '652', '22', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6077', '', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6076', 'Buy Templates', 'http://www.buytemplates.net/products/search', null, null, '一个卖网页模版的站点，大家可预览手工下载', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6075', '模版盒子', 'http://www.templatesbox.com/', null, null, '提供免费的模版和Flash下载，分类详细', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6074', '免费模版库', 'http://www.freewebtemplates.com/', null, null, '历史悠久的老站点，1999年就致力于分享免费网站模版', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -1853,7 +1859,7 @@ INSERT INTO `nav_links` VALUES ('6062', 'Site Inspire', 'http://www.siteinspire.
 INSERT INTO `nav_links` VALUES ('6061', 'Pixeden', 'http://www.pixeden.com/', null, null, '赞！免费优质界面设计源文件及有网站模板', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6059', 'UI 阅兵场', 'http://www.uiparade.com/', null, null, '展示世界最有才华设计师的用户界面设计作品', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6060', '民工精髓V', 'http://weibo.com/sharpmaster?from=myfollow_all', null, null, '', 'http://fenav.com/src/images/index/group9/11.jpg', '0', '2', '607', '3', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6058', '1', '', '', '', null, '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6058', 'Volumio', 'https://volumio.org/', '', '', '高保真音乐播放器', '', '0', '2', '652', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8569', 'Fiddler free web debugging proxy', 'http://www.telerik.com/fiddler', null, null, 'Fiddler is a free web debugging tool which logs all HTTP(S) traffic between your computer and the Internet. Inspect traffic, set breakpoints, and fiddle with incoming or outgoing data. ', null, '0', '1', '0', '8', 'Y', '2016-11-03 17:01:51');
 INSERT INTO `nav_links` VALUES ('6057', 'UI中国-专业界面交互设计平台', 'http://www.ui.cn/', '', '', 'UI 中国,前身为 iconfans,是专业的 UI 设计师交流、学习与展示的平台。会员均为职业 UI 设计师,覆盖全国互联网公司。我们将打造中国最专业的 UI 设计交流平台,为 UI 设计师做最好的职业生涯一站式服务,提高 UI 设计乃至互联网设计的行业价值!', '', '0', '2', '0', '12', 'Y', '2016-11-02 13:36:26');
 INSERT INTO `nav_links` VALUES ('6056', 'OpenSource Mirrors', 'http://mirror.neu.edu.cn/', '', '', '', '', '0', '1', '0', '10', 'Y', '0000-00-00 00:00:00');
@@ -1866,7 +1872,7 @@ INSERT INTO `nav_links` VALUES ('6051', 'colorCombos', 'http://www.colorcombos.c
 INSERT INTO `nav_links` VALUES ('6049', 'peise', 'http://www.peise.net/tools/web/', null, null, '', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6048', 'Fashion Trendsetter', 'http://www.fashiontrendsetter.com/', null, null, '帮你关注每年最流行的颜色搭配', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6047', '即时配色方案', 'http://www.colorschemer.com/', null, null, 'ColorSchemer，有很多网页设计师专业配色软件', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6046', 'VisiBone', 'http://www.visibone.com/', null, null, '网页设计参考指南，提供免费在线的配色方案实验室', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6046', '', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6045', '日本颜色大辞典', 'http://www.nicopon.com/', null, null, '日本web颜色样品网站，颜色样品大辞典', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6043', 'ColRD', 'http://colrd.com/', null, null, '可创建及共享配色方案的灵感网站', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6044', '中国色彩大辞典', 'http://color.uisdc.com/', null, null, '中国/日本传统色彩命名，点击色彩可直接吸取色值', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -1876,7 +1882,7 @@ INSERT INTO `nav_links` VALUES ('6040', 'Color Hunter', 'http://www.colorhunter.
 INSERT INTO `nav_links` VALUES ('6038', 'Kuler', 'https://kuler.adobe.com/', null, null, '网页设计师配色的最佳之选', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6039', 'COLOURlovers', 'http://www.colourlovers.com/', null, null, '交流颜色、色彩趋势和配色方案的超人气社区', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6037', 'FFFFOUND!', 'http://ffffound.com/', null, null, '超人气网站！别被简陋的外表所迷惑，F可是个魔鬼', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6035', 'Yestone创意图片库', 'http://yestone.com/', null, null, '每天3万张上新，全部正版商用授权，品质高到挑花眼', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6035', '1', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6036', 'Pixabay', 'http://pixabay.com/zh/photos/?order=latest', null, null, '29万张免费高清图片，高质量可商用', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6034', '移动端开发小技巧', 'https://github.com/jtyjty99999/mobileTech/blob/master/README.md', null, null, '有着世界上最好的照片分享，你值得拥有', '', '0', '2', '621', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6033', 'Pexels', 'http://www.pexels.com/', null, null, '推荐！提供高清尺寸且品质优良的免费照片网站', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -1889,33 +1895,33 @@ INSERT INTO `nav_links` VALUES ('6027', 'ForWallpaper', 'http://cn.forwallpaper.
 INSERT INTO `nav_links` VALUES ('6026', 'WallHaven涅盘新生', 'http://alpha.wallhaven.cc/', null, null, 'WallBase创办人失联后，前成员推出的测试版', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6024', 'Freebiesbug', 'http://freebiesbug.com/', null, null, '最新的免费PSDs，以及设计师常备资源下载名站', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6025', 'Webdesigner Depot', 'http://www.webdesignerdepot.com/', null, null, '网页设计师必备，涵盖大量教程、工具、素材', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6021', 'PSD爱好者', 'http://psd.fanextra.com/', null, null, '提供Photoshop教程、设计文章和资源下载', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6021', 'Sonus', 'https://github.com/evancohen/sonus', '', '', '开源、跨平台的语音识别框架（Google Cloud Speech）', '', '0', '1', '654', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6022', '站酷 (ZCOOL) - 设计师互动平台', 'http://www.zcool.com.cn/', null, null, '站酷（ZCOOL），中国最具人气的设计师互动平台，300万设计师聚集地。致力于打造伴随设计创意群体学习、交流、就业、交易、创业各个成长环节的生态体系。站酷，让设计更有价值，与创意群体一同进步。', '', '0', '2', '0', '12', 'N', '2016-11-02 13:40:36');
 INSERT INTO `nav_links` VALUES ('6023', 'vue-carbon', 'https://myronliu347.github.io/vue-carbon', 'https://github.com/myronliu347/vue-carbon', '', '基于 vue 开发 material design 风格的移动端 WEB UI 库', '', '0', '2', '631', '6', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6019', 'Photoshop Lady', 'http://www.photoshoplady.com/', null, null, '提供各种详细的photoshop教程，优设联盟站点', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6020', '优设网', 'http://www.uisdc.com/', null, null, '与大师零距离接触，一线设计师、总监的干货分享地', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6018', '数字艺术在线', 'http://www.digitalartsonline.co.uk/tutorials/', null, null, '教程都很棒！你更会爱上网站展现教程的回廊方式', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6015', 'PSDTuts+', 'http://psd.tutsplus.com/', null, null, 'Photoshop教程，从初学者到高级进阶，应有尽有', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6015', 'Raspberry Pi and why do I need one?', 'https://www.liquidlight.co.uk/blog/article/raspberry-pi-what-is-it-and-why-do-i-need-one/', '', '', '本文介绍树莓派以及能用它做些什么', '', '0', '1', '655', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6016', 'Smashing Magazine', 'http://www.smashingmagazine.com/', null, null, '国外最著名的设计博客，许多高大上的设计文章', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6017', 'Naldz Graphics', 'http://naldzgraphics.net/', null, null, '推荐！28岁少年创办的知名人气设计资源教程博客', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6012', 'Yestone网页模板库', 'http://www.yestone.com/creative/Web%E8%AE%BE%E8%AE%A1%E6%A8%A1%E6%9D%BF', null, null, '非一般的PSD网站模板、App模板、Banner模板', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6013', 'LogoPond', 'http://logopond.com/', null, null, 'Logo，高端LOGO集萃，设计前必须来池子里泡一泡', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6014', 'PSDVault', 'http://www.psdvault.com/', null, null, 'PSD宝库，提供了顶尖大师们的PS教程及技巧 ', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6014', '10 Ways To Power', 'https://raspberrypi.about.com/od/Power/tp/10-Ways-to-Power-your-Raspberry-Pi.htm', '', '', '十种给树莓派供电的方法', '', '0', '1', '655', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6011', 'VectorHQ', 'http://cn.vectorhq.com/', null, null, '免费矢量图和PSD资源，四十万套宝贝资源一网打尽', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6008', '1', '', '', '', null, '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6008', 'Recalbox', 'https://www.recalbox.com/', '', '', '更轻巧的复古游戏和媒体中心', '', '0', '2', '652', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6009', '重庆大学镜像站', 'http://mirrors.cqu.edu.cn/', '', '', '', '', '0', '1', '0', '10', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6010', '1', '', '', '', null, '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6006', '1', '', '', '', null, '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6010', 'Lakka', 'http://lakka.tv/', '', '', '在树莓派上玩复古游戏，完全基于RetroArch构建', '', '0', '2', '652', '22', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6006', 'RasPlex', 'http://www.rasplex.com/', '', '', '为树莓派准备的Plex客户端', '', '0', '2', '652', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6007', '网页模版巨人', 'http://store.templatemonster.com/?aff=uisdc', null, null, '国际顶尖的网页模版库，借鉴和学习网页趋势的宝地', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6005', '百变纹理', 'http://www.transparenttextures.com/', null, null, '无缝纹理！最实用的无缝背景纹理下载站，木有之一', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6004', 'SubtlePatterns', 'http://subtlepatterns.com/', null, null, '背景纹理，最上档次的无缝背景纹理下载站，木有之一', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6004', '', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6003', 'FindIcons', 'http://findicons.com/', null, null, 'Icon，著名图标搜索引擎，超过四十万个免费图标', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('6002', 'UI-Cloud', 'http://ui-cloud.com/', null, null, 'UI搜索引擎，设计师必备，提供用户界面PSD下载', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('6002', '', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6001', 'codiqa', 'http://www.codiqa.com/', null, null, 'jquery mobile UI builder（jquery mobileUI编辑器）', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('6000', '应用家YYjiacms', 'http://www.yyjia.com/', null, null, 'App应用市场网站系统', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5998', 'zeptojs', 'http://zeptojs.com/', null, null, '', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5999', 'EZoApp', 'http://www.ezoui.com/app/zh-cn/index.html', null, null, 'EZoApp', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('5997', 'jquerymobile', 'http://jquerymobile.com/', null, null, 'jQuery Mobile是jQuery 在手机上和平板设备上的版本。jQuery Mobile 不仅会给主流移动平台带来jQuery核心库，而且会发布一个完整统一的jQuery移动UI框架。支持全球主流的移动平台。', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('5997', 'Raspberry PI Hadoop Cluster', 'http://www.widriksson.com/raspberry-pi-hadoop-cluster/', '', '', '跑在树莓派上的大数据集群', '', '0', '1', '654', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5996', 'Frozen UI', 'http://frozenui.github.io/', 'https://github.com/frozenui/frozenui', '', 'Frozen UI 腾讯移动端框架', '', '0', '2', '609', '6', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5995', 'light7', 'http://www.light7.org/', null, null, 'light7: Build mobile apps with simple HTML, CSS, and JS components.', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5993', 'APICloud', 'http://www.apicloud.com/', null, null, 'APICloud', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -1939,7 +1945,7 @@ INSERT INTO `nav_links` VALUES ('5976', 'FeWeekly', 'http://www.feweekly.com/', 
 INSERT INTO `nav_links` VALUES ('5977', 'lessFramework', 'http://lessframework.com/', null, null, 'LESS框架是一个轻量级的CSS框架,它使您能够构建灵活的多列的网站布局', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5975', 'ResponsiveDesignWeekly', 'http://responsivedesignweekly.com/', null, null, '响应式设计动态、技巧等', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5974', 'WebDesignWeekly', 'http://web-design-weekly.com/', null, null, '设计动向和经典作品，Web Design Weekly 一周一次没有垃圾周的邮件，没有杂乱。只是单纯的可怕的链接，在一周内网络出现最好的新闻和文章。', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('5973', '1', '', '', '', null, '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('5973', 'chilipie-kiosk', 'https://github.com/futurice/chilipie-kiosk', '', '', '可直接引导到全屏Chrome的镜像，非常适合用于仪表板和构建监视器', '', '0', '2', '652', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5972', 'Fullweb周刊', 'http://fullweb.io/', null, null, '全棧Web开发周刊Fullweb Weekly', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5971', '码农周刊', 'http://weekly.manong.io/', null, null, '综合的码农相关文章，资料很多，覆盖面广', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5970', '奇舞团周刊', 'http://www.75team.com/weekly/', null, null, '奇舞团的周刊，内容质量很高，比较精', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -1948,10 +1954,10 @@ INSERT INTO `nav_links` VALUES ('5968', 'DB 周刊', 'http://dbweekly.com/', nul
 INSERT INTO `nav_links` VALUES ('5969', 'SidebarIO', 'http://sidebar.io/', null, null, '关于设计的The best design links, every day. 可以订阅daily, twice a week, weekly', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5965', 'JavaScriptWeekly', 'http://javascriptweekly.com/', null, null, '关于JavaScript新闻和文章的每周邮件聚合订阅', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5966', 'HTML5Weekly', 'http://html5weekly.com/', null, null, 'HTML5 周刊，关注最新动态', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('5963', '1', '', '', '', null, '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('5963', 'DietPi', 'https://github.com/Fourdee/DietPi', '', '', '为2G SD卡准备的最小镜像， 带有许多可配置项和脚本', '', '0', '2', '652', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5964', '小胡子哥', 'http://www.barretlee.com/entry/', null, null, '', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5960', 'JavaScript Event KeyCodes', 'http://keycode.info/', null, null, '在线Keycode查询', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('5961', '100offer', 'https://100offer.com/', '', null, '', '', '0', '2', '618', '0', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('5961', '100offer', 'https://100offer.com/', '', null, '', '', '0', '2', '0', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5962', 'Philip Walton', 'http://philipwalton.com/', null, null, '', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5959', 'Echo JS', 'http://www.echojs.com/', null, null, 'JavaScript 新闻', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('5958', 'nipponcolors', 'nipponcolors', null, null, '前端开发博客专注于前端开发,分享前端开发资源和前端开发技术资讯等', '', '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -1967,13 +1973,13 @@ INSERT INTO `nav_links` VALUES ('7240', 'Officialpsds', 'http://officialpsds.com
 INSERT INTO `nav_links` VALUES ('7241', 'PremiumPixels', 'http://www.premiumpixels.com/', null, null, null, null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7242', 'PSbrushes', 'http://www.psbrushes.net/', null, null, null, null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7243', 'Psddd', 'http://psddd.co/', null, null, null, null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7244', 'Templatemonster', 'http://www.templatemonster.com', null, null, null, null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7245', 'ThemeForest', 'http://themeforest.net/', null, null, null, null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7244', '', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7245', '', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7246', 'UI设计_UI_UI教程-Uimaker-专注UI设计', 'http://www.uimaker.com/', '', null, 'Uimaker是为UI设计师提供学UI设计的专业UI平台,拥有UI教程、UI素材、ICON、图标设计UI、手机UI、ui设计师招聘、软件界面设计、后台界面、后台模版等相关内容,快来uimaker学UI设计。', '', '0', '2', '621', '12', 'Y', '2016-11-02 13:35:05');
 INSERT INTO `nav_links` VALUES ('7247', 'Webdesignburn', 'http://www.webdesignburn.com/', null, null, null, null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7248', 'WebTreatsETC', 'http://webtreats.mysitemyway.com/', null, null, null, null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7249', '下吧', 'http://down.chinavisual.com/', null, null, null, null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7250', '世界品牌LOGO检索', 'http://brandsoftheworld.com', null, null, null, null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7249', '1', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7250', '1', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7251', '亿品元素', 'http://www.epinv.com/', null, null, null, null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7252', '懒人图库', 'http://www.lanrentuku.com/', null, null, null, null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7253', 'Face++ 最好的免费人脸识别云服务', 'http://www.faceplusplus.com.cn/api-overview/', null, null, '', null, '0', '1', '0', '21', 'N', '2016-11-02 13:50:32');
@@ -1991,7 +1997,7 @@ INSERT INTO `nav_links` VALUES ('7264', 'Cgtextures', 'http://www.cgtextures.com
 INSERT INTO `nav_links` VALUES ('7265', 'Corbis', 'http://www.corbisimages.com/', null, null, null, null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7266', 'flickr', 'http://www.flickr.com/', null, null, null, null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7267', 'GenSun', 'http://gensun.org/', null, null, null, null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7268', 'pixabay', 'http://pixabay.com/', null, null, null, null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7268', 'Bridging Wifi to the Raspberry Pi over Ethernet', 'https://blog.thibmaekelbergh.be/2015/02/16/bridging-wifi-to-the-raspberry-pi-over-ethernet.html', '', '', '在macOS和树莓派之间设置网络', '', '0', '2', '656', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7269', 'Shutterstock', 'http://www.shutterstock.com/', null, null, null, null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7270', 'studio25', 'http://www.studio25.ro/EN', null, null, null, null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7271', 'TimTadder', 'http://www.timtadder.com/', null, null, null, null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -2190,7 +2196,7 @@ INSERT INTO `nav_links` VALUES ('7463', 'fouber的前端工程专题', 'http://w
 INSERT INTO `nav_links` VALUES ('7464', 'Backbone.js入门教程第二版', 'http://www.kancloud.cn/kancloud/backbonejs-learning-note/49378', null, null, 'Backbone.js提供了一套web开发的框架，通过Models进行key-value绑定及自定义事件处理，通过Collections提供一套丰富的API用于枚举功能，通过Views来进行事件处理及与现有的Application通过RESTful JSON接口进行交互.它是基于jQuery和underscore的一个前端js框架。', null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7465', '响应式设计快速指南', 'http://www.kancloud.cn/kancloud/responsive-typography/70844', null, null, '响应式设计和开发已然成为了标配，那么好了，如何更好的进行响应式开发呢？ 小编摘选了优设网的一些关于响应式设计的精华文章~', null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7466', '前端开发者手册', 'http://www.kancloud.cn/kancloud/front-end-dev-handbook/75919', null, null, '这是任何人都可以用来学习前端的实践手册, 它概述并讨论了前端工程的实践: 该如何学习以及实践时该使用什么工具.', null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7467', 'JS前端开发群规', 'http://www.kancloud.cn/jikeytang/qq/87646', null, null, 'JS前端开发群规 - 492107297', null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7467', 'Multi-Datacenter Cassandra on 32 Raspberry Pi’s', 'http://www.datastax.com/dev/blog/32-node-raspberry-pi-cassandra-cluster', '', '', '32个节点的树莓派cassandra数据库集群', '', '0', '1', '654', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7468', 'JavaScript高级程序设计(第3版)', 'http://search.dangdang.com/?key=JavaScript高级程序设计(第3版)', null, null, '', null, '0', '2', '0', '7', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7469', 'JavaScript权威指南(第6版)', 'http://search.dangdang.com/?key=JavaScript权威指南(第6版)', null, null, '', null, '0', '2', '0', '7', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7470', 'JavaScript DOM编程艺术(第2版)', 'http://search.dangdang.com/?key=JavaScript DOM编程艺术(第2版)', null, null, '', null, '0', '2', '0', '7', 'Y', '0000-00-00 00:00:00');
@@ -2208,7 +2214,7 @@ INSERT INTO `nav_links` VALUES ('7481', 'uesoso网络收藏', 'http://so.uehtml.
 INSERT INTO `nav_links` VALUES ('7482', '设计派导航', 'http://hao.shejipai.cn/', null, null, '', null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7483', '觉唯网站地图', 'http://www.jiawin.com/sitemap', null, null, '', null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7484', 'WEB前端资源网', 'http://www.58img.com/hao', null, null, '', null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7485', 'icomoon', 'https://icomoon.io/', null, null, '', null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7485', 'Building a Ceph Cluster on Raspberry Pi ', 'http://bryanapperson.com/blog/the-definitive-guide-ceph-cluster-on-raspberry-pi/', '', '', '基于分布式对象存储系统RADOS的高度冗、低功耗家庭存储解决方案', '', '0', '1', '654', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7486', 'Ionicons', 'http://ionicons.com/', null, null, '', '', '0', '2', '621', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7487', '设计派导航', 'http://hao.shejipai.cn/', null, null, '', null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7488', '觉唯设计', 'http://www.jiawin.com/topics/resource', null, null, '以用户为中心的设计理念，专注于用户体验设计', null, '0', '2', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -2249,7 +2255,7 @@ INSERT INTO `nav_links` VALUES ('7522', 'GetWebplate', 'http://getwebplate.com/'
 INSERT INTO `nav_links` VALUES ('7523', 'Cardinal', 'http://cardinalcss.com/', null, null, '', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7524', 'Base', 'http://base.gs/', null, null, '', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7525', 'grunt.js中文站点', 'http://gruntjs.cn/http://gruntjs.cn/', null, null, '', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7526', 'Yeoman', 'http://yeoman.io/', null, null, '一款前端自动化工作流工具，集成Grunt和bower，实现了项目的快速搭建、自动化前端构建，以及前端包依赖和包管理', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7526', 'Yeoman', 'http://yeoman.io/', '', null, '一款前端自动化工作流工具，集成Grunt和bower，实现了项目的快速搭建、自动化前端构建，以及前端包依赖和包管理', '', '0', '1', '621', '4', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7527', '智图gulp插件', 'https://github.com/targetkiller/gulp-imageisux', null, null, '腾讯智图，一款图片压缩产品，支持生成webp/jpg/png。此为gulp插件，基于智图的api，实测压缩率大于Tinypng', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7528', 'VUM', 'http://getvum.com/', 'https://github.com/vum-team/vum', 'vue', '', '', '0', '1', '631', '6', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7529', 'LivePool', 'http://rehorn.github.io/livepool/', 'https://github.com/rehorn/livepool', '', '', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
@@ -2276,7 +2282,7 @@ INSERT INTO `nav_links` VALUES ('7549', '百度移动统计', 'http://tongji.bai
 INSERT INTO `nav_links` VALUES ('7550', '原生JavaScript学习', 'http://fgm.cc/learn/', null, null, '', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7551', 'JavaScript资源', 'https://github.com/jobbole/awesome-javascript-cn', null, null, 'JavaScript 资源大全中文版', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7552', 'Online IDE', 'http://www.compileonline.com/', null, null, '编译和执行程序的在线|在线IDE', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7553', 'RunJS', 'http://runjs.cn/code', null, null, '', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7553', 'Raspberry Pi login with SSH keys', 'https://blog.thibmaekelbergh.be/2015/05/07/raspberry-pi-login-with-ssh-keys.html', '', '', 'ssh免密码登录树莓派（使用SSH key）', '', '0', '1', '656', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7554', 'JS Bin', 'http://jsbin.com/?html,output', null, null, '', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7555', 'SiteSpeed', 'http://sitespeed.me/', null, null, '检查站点速度', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7556', 'Pingdom', 'http://tools.pingdom.com/', null, null, '网站速度测试', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -2419,14 +2425,14 @@ INSERT INTO `nav_links` VALUES ('7692', 'Codyhouse', 'https://codyhouse.co/', nu
 INSERT INTO `nav_links` VALUES ('7693', 'Gibbon', 'https://gibbon.co/', null, null, '让你的员工更聪明。', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7694', 'Gotoandlearng', 'http://gotoandlearn.com/', null, null, '交互式开发的免费视频教程', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7695', 'CSS Wizardry', 'http://csswizardry.com/', null, null, '前端架构与性能工程', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7696', 'Tutorialzine', 'http://tutorialzine.com/', null, null, '网络开发教程和资源', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7697', 'SitePoint', 'http://www.sitepoint.com/', null, null, '学习HTML，CSS，JavaScript，PHP，Ruby；响应式设计', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7696', '', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7697', '', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7698', 'Hakim', 'http://hakim.se/', null, null, 'Hakim El Hattab', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7699', 'WebPlatform', 'https://www.webplatform.org/', null, null, '最新的关于如何使用的信息技术运行的网站的HTML，CSS，JavaScript和更多。', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7700', 'Tuts', 'http://hub.tutsplus.com/', null, null, '国外知名开发者网站', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7701', 'DeveloperDrive', 'http://www.developerdrive.com/', null, null, '优质前端技术信息', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7702', 'Web Designer Wall', 'http://webdesignerwall.com/', null, null, '优质 Html5,CSS3等教程', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7703', 'Tutorialzine', 'http://tutorialzine.com/', null, null, '大量 web 教程和资源', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7703', '', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7704', 'Inspect Element', 'http://inspectelement.com/', null, null, 'CSS,wordpress 相关教程挺多', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7705', 'Jake Rutter', 'http://www.onerutter.com/', null, null, 'Jquery 作者，不解释了', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7706', 'Paul Irish', 'http://www.paulirish.com/', null, null, '大神,Google Chrome团队,Yeoman', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -2445,7 +2451,7 @@ INSERT INTO `nav_links` VALUES ('7718', 'W3Help', 'http://www.w3help.org/zh-cn/k
 INSERT INTO `nav_links` VALUES ('7719', 'JS前端开发群月报', 'http://www.kancloud.cn/jsfront/month/82796/', null, null, '平日学习接触过的网站积累，以每月的形式发放', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7720', '觉唯', 'http://www.jiawin.com/', null, null, '', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7721', 'GitHub', 'https://github.com/', null, null, '', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('7722', 'segmentfault', 'http://segmentfault.com/', null, null, '专注于程序员开发者的社区平台，提供开发相关的高质量问答，专栏，笔记，招聘，线下活动等服务。', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('7722', 'How to setup a secure VPN server on Raspberry Pi or DigitalOcean', 'http://blog.hsp.dk/how-to-setup-vpn-server-on-raspberry-pi-or-digitalocean/', '', '', '简单、安全而详细的指南：在树莓派上设置VPN', '', '0', '1', '656', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7723', '知乎', 'http://www.zhihu.com/topics', null, null, '', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7724', '豆瓣', 'http://www.douban.com/', null, null, '', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('7725', 'DCloud问答', 'http://ask.dcloud.net.cn/explore/', null, null, '', null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -2506,7 +2512,7 @@ INSERT INTO `nav_links` VALUES ('8062', '优秀wordpress国外工作室', 'http:
 INSERT INTO `nav_links` VALUES ('8063', '大发wp', 'https://fatesinger.com', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8064', 'Behance 国外项目展示平台', 'http://www.behance.net/kujian', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8065', 'Dribble', 'http://dribbble.com/kujian', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('8066', 'Pinterest', 'http://pinterest.com/kujian/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('8066', 'Controlling Spotify with Slack and a Raspberry Pi', 'https://thesocietea.org/2016/03/controlling-spotify-with-slack-and-a-raspberry-pi/', '', '', 'Node.js项目， 使用libspotify控制 Spotify 和 Slack', '', '0', '1', '656', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8067', 'Twitter', 'https://twitter.com/wpbars', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8068', '百度口碑', 'http://koubei.baidu.com/s/caibaojian.com', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8069', 'Be For Web在网上', 'http://beforweb.com/front-end', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -2545,7 +2551,7 @@ INSERT INTO `nav_links` VALUES ('8101', 'HTML&amp;css代码演示', 'http://www.
 INSERT INTO `nav_links` VALUES ('8102', 'HTML5在线', 'http://www.html5online.com.cn/index.html', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8103', 'Microformats微格式标记', 'http://microformats.org/wiki/Main_Page', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8104', 'Mozilla Developer Network', 'https://developer.mozilla.org/en-US/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('8105', 'uesoso设计师网址', 'http://www.uesoso.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('8105', '', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8106', 'UI秀', 'http://showui.diandian.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8107', '前端资源、主题作品', 'https://creativemarket.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8108', '博客大全', 'http://lusongsong.com/daohang/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -2556,7 +2562,7 @@ INSERT INTO `nav_links` VALUES ('8112', '梦之都网页教程', 'http://www.dre
 INSERT INTO `nav_links` VALUES ('8113', 'Fayea工作室', 'http://apache.fayea.com/', '', '', '', '', '0', '1', '0', '10', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8114', 'Sepeckyboy', 'http://caibaojian.com/go/speckyboy', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8115', 'SitePoint', 'http://caibaojian.com/go/sitepoint', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('8116', 'W3cui', 'http://www.w3cui.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('8116', '1', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8117', 'web前端开发', 'http://www.aseoe.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8118', '产品经理', 'http://www.b2cpm.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8119', '前端技术', 'http://www.haorooms.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -2584,7 +2590,7 @@ INSERT INTO `nav_links` VALUES ('8140', 'design reviver', 'http://designreviver.
 INSERT INTO `nav_links` VALUES ('8141', 'DesignM.ag', 'http://designm.ag/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8142', 'DesignWoop', 'http://designwoop.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8143', 'flypixel design freebies', 'http://flypixel.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('8144', '1', '', '', '', '', '', '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('8144', 'CentOS', 'https://wiki.centos.org/SpecialInterestGroup/AltArch/Arm32/RaspberryPi3', '', '', '运行在树莓派上的CentOS', '', '0', '1', '652', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8145', 'forrst-discove resource', 'http://forrst.com/posts', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8146', 'HTML5动画教程', 'http://www.html5canvastutorials.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8147', 'idesignow.com', 'http://idesignow.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -2622,7 +2628,7 @@ INSERT INTO `nav_links` VALUES ('8178', 'Beautiful page', 'http://design.tumblr.
 INSERT INTO `nav_links` VALUES ('8179', 'free gallery', 'http://www.freebiesgallery.com/web-templates/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8180', 'Html inspiration', 'http://htmlinspiration.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8181', 'PSDExplorer', 'http://www.psdexplorer.com/psd-category/templates/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('8182', 'Startup产品模板', 'http://designmodo.com/startup/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('8182', '', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8183', 'uesoso设计师网址', 'http://www.uesoso.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8184', 'wordpress beautiful gallery', 'http://themegraphy.com/', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8050', 'Fibit', 'http://www.fitbit.com/home', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -2912,7 +2918,7 @@ INSERT INTO `nav_links` VALUES ('8452', 'LogoPond', 'http://logopond.com', null,
 INSERT INTO `nav_links` VALUES ('8453', '交互案例分享', 'http://jumpui.com', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8454', 'JohnnyHolland', 'http://johnnyholland.org', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8455', '交互神站：FFF', 'http://fff.cmiscm.com', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('8456', 'WebdesignerDepot', 'http://www.webdesignerdepot.com', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('8456', '1', '', '', '', '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8457', 'VisiBone', 'http://www.visibone.com', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8458', 'wikipedia', 'http://zh.wikipedia.org', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8459', 'w3ctech', 'http://www.w3ctech.com', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -2926,7 +2932,7 @@ INSERT INTO `nav_links` VALUES ('8466', 'sharejs', 'http://www.sharejs.com', nul
 INSERT INTO `nav_links` VALUES ('8467', 'iView', 'https://www.iviewui.com/', 'https://github.com/iview/iview', null, '', '', '0', '1', '631', '6', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8468', 'CSSreference', 'http://developer.mozilla.org/en-US/docs/Web/CSS/Reference', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8469', 'CSS参考手册', 'http://css.doyoe.com', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('8470', '06wjin', 'http://06wjin.sinaapp.com', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('8470', 'Moonlight', 'https://github.com/irtimmer/moonlight-embedded', null, null, '嵌入式系统的Gamestream客户端（把电脑主机的游戏串流到树莓派，然后输出到电视玩）', null, '0', '1', '656', '22', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8471', 'zhangxinxu', 'http://www.zhangxinxu.com', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8472', 'rollup', 'http://rollupjs.org/', '', '', '', '', '11', '1', '605', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8473', 'w3school', 'http://www.w3school.com.cn', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
@@ -2990,7 +2996,7 @@ INSERT INTO `nav_links` VALUES ('8530', '500px', 'http://500px.com', null, null,
 INSERT INTO `nav_links` VALUES ('8531', 'wallpaperfx', 'http://wallpaperfx.com', null, null, null, null, '0', '1', '0', '0', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8533', 'BUI', 'http://www.builive.com/index.php', null, null, '', '', '0', '1', '609', '0', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8534', 'esui', 'http://ecomfe.github.io/esui-family/', null, null, '', '', '0', '1', '609', '0', 'Y', '0000-00-00 00:00:00');
-INSERT INTO `nav_links` VALUES ('8535', '', '', null, null, '', '', '0', '1', '621', '0', 'Y', '0000-00-00 00:00:00');
+INSERT INTO `nav_links` VALUES ('8535', '', '', null, null, '', '', '0', '1', '0', '22', 'N', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8536', 'coolie', 'https://coolie.ydr.me/', null, null, '前端构建工具与前端模块加载器组合的工程化解决方案。', '', '8', '1', '623', '4', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8537', 'cooking', 'http://elemefe.github.io/cooking/', 'https://github.com/elemefe/cooking/', null, '更易上手的前端构建工具', '', '9', '1', '623', '4', 'Y', '0000-00-00 00:00:00');
 INSERT INTO `nav_links` VALUES ('8538', '搜狐开源镜像', 'http://mirrors.sohu.com/', '', '', '', '', '0', '1', '621', '10', 'Y', '0000-00-00 00:00:00');
@@ -3026,7 +3032,7 @@ INSERT INTO `nav_links` VALUES ('8567', 'The ultimate CSS tools for web designer
 INSERT INTO `nav_links` VALUES ('8568', '开发 | 高德开放平台 | 高德地图API', 'http://lbs.amap.com/api/', null, null, '高德开放平台，为开发者提供免费的地图解决方案，覆盖JavaScript、Android、iOS、Windows、Webservice等平台，包含全球定位、数据检索、路线规划、实时导航、室内地图、街景等LBS功能。推广零成本开发工具：高德云图，将自有数据一键生成自定义地图，并自动适配PC端与移动端；地图组件，一句话搞定web地图；全球定位，体积最小、耗电量最低的定位SDK。', null, '0', '1', '0', '21', 'Y', '2016-11-02 13:47:15');
 
 -- ----------------------------
--- Table structure for nav_topic
+-- Table structure for `nav_topic`
 -- ----------------------------
 DROP TABLE IF EXISTS `nav_topic`;
 CREATE TABLE `nav_topic` (
@@ -3040,7 +3046,7 @@ CREATE TABLE `nav_topic` (
   `top_is` enum('N','Y') NOT NULL DEFAULT 'N',
   `pv` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=gbk;
 
 -- ----------------------------
 -- Records of nav_topic
@@ -3066,3 +3072,4 @@ INSERT INTO `nav_topic` VALUES ('18', '物联网', '', '1', '2147483647', 'Y', '
 INSERT INTO `nav_topic` VALUES ('19', '我的收藏', '', '1', '2147483647', 'Y', '2', 'N', null);
 INSERT INTO `nav_topic` VALUES ('20', '开源CDN ', '', '1', '2147483647', 'Y', '2', 'N', null);
 INSERT INTO `nav_topic` VALUES ('21', '开放接口', '', '1', '2147483647', 'Y', '2', 'Y', null);
+INSERT INTO `nav_topic` VALUES ('22', '树莓派', '', '1', '2147483647', 'Y', '1', 'N', null);
