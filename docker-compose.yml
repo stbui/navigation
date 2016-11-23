@@ -1,0 +1,8 @@
+mysql:
+	build:
+	port:
+	 - "3306:3306"
+	volume:
+	 - /data:/data
+	environment:
+	 MYSQL_ROOT_PASSWORD:root
